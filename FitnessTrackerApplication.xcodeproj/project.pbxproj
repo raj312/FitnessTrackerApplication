@@ -7,16 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		35699A29206BD25C00F3C361 /* fitness_tracker_logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 35699A28206BD25B00F3C361 /* fitness_tracker_logo.jpg */; };
 		35727C37206814A1009DA298 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35727C36206814A1009DA298 /* AppDelegate.swift */; };
 		35727C39206814A1009DA298 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35727C38206814A1009DA298 /* ViewController.swift */; };
 		35727C3C206814A1009DA298 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35727C3A206814A1009DA298 /* Main.storyboard */; };
 		35727C3E206814A1009DA298 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35727C3D206814A1009DA298 /* Assets.xcassets */; };
 		35727C41206814A1009DA298 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35727C3F206814A1009DA298 /* LaunchScreen.storyboard */; };
+		35727C4D20681523009DA298 /* fitness_tracker_logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 35727C4C20681523009DA298 /* fitness_tracker_logo.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		35699A28206BD25B00F3C361 /* fitness_tracker_logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fitness_tracker_logo.jpg; sourceTree = "<group>"; };
 		35727C33206814A1009DA298 /* FitnessTrackerApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitnessTrackerApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35727C36206814A1009DA298 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35727C38206814A1009DA298 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +23,7 @@
 		35727C3D206814A1009DA298 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		35727C40206814A1009DA298 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		35727C42206814A1009DA298 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		35727C4C20681523009DA298 /* fitness_tracker_logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = fitness_tracker_logo.jpg; path = ../../../../../../Downloads/fitness_tracker_logo.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,7 +94,7 @@
 		35727C4B206814EA009DA298 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				35699A28206BD25B00F3C361 /* fitness_tracker_logo.jpg */,
+				35727C4C20681523009DA298 /* fitness_tracker_logo.jpg */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -160,7 +160,7 @@
 			files = (
 				35727C41206814A1009DA298 /* LaunchScreen.storyboard in Resources */,
 				35727C3E206814A1009DA298 /* Assets.xcassets in Resources */,
-				35699A29206BD25C00F3C361 /* fitness_tracker_logo.jpg in Resources */,
+				35727C4D20681523009DA298 /* fitness_tracker_logo.jpg in Resources */,
 				35727C3C206814A1009DA298 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
