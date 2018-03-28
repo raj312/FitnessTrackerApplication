@@ -21,6 +21,7 @@ xcuserdata/
 *.moved-aside
 *.xccheckout
 *.xcscmblueprint
+FitnessTrackerApplication.xcodeproj/project.xcworkspace/xcuserdata/xcode.xcuserdatad/UserInterfaceState.xcuserstate
 
 ## Obj-C/Swift specific
 *.hmap
