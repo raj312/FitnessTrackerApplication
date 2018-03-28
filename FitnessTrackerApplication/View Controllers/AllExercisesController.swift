@@ -1,18 +1,14 @@
 //
-//  HomeController.swift
+//  AllExercisesController.swift
 //  FitnessTrackerApplication
 //
-//  Created by Xcode User on 2018-03-26.
+//  Created by Xcode User on 2018-03-27.
 //  Copyright © 2018 RADS. All rights reserved.
 //
 
 import UIKit
 
-class HomeController: UIViewController {
-    
-    @IBAction func unwindToThisHomeController(sender : UIStoryboardSegue){
-        
-    }
+class AllExercisesController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

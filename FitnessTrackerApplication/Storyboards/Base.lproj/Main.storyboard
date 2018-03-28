@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="FitnessTrackerApplication" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginController" customModule="FitnessTrackerApplication" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -50,10 +50,10 @@
             </objects>
             <point key="canvasLocation" x="-564" y="130.88455772113943"/>
         </scene>
-        <!--View Controller-->
+        <!--Sign Up Controller-->
         <scene sceneID="yhq-bO-Dog">
             <objects>
-                <viewController id="xEt-U0-L2u" sceneMemberID="viewController">
+                <viewController id="xEt-U0-L2u" customClass="SignUpController" customModule="FitnessTrackerApplication" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bJT-5E-MUj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -62,7 +62,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <navigationItem title="Sign Up" id="fVw-Le-yCW"/>
+                                    <navigationItem title="Sign Up" id="fVw-Le-yCW">
+                                        <barButtonItem key="leftBarButtonItem" title="Login" id="sP4-if-c1Z">
+                                            <connections>
+                                                <segue destination="KgC-gY-yG6" kind="unwind" unwindAction="unwindToThisLoginControllerWithSender:" id="Oml-8T-fLV"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TtH-i4-EEj">
@@ -79,13 +85,14 @@
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bzT-du-iT4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="KgC-gY-yG6" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="216.80000000000001" y="130.88455772113943"/>
         </scene>
-        <!--View Controller-->
+        <!--Today Controller-->
         <scene sceneID="jZ9-Qr-127">
             <objects>
-                <viewController id="mkE-Fi-amI" sceneMemberID="viewController">
+                <viewController id="mkE-Fi-amI" customClass="TodayController" customModule="FitnessTrackerApplication" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LAe-b2-gOh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -94,7 +101,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <navigationItem title="Today's Activity" id="mnV-X6-DwS"/>
+                                    <navigationItem title="Today's Activity" id="mnV-X6-DwS">
+                                        <barButtonItem key="leftBarButtonItem" title="Home" id="HdT-Wp-pwv">
+                                            <connections>
+                                                <segue destination="Qzp-gZ-DsU" kind="unwind" unwindAction="unwindToThisHomeControllerWithSender:" id="ffX-0A-rdf"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
                         </subviews>
@@ -103,13 +116,14 @@
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="obf-QG-Azi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Qzp-gZ-DsU" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-564" y="913"/>
         </scene>
-        <!--View Controller-->
+        <!--Gyms Nearby Controller-->
         <scene sceneID="BN3-8F-2cr">
             <objects>
-                <viewController id="6nT-ev-Dpo" sceneMemberID="viewController">
+                <viewController id="6nT-ev-Dpo" customClass="GymsNearbyController" customModule="FitnessTrackerApplication" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DZk-h0-pQv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -118,7 +132,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <navigationItem title="Gyms Near Me" id="oR9-Uk-oBc"/>
+                                    <navigationItem title="Gyms Near Me" id="oR9-Uk-oBc">
+                                        <barButtonItem key="leftBarButtonItem" title="Home" id="Edz-W1-sk4">
+                                            <connections>
+                                                <segue destination="ery-X3-aF8" kind="unwind" unwindAction="unwindToThisHomeControllerWithSender:" id="91a-TJ-X9P"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
                         </subviews>
@@ -127,6 +147,7 @@
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1yR-90-EHz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="ery-X3-aF8" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-564" y="1685"/>
         </scene>
@@ -194,10 +215,10 @@
             </objects>
             <point key="canvasLocation" x="216.80000000000001" y="914.392803598201"/>
         </scene>
-        <!--View Controller-->
+        <!--Profile Controller-->
         <scene sceneID="SuA-Jr-4ZB">
             <objects>
-                <viewController id="gVH-cT-tf9" sceneMemberID="viewController">
+                <viewController id="gVH-cT-tf9" customClass="ProfileController" customModule="FitnessTrackerApplication" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xws-MW-eEa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -206,7 +227,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <navigationItem title="Profile" id="aRX-gz-eId"/>
+                                    <navigationItem title="Profile" id="aRX-gz-eId">
+                                        <barButtonItem key="leftBarButtonItem" title="Home" id="J36-Ae-t4M">
+                                            <connections>
+                                                <segue destination="zXv-Ha-RHS" kind="unwind" unwindAction="unwindToThisHomeControllerWithSender:" id="8yh-t0-aJg"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
                         </subviews>
@@ -215,13 +242,14 @@
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kso-cj-DG8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="zXv-Ha-RHS" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1225" y="914"/>
         </scene>
-        <!--View Controller-->
+        <!--Gallery Controller-->
         <scene sceneID="5DK-kB-Ivb">
             <objects>
-                <viewController id="joZ-hj-yuW" sceneMemberID="viewController">
+                <viewController id="joZ-hj-yuW" customClass="GalleryController" customModule="FitnessTrackerApplication" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZzE-QU-K4c">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -230,7 +258,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <navigationItem title="My Gallery" id="Lia-3i-Ue7"/>
+                                    <navigationItem title="My Gallery" id="Lia-3i-Ue7">
+                                        <barButtonItem key="leftBarButtonItem" title="Statistics" id="lsH-Eq-N51">
+                                            <connections>
+                                                <segue destination="7bE-KA-9UR" kind="unwind" unwindAction="unwindToThisStatisticsControllerWithSender:" id="Yw8-f6-r3g"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
                         </subviews>
@@ -239,13 +273,14 @@
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VLC-d6-EtJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="7bE-KA-9UR" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2124" y="914"/>
         </scene>
-        <!--View Controller-->
+        <!--My Workouts Controller-->
         <scene sceneID="aBy-Da-3sU">
             <objects>
-                <viewController id="UPr-rL-mrc" sceneMemberID="viewController">
+                <viewController id="UPr-rL-mrc" customClass="MyWorkoutsController" customModule="FitnessTrackerApplication" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Uy-bz-9w7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -254,7 +289,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <navigationItem title="My Workouts" id="gIH-3s-wzR"/>
+                                    <navigationItem title="My Workouts" id="gIH-3s-wzR">
+                                        <barButtonItem key="leftBarButtonItem" title="Home" id="O4N-5y-ago">
+                                            <connections>
+                                                <segue destination="oQO-sm-Ojb" kind="unwind" unwindAction="unwindToThisHomeControllerWithSender:" id="qkI-xO-xkn"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ekf-Fa-O3W">
@@ -288,13 +329,14 @@
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wd7-4r-7IU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="oQO-sm-Ojb" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1224.8" y="1685.3073463268368"/>
         </scene>
-        <!--View Controller-->
+        <!--All Exercises Controller-->
         <scene sceneID="vYt-Xp-0eX">
             <objects>
-                <viewController id="6O0-lM-0mm" sceneMemberID="viewController">
+                <viewController id="6O0-lM-0mm" customClass="AllExercisesController" customModule="FitnessTrackerApplication" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KeT-Pq-k0K">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -303,7 +345,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <navigationItem title="All Exercises" id="9If-3Q-eoX"/>
+                                    <navigationItem title="All Exercises" id="9If-3Q-eoX">
+                                        <barButtonItem key="leftBarButtonItem" title="Workouts" id="Kmg-wZ-VOz">
+                                            <connections>
+                                                <segue destination="Ds7-E5-gbq" kind="unwind" unwindAction="unwindToThisWorkoutsControllerWithSender:" id="Mhj-Ic-26Z"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Listview of all exercises organized by group. Swipe left to add to specific workout" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="AHT-We-6my">
@@ -319,13 +367,14 @@
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Asg-sI-Mb4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Ds7-E5-gbq" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2130.4000000000001" y="1684.4077961019491"/>
         </scene>
-        <!--View Controller-->
+        <!--Track Controller-->
         <scene sceneID="9sl-c6-mjS">
             <objects>
-                <viewController id="vQy-Yp-nPk" sceneMemberID="viewController">
+                <viewController id="vQy-Yp-nPk" customClass="TrackController" customModule="FitnessTrackerApplication" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hZr-zy-DFi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -334,7 +383,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <navigationItem title="Track Progress" id="vjg-YR-gvI"/>
+                                    <navigationItem title="Track Progress" id="vjg-YR-gvI">
+                                        <barButtonItem key="leftBarButtonItem" title="Workouts" id="MNM-l2-MH4">
+                                            <connections>
+                                                <segue destination="w1V-sQ-Cg5" kind="unwind" unwindAction="unwindToThisWorkoutsControllerWithSender:" id="NyC-2N-9cA"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Various buttons and inputs to track specified workout. Save data button persists data to sqlite" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vyb-g2-1Pm">
@@ -355,13 +410,14 @@
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eSd-nv-5kw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="w1V-sQ-Cg5" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1224.8" y="130.88455772113943"/>
         </scene>
-        <!--View Controller-->
+        <!--Statistics Controller-->
         <scene sceneID="ffC-8O-V5J">
             <objects>
-                <viewController id="Lgk-pb-uYc" sceneMemberID="viewController">
+                <viewController id="Lgk-pb-uYc" customClass="StatisticsController" customModule="FitnessTrackerApplication" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Oc3-xK-xVQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -370,7 +426,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <navigationItem title="Statistics" id="BCs-FP-4pL"/>
+                                    <navigationItem title="Statistics" id="BCs-FP-4pL">
+                                        <barButtonItem key="leftBarButtonItem" title="Home" id="hBk-dH-fmR">
+                                            <connections>
+                                                <segue destination="uG8-zu-MPN" kind="unwind" unwindAction="unwindToThisHomeControllerWithSender:" id="xIY-Bc-H79"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TFP-2s-l5e">
@@ -387,6 +449,7 @@
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ydj-Nz-PNB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="uG8-zu-MPN" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2124" y="130.88455772113943"/>
         </scene>
