@@ -8,12 +8,11 @@
 
 import UIKit
 
-class LoginController: UIViewController {
+class LoginController: UIViewController, UITextFieldDelegate {
     
-    @IBAction func unwindToThisLoginController(sender : UIStoryboardSegue){
-        
-    }
-
+    @IBOutlet var tfUserName: UITextField!
+    @IBOutlet var tfPassword: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,6 +22,16 @@ class LoginController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    //function to hide keyboard after user hits the return key
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return textField.resignFirstResponder()
+    }
+    
+    //unwind to controller
+    @IBAction func unwindToThisLoginController(sender : UIStoryboardSegue){
+        
     }
     
 
