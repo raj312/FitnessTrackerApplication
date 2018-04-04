@@ -34,7 +34,30 @@ class LoginController: UIViewController, UITextFieldDelegate {
         
     }
     
-
+    //on login button click, authenticate user
+    @IBAction func loginUser(sender: UIButton){
+        var uname = tfUserName.text
+        var upass = tfPassword.text
+        if uname==nil || upass==nil {
+            print("Invalid Uname and Pas")
+            return
+        }
+        authenticateUser(uname: uname!, upass: upass!)
+    }
+    
+    //get login rcredentials on click and authenticate the user
+    func authenticateUser(uname: String, upass: String){
+        //check the uname and upass against values in the database
+        //for now i will be hardcoding
+        if uname=="raj" && upass=="raj" {
+            //send to home page
+            performSegue(withIdentifier: "ChooseSegueToHome", sender: nil)
+        }else{
+            //notify the user that invalid login
+            return
+        }
+    }
+    
     /*
     // MARK: - Navigation
 
