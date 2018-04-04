@@ -76,8 +76,8 @@ class TodayController: UIViewController {
             bloodType = try healthkitStore.bloodType()
         } catch{}
         
-        //read active energy
-        energyBurned = self.activeEnergy
+        //read active energy in kCal
+        energyBurned = self.activeEnergy * 1000
 
         print("Active Energy \(energyBurned)")
         return (age, bloodType!, energyBurned)
@@ -87,10 +87,10 @@ class TodayController: UIViewController {
         let (age, bloodType, activeEnergy) = readFromHealthKit()
         self.lbAge.text = "Age: \(age ?? 0) years"
         self.lbBloodType.text = "Blood Type: bloodType"
-        self.lbActiveEnergyBurned.text = "Active Energy Burned: \(activeEnergy)"
+        self.lbActiveEnergyBurned.text = "ActiveEnergyBurned: \(activeEnergy) calories"
         //need to write a method (switch statement) to convert bloodtype object to values like A+, etc.
     }
-    //-> (Double)
+
     func getActiveEnergy ()  {
         var todayActiveEnergy: Double = 0.0
         
@@ -100,8 +100,8 @@ class TodayController: UIViewController {
         let activeEnergySampleType = HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.activeEnergyBurned)
         let predicate = HKQuery.predicateForSamples(withStart: starDate, end: endDate, options: [])
         
-        print ("start date: ", starDate)
-        print ("end date: ", endDate)
+        // print ("start date: ", starDate)
+        // print ("end date: ", endDate)
         
         let query = HKSampleQuery(sampleType: activeEnergySampleType!, predicate: predicate, limit: 0, sortDescriptors: nil, resultsHandler: {
             (query, results, error) in
