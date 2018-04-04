@@ -15,6 +15,9 @@ class TodayController: UIViewController {
     
     @IBOutlet var lbAge: UILabel!
     @IBOutlet var lbBloodType: UILabel!
+    @IBOutlet var lbActiveEnergyBurned: UILabel!
+    
+    var activeEnergy: Double = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,11 +33,13 @@ class TodayController: UIViewController {
     }
     
     // MARK: - Healthkit methods
+    //requesting for permissions from the user
     func authorizeHealthKit(){
         
         let healthKitTypesRead : Set<HKObjectType> = [
             HKObjectType.characteristicType(forIdentifier: HKCharacteristicTypeIdentifier.dateOfBirth)!,
-            HKObjectType.characteristicType(forIdentifier: HKCharacteristicTypeIdentifier.bloodType)!
+            HKObjectType.characteristicType(forIdentifier: HKCharacteristicTypeIdentifier.bloodType)!,
+            HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.activeEnergyBurned)!
             //HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.appleExerciseTime)!
         ]
         let healthKitTypesWrite : Set<HKSampleType> = []
@@ -47,15 +52,17 @@ class TodayController: UIViewController {
         healthkitStore.requestAuthorization(toShare: healthKitTypesWrite, read: healthKitTypesRead) {
             (success, error) -> Void in
             print("Read Write Authorisation succeeded")
+            //calculate active enerrgy
+            self.getActiveEnergy()
             
         }
     }
     
-    func readFromHealthKit() -> (age: Int?, bloodType: HKBloodTypeObject){
+    func readFromHealthKit() -> (age: Int?, bloodType: HKBloodTypeObject, activeEnergy: Double){
         var age: Int?
         var bloodType: HKBloodTypeObject?
         // var exerciseTime: Int?
-        
+        var energyBurned: Double = 0.0
         //calculate age
         do {
             let birthDay = try healthkitStore.dateOfBirthComponents()
@@ -69,14 +76,51 @@ class TodayController: UIViewController {
             bloodType = try healthkitStore.bloodType()
         } catch{}
         
-        return (age, bloodType!)
+        //read active energy
+        energyBurned = self.activeEnergy
+
+        print("Active Energy \(energyBurned)")
+        return (age, bloodType!, energyBurned)
     }
 
     @IBAction func getDetails(sender: UIButton) {
-        let (age, bloodType) = readFromHealthKit()
+        let (age, bloodType, activeEnergy) = readFromHealthKit()
         self.lbAge.text = "Age: \(age ?? 0) years"
         self.lbBloodType.text = "Blood Type: bloodType"
+        self.lbActiveEnergyBurned.text = "Active Energy Burned: \(activeEnergy)"
         //need to write a method (switch statement) to convert bloodtype object to values like A+, etc.
+    }
+    //-> (Double)
+    func getActiveEnergy ()  {
+        var todayActiveEnergy: Double = 0.0
+        
+        let starDate: Date = Calendar.current.startOfDay(for: Date())
+        let endDate: Date = Calendar.current.date(byAdding: Calendar.Component.day, value: 1, to: starDate)!
+        
+        let activeEnergySampleType = HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.activeEnergyBurned)
+        let predicate = HKQuery.predicateForSamples(withStart: starDate, end: endDate, options: [])
+        
+        print ("start date: ", starDate)
+        print ("end date: ", endDate)
+        
+        let query = HKSampleQuery(sampleType: activeEnergySampleType!, predicate: predicate, limit: 0, sortDescriptors: nil, resultsHandler: {
+            (query, results, error) in
+            if results == nil {
+                print("There was an error running the query: \(error)")
+            }
+            self.activeEnergy = 0.0
+            DispatchQueue.main.sync() {
+                
+                for activity in results as! [HKQuantitySample]
+                {
+                    todayActiveEnergy = activity.quantity.doubleValue(for: HKUnit.kilocalorie())
+                    print(todayActiveEnergy)
+                    self.activeEnergy += todayActiveEnergy
+                }
+            }
+        })
+        healthkitStore.execute(query)
+//        return totalActiveEnergy
     }
     
     /*

@@ -321,8 +321,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Energy Burned" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Kp-iL-OcF">
+                                <rect key="frame" x="82" y="323" width="211" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Mr-mn-sRR">
-                                <rect key="frame" x="131" y="334" width="113" height="30"/>
+                                <rect key="frame" x="131" y="476" width="113" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Get Values"/>
                                 <connections>
@@ -334,6 +341,7 @@
                         <viewLayoutGuide key="safeArea" id="BbL-v2-FVo"/>
                     </view>
                     <connections>
+                        <outlet property="lbActiveEnergyBurned" destination="7Kp-iL-OcF" id="S9H-r6-A08"/>
                         <outlet property="lbAge" destination="nWp-3j-2UU" id="luY-OY-RPQ"/>
                         <outlet property="lbBloodType" destination="MYI-P7-bfW" id="6C3-OO-FBR"/>
                     </connections>
