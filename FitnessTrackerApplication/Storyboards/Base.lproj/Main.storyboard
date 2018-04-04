@@ -24,7 +24,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
-                                    <segue destination="8P8-0n-Aqt" kind="presentation" id="hN6-x7-OfT"/>
+                                    <action selector="loginUserWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Yj3-V0-mKu"/>
                                 </connections>
                             </button>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8xD-Ll-xGn">
@@ -91,6 +91,7 @@
                     <connections>
                         <outlet property="tfPassword" destination="Z5C-V4-ISI" id="LCS-JL-OEd"/>
                         <outlet property="tfUserName" destination="Gwh-vn-QyE" id="R3Y-5E-mdK"/>
+                        <segue destination="8P8-0n-Aqt" kind="presentation" identifier="ChooseSegueToHome" id="MG9-qh-Yab"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -678,6 +679,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="9LP-fk-ehH"/>
+        <segue reference="MG9-qh-Yab"/>
     </inferredMetricsTieBreakers>
 </document>
