@@ -548,10 +548,40 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Workout Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pHB-Fh-daQ">
+                                <rect key="frame" x="0.0" y="64" width="375" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.75563972459999995" green="0.8747745213" blue="0.99611169099999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gcC-VB-KmP" customClass="BarChartView" customModule="Charts">
+                                <rect key="frame" x="16" y="143" width="343" height="197"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="hYs-aV-hc2">
+                                <rect key="frame" x="33" y="368" width="312" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Reps"/>
+                                    <segment title="Sets"/>
+                                    <segment title="Weight"/>
+                                    <segment title="Duration"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentChoiceWithSender:" destination="Lgk-pb-uYc" eventType="valueChanged" id="lye-dc-PLS"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="gPb-fP-dZm"/>
                     </view>
+                    <connections>
+                        <outlet property="barChart" destination="gcC-VB-KmP" id="i5C-3R-7CY"/>
+                        <outlet property="workoutNameLabel" destination="pHB-Fh-daQ" id="yTu-ZR-d0p"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ydj-Nz-PNB" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="uG8-zu-MPN" userLabel="Exit" sceneMemberID="exit"/>

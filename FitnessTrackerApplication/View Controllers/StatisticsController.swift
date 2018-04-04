@@ -7,17 +7,49 @@
 //
 
 import UIKit
+import Charts
 
 class StatisticsController: UIViewController {
     
     @IBAction func unwindToThisStatisticsController(sender : UIStoryboardSegue){
         
     }
+    @IBOutlet var workoutNameLabel: UILabel!
+    @IBOutlet var barChart: BarChartView!
+  
+    
+    @IBAction func segmentChoice (sender: UISegmentedControl){
+        
+        var segmentFlag = sender.selectedSegmentIndex
+        barChartUpdate(segmentFlag)
+    }
+    
+    func barChartUpdate (_ segmentFlag: Int) {
+        
+        let progressStatistics : ProgressStatistics = .init()
+        let datas = progressStatistics.workoutDatas
+        var entry = [BarChartDataEntry]()
+        
+        for (date, workout) in datas {
+            
+            entry.append(BarChartDataEntry(x: Double(date), y:Double(workout[segmentFlag])))
+            
+        }
+        
+        let dataSet = BarChartDataSet(values: entry, label: "Workouts")
+        let data = BarChartData(dataSets: [dataSet])
+        barChart.data = data
+        barChart.chartDescription?.text = "1 Week"
+        barChart.notifyDataSetChanged()
+    }
 
     override func viewDidLoad() {
+        
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        let workOutTracking : WorkoutTracking = .init()
+        workoutNameLabel.text = workOutTracking.workoutName
+        barChartUpdate(0)
     }
 
     override func didReceiveMemoryWarning() {
