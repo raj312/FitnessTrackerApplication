@@ -322,6 +322,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Mr-mn-sRR">
+                                <rect key="frame" x="131" y="549" width="113" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Get Values"/>
+                                <connections>
+                                    <action selector="getDetailsWithSender:" destination="mkE-Fi-amI" eventType="touchUpInside" id="P5O-dP-4O2"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Active Energy Burned" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Kp-iL-OcF">
                                 <rect key="frame" x="16" y="204" width="343" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -357,14 +365,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Mr-mn-sRR">
-                                <rect key="frame" x="131" y="549" width="113" height="38"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Minimum Heart Rate" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vnL-VN-8DN">
+                                <rect key="frame" x="16" y="479" width="343" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Get Values"/>
-                                <connections>
-                                    <action selector="getDetailsWithSender:" destination="mkE-Fi-amI" eventType="touchUpInside" id="P5O-dP-4O2"/>
-                                </connections>
-                            </button>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="BbL-v2-FVo"/>
@@ -377,6 +384,7 @@
                         <outlet property="lbDailySteps" destination="3GM-P8-QoG" id="Z9z-EK-z4L"/>
                         <outlet property="lbDistanceWalkingRunning" destination="iA5-5k-zhc" id="TGt-cx-esx"/>
                         <outlet property="lbMaximumHeartRate" destination="N2g-DI-aPf" id="0BI-OF-dnq"/>
+                        <outlet property="lbMinimumHeartRate" destination="vnL-VN-8DN" id="nnk-V1-Oid"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="obf-QG-Azi" userLabel="First Responder" sceneMemberID="firstResponder"/>
