@@ -16,8 +16,12 @@ class TodayController: UIViewController {
     @IBOutlet var lbAge: UILabel!
     @IBOutlet var lbBloodType: UILabel!
     @IBOutlet var lbActiveEnergyBurned: UILabel!
+    @IBOutlet var lbDailySteps: UILabel!
+    @IBOutlet var lbDistanceWalkingRunning: UILabel!
     
     var activeEnergy: Double = 0.0
+    var dailySteps: Double? = 0.0
+    var totalDistance: Double? = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,8 +43,9 @@ class TodayController: UIViewController {
         let healthKitTypesRead : Set<HKObjectType> = [
             HKObjectType.characteristicType(forIdentifier: HKCharacteristicTypeIdentifier.dateOfBirth)!,
             HKObjectType.characteristicType(forIdentifier: HKCharacteristicTypeIdentifier.bloodType)!,
-            HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.activeEnergyBurned)!
-            //HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.appleExerciseTime)!
+            HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.activeEnergyBurned)!,
+            HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount)!,
+            HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.distanceWalkingRunning)!
         ]
         let healthKitTypesWrite : Set<HKSampleType> = []
         
@@ -54,15 +59,20 @@ class TodayController: UIViewController {
             print("Read Write Authorisation succeeded")
             //calculate active enerrgy
             self.getActiveEnergy()
-            
+            //get steps
+            self.getStepCount()
+            //get distance
+            self.getDistanceWalkingRunning()
         }
     }
     
-    func readFromHealthKit() -> (age: Int?, bloodType: HKBloodTypeObject, activeEnergy: Double){
+    func readFromHealthKit() -> (age: Int?, bloodType: HKBloodTypeObject, activeEnergy: Double, steps: Double, activeDistance: Double){
         var age: Int?
         var bloodType: HKBloodTypeObject?
         // var exerciseTime: Int?
         var energyBurned: Double = 0.0
+        var steps: Double = 0.0
+        var activeDistance: Double = 0.0
         //calculate age
         do {
             let birthDay = try healthkitStore.dateOfBirthComponents()
@@ -78,17 +88,22 @@ class TodayController: UIViewController {
         
         //read active energy in kCal
         energyBurned = self.activeEnergy * 1000
-
-        print("Active Energy \(energyBurned)")
-        return (age, bloodType!, energyBurned)
+        //read steps
+        steps = self.dailySteps!
+        //read distance covered while walking and running
+        activeDistance = self.totalDistance!
+        // print("Active Energy \(energyBurned)")
+        // print("Daily steps \(steps)")
+        return (age, bloodType!, energyBurned, steps, activeDistance)
     }
 
     @IBAction func getDetails(sender: UIButton) {
-        let (age, bloodType, activeEnergy) = readFromHealthKit()
+        let (age, bloodType, activeEnergy, steps, activeDistance) = readFromHealthKit()
         self.lbAge.text = "Age: \(age ?? 0) years"
         self.lbBloodType.text = "Blood Type: bloodType"
         self.lbActiveEnergyBurned.text = "ActiveEnergyBurned: \(activeEnergy) calories"
-        //need to write a method (switch statement) to convert bloodtype object to values like A+, etc.
+        self.lbDailySteps.text = "Daily Steps: \(steps)"
+        self.lbDistanceWalkingRunning.text = "Walking & Running Distance: \(activeDistance) miles"
     }
 
     func getActiveEnergy ()  {
@@ -121,6 +136,60 @@ class TodayController: UIViewController {
         })
         healthkitStore.execute(query)
 //        return totalActiveEnergy
+    }
+    
+    //get steps for the day
+    func getStepCount() {
+        let stepCount = HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount)
+        let calendar = NSCalendar.current
+        let interval = NSDateComponents()
+        interval.day = 1
+        
+        let anchorComponents = calendar.dateComponents([.day, .month, .year], from: NSDate() as Date)
+        let anchorDate = calendar.date(from: anchorComponents)
+        let stepsQuery = HKStatisticsCollectionQuery(quantityType: stepCount!, quantitySamplePredicate: nil, options: .cumulativeSum, anchorDate: anchorDate!, intervalComponents: interval as DateComponents)
+        
+        stepsQuery.initialResultsHandler = {query, results, error in
+            if (error != nil) {
+                print(error as Any)
+                print("In here")
+            }
+            let endDate = NSDate()
+            
+            var steps = 0.0
+            let startDate = calendar.date(byAdding: .day, value: 0, to: endDate as Date)
+            if let myResults = results{  myResults.enumerateStatistics(from: startDate!, to: endDate as Date) { statistics, stop in
+                if let quantity = statistics.sumQuantity(){
+                    let date = statistics.startDate
+                    steps = quantity.doubleValue(for: HKUnit.count())
+                    print("\(date): steps = \(steps)")
+                    self.dailySteps = steps
+                }
+                }
+            }
+        }
+        healthkitStore.execute(stepsQuery)
+    }
+    
+    //get miles walked for the day
+    func getDistanceWalkingRunning() {
+        let dist = HKSampleType.quantityType(forIdentifier: .distanceWalkingRunning)
+        let newDate: Date = Calendar.current.startOfDay(for: Date())
+        let predicate = HKQuery.predicateForSamples(withStart: newDate as Date, end: NSDate() as Date, options: .strictStartDate)
+        
+        let query = HKStatisticsQuery(quantityType: dist!, quantitySamplePredicate: predicate, options: [.cumulativeSum]) { (query, statistics, error) in
+            var value: Double = 0
+            if (error != nil) {
+                print("Error -> Miles distance took long")
+            }
+            if let totalDist = statistics?.sumQuantity() {
+                value = totalDist.doubleValue(for: HKUnit.mile())
+            }
+            DispatchQueue.main.async {
+                self.totalDistance = value
+            }
+        }
+        healthkitStore.execute(query)
     }
     
     /*
