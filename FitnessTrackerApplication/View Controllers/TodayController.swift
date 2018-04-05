@@ -18,10 +18,15 @@ class TodayController: UIViewController {
     @IBOutlet var lbActiveEnergyBurned: UILabel!
     @IBOutlet var lbDailySteps: UILabel!
     @IBOutlet var lbDistanceWalkingRunning: UILabel!
+    @IBOutlet var lbAverageHeartRate: UILabel!
+    @IBOutlet var lbMaximumHeartRate: UILabel!
+    
     
     var activeEnergy: Double = 0.0
     var dailySteps: Double? = 0.0
     var totalDistance: Double? = 0.0
+    var maxHeartRate: Double? = 0.0
+    var avgHeartRate: Double? = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +50,8 @@ class TodayController: UIViewController {
             HKObjectType.characteristicType(forIdentifier: HKCharacteristicTypeIdentifier.bloodType)!,
             HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.activeEnergyBurned)!,
             HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount)!,
-            HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.distanceWalkingRunning)!
+            HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.distanceWalkingRunning)!,
+            HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.heartRate)!
         ]
         let healthKitTypesWrite : Set<HKSampleType> = []
         
@@ -63,16 +69,20 @@ class TodayController: UIViewController {
             self.getStepCount()
             //get distance
             self.getDistanceWalkingRunning()
+            //get heart rates
+            self.getTodaysHeartRates()
         }
     }
     
-    func readFromHealthKit() -> (age: Int?, bloodType: HKBloodTypeObject, activeEnergy: Double, steps: Double, activeDistance: Double){
+    func readFromHealthKit() -> (age: Int?, bloodType: HKBloodTypeObject, activeEnergy: Double, steps: Double, activeDistance: Double, averageHeartRate: Double, maximumHeartRate: Double){
         var age: Int?
         var bloodType: HKBloodTypeObject?
         // var exerciseTime: Int?
         var energyBurned: Double = 0.0
         var steps: Double = 0.0
         var activeDistance: Double = 0.0
+        var averageHeartRate: Double = 0.0
+        var maximumHeartRate: Double = 0.0
         //calculate age
         do {
             let birthDay = try healthkitStore.dateOfBirthComponents()
@@ -92,18 +102,24 @@ class TodayController: UIViewController {
         steps = self.dailySteps!
         //read distance covered while walking and running
         activeDistance = self.totalDistance!
+        //get heart rate values
+        averageHeartRate = self.avgHeartRate!
+        maximumHeartRate = self.maxHeartRate!
+        
         // print("Active Energy \(energyBurned)")
         // print("Daily steps \(steps)")
-        return (age, bloodType!, energyBurned, steps, activeDistance)
+        return (age, bloodType!, energyBurned, steps, activeDistance, avgHeartRate!, maxHeartRate!)
     }
 
     @IBAction func getDetails(sender: UIButton) {
-        let (age, bloodType, activeEnergy, steps, activeDistance) = readFromHealthKit()
+        let (age, bloodType, activeEnergy, steps, activeDistance, averageHeartRate, maximumHeartRate) = readFromHealthKit()
         self.lbAge.text = "Age: \(age ?? 0) years"
         self.lbBloodType.text = "Blood Type: bloodType"
         self.lbActiveEnergyBurned.text = "ActiveEnergyBurned: \(activeEnergy) calories"
         self.lbDailySteps.text = "Daily Steps: \(steps)"
         self.lbDistanceWalkingRunning.text = "Walking & Running Distance: \(activeDistance) miles"
+        self.lbAverageHeartRate.text = "Average Heart Rate: \(averageHeartRate) beats/minute"
+        self.lbMaximumHeartRate.text = "Maximum Heart Rate: \(maximumHeartRate) beats/minute"
     }
 
     func getActiveEnergy ()  {
@@ -187,6 +203,34 @@ class TodayController: UIViewController {
             }
             DispatchQueue.main.async {
                 self.totalDistance = value
+            }
+        }
+        healthkitStore.execute(query)
+    }
+    
+    // Get today's Heart rate
+    func getTodaysHeartRates()
+    {
+        let heartRate = HKSampleType.quantityType(forIdentifier: .heartRate)
+        //predicate
+        let newDate: Date = Calendar.current.startOfDay(for: Date())
+        let calendar = NSCalendar.current
+        let predicate = HKQuery.predicateForSamples(withStart: newDate, end: NSDate() as Date, options: [])
+        let query = HKStatisticsQuery(quantityType: heartRate!, quantitySamplePredicate: predicate, options: [.discreteAverage, .discreteMax]) { (query, statistics, error) in
+            var avgHeartRate: Double = 0
+            var maxHeartRate: Double = 0
+            if (error != nil) {
+                print("Error -> heart rate could not be retrieved")
+            }
+            if let avgHeart = statistics?.averageQuantity() {
+                avgHeartRate = Double(avgHeart.doubleValue(for: HKUnit(from: "count/s")) * 60)
+                // print("Average heart rate: \(avgHeartRate)")
+                self.avgHeartRate = avgHeartRate
+            }
+            if let maxHeart = statistics?.maximumQuantity() {
+                maxHeartRate = Double(maxHeart.doubleValue(for: HKUnit(from: "count/s")) * 60)
+                // print("Maximum Heart Rate: \(maxHeartRate)")
+                self.maxHeartRate = maxHeartRate
             }
         }
         healthkitStore.execute(query)
