@@ -34,6 +34,8 @@ class MyWorkoutsController: UIViewController, UITableViewDelegate, UITableViewDa
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = tableView.dequeueReusableCell(withIdentifier: "customCell") as! MyWorkoutsCustomTableViewCell
+        cell.layer.cornerRadius = cell.cellView.frame.height / 2
+        
         
         cell.lblWorkoutName.text = workouts[indexPath.row]
         return cell
