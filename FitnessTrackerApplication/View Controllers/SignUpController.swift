@@ -63,8 +63,8 @@ class SignUpController: UIViewController, UITextFieldDelegate {
     }
     
     //show an alert with appropriate message
-    func showAlert(userMessage: String) {
-        let alert = UIAlertController(title: "Registration Failed", message: userMessage, preferredStyle: .alert)
+    func showAlert(showTitle: String, userMessage: String) {
+        let alert = UIAlertController(title: showTitle, message: userMessage, preferredStyle: .alert)
         
         // note the yes button has a handler declared inline
         let okAction = UIAlertAction(title: "OK", style: .default, handler: {(alert: UIAlertAction!) in
@@ -107,8 +107,14 @@ class SignUpController: UIViewController, UITextFieldDelegate {
         }
         
         if(validateVal == -1) {
-            showAlert(userMessage: errorMessage)
+            showAlert(showTitle: "Error", userMessage: errorMessage)
         }else{
+            // insert userinput in users table in the database
+            
+            showAlert(showTitle: "Sign up Complete", userMessage: "You can now use the fitness tracker application to keep up with your fitness goals")
+            //redirect to home page
+            
+            performSegue(withIdentifier: "ChooseSegueSignupToHome", sender: nil)
             print("Alls good")
         }
         
