@@ -75,7 +75,7 @@ class SignUpController: UIViewController, UITextFieldDelegate {
     }
     
     func validateInput(username: String, password: String, confirmPassword: String){
-        
+        var validateVal = 0
         if username == "" {
             print("Username must be provided")
             errorMessage += "\nUsername must be provided"
@@ -85,9 +85,13 @@ class SignUpController: UIViewController, UITextFieldDelegate {
         // -> Select Count(Name) as NumUsers from UsersDatabase where username = "userName"
         // if numUsers > 0, then username exists, return
         //else save the username
-        
+        let db: DataAccess = .init()
+        let usernameExists: Bool = db.findUser(fromDatabase: username)
+        //print(usernameExists)
+        if(usernameExists) {
+            errorMessage += "The username provided has already been taken"
+        }
         //check if passwords are not empty
-        var validateVal = 0
         if password == "" || confirmPassword == "" {
             print("Password and confirm password fields can not be left empty")
             errorMessage += "\nPassword and confirm password fields can not be left empty"
