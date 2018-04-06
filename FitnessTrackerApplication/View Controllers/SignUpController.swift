@@ -48,76 +48,52 @@ class SignUpController: UIViewController, UITextFieldDelegate {
     
     //retrieve all values when sign up is clicked
     @IBAction func getAllInput(sender: UIButton) {
-        var name = tfName.text
-        var uName = tfUserName.text
-        var uPass = tfPassword.text
-        var uConfirmPass = tfConfirmPassword.text
-        var address = tfAddress.text
-        var gender = lbGender.text
-        var dateOfBirth = dpDateOfBirth.date
+        let name = tfName.text
+        let uName = tfUserName.text
+        let uPass = tfPassword.text
+        let uConfirmPass = tfConfirmPassword.text
+        let address = tfAddress.text
+        let gender = lbGender.text
+        let dateOfBirth = dpDateOfBirth.date
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let sDateOfBirth: String = dateFormatter.string(from: dateOfBirth)
+        
+        let userAccount: UserAccount = .init()
         
         //validate input
         // - All fields except username and password are optional
-        validateInput(username: uName!, password: uPass!, confirmPassword: uConfirmPass!)
-        
+        let errorMessage: String = userAccount.validateInput(username: uName!, password: uPass!, confirmPassword: uConfirmPass!)
+        if (errorMessage == "") { //no error returned - input is valid
+            //create a user account object with data
+            userAccount.initWithData(name: name!, uName: uName!, uPass: uPass!, uConfirmPass: uConfirmPass!, address: address!, gender: gender!, dateOfBirth: sDateOfBirth)
+            
+            // insert userinput in users table in the database
+            
+            //show alert and redirect to home page
+            showAlert(showTitle: "Sign up Complete", userMessage: "You can now use the fitness tracker application to keep up with your fitness goals", segueToDo: "ChooseSegueSignupToHome")
+            // print("Alls good")
+        }else {
+            showAlert(showTitle: "Error", userMessage: errorMessage, segueToDo: "")
+        }
     }
     
     //show an alert with appropriate message
-    func showAlert(showTitle: String, userMessage: String) {
+    func showAlert(showTitle: String, userMessage: String, segueToDo: String) {
         let alert = UIAlertController(title: showTitle, message: userMessage, preferredStyle: .alert)
         
         // note the yes button has a handler declared inline
         let okAction = UIAlertAction(title: "OK", style: .default, handler: {(alert: UIAlertAction!) in
-            self.dismiss(animated: true, completion: nil)
+            if (segueToDo == "") {
+                //do nothing
+            }else{
+                self.performSegue(withIdentifier: segueToDo, sender: self)
+            }
+            //self.dismiss(animated: true, completion: nil)
         })
         alert.addAction(okAction)
         present(alert, animated: true)
-    }
-    
-    func validateInput(username: String, password: String, confirmPassword: String){
-        var validateVal = 0
-        if username == "" {
-            print("Username must be provided")
-            errorMessage += "\nUsername must be provided"
-            validateVal = -1
-        }
-        //check if username is unique
-        // -> Select Count(Name) as NumUsers from UsersDatabase where username = "userName"
-        // if numUsers > 0, then username exists, return
-        //else save the username
-        let db: DataAccess = .init()
-        let usernameExists: Bool = db.findUser(fromDatabase: username)
-        //print(usernameExists)
-        if(usernameExists) {
-            errorMessage += "The username provided has already been taken"
-        }
-        //check if passwords are not empty
-        if password == "" || confirmPassword == "" {
-            print("Password and confirm password fields can not be left empty")
-            errorMessage += "\nPassword and confirm password fields can not be left empty"
-            validateVal = -1
-        }
-        //check if passowrds match
-        if password == confirmPassword {
-            print("Passwords match")
-            //save the password to the database
-        }else {
-            errorMessage += "\nPassword and confirm password must match"
-            validateVal = -1
-        }
-        
-        if(validateVal == -1) {
-            showAlert(showTitle: "Error", userMessage: errorMessage)
-        }else{
-            // insert userinput in users table in the database
-            
-            showAlert(showTitle: "Sign up Complete", userMessage: "You can now use the fitness tracker application to keep up with your fitness goals")
-            //redirect to home page
-            
-            performSegue(withIdentifier: "ChooseSegueSignupToHome", sender: nil)
-            print("Alls good")
-        }
-        
     }
     
     
