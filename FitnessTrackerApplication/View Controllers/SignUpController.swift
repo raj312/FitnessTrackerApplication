@@ -19,6 +19,8 @@ class SignUpController: UIViewController, UITextFieldDelegate {
     @IBOutlet var switchGender: UISwitch!
     @IBOutlet var dpDateOfBirth: UIDatePicker!
     
+    var errorMessage: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -43,6 +45,71 @@ class SignUpController: UIViewController, UITextFieldDelegate {
             lbGender.text = "Female"
         }
     }
+    
+    //retrieve all values when sign up is clicked
+    @IBAction func getAllInput(sender: UIButton) {
+        var name = tfName.text
+        var uName = tfUserName.text
+        var uPass = tfPassword.text
+        var uConfirmPass = tfConfirmPassword.text
+        var address = tfAddress.text
+        var gender = lbGender.text
+        var dateOfBirth = dpDateOfBirth.date
+        
+        //validate input
+        // - All fields except username and password are optional
+        validateInput(username: uName!, password: uPass!, confirmPassword: uConfirmPass!)
+        
+    }
+    
+    //show an alert with appropriate message
+    func showAlert(userMessage: String) {
+        let alert = UIAlertController(title: "Registration Failed", message: userMessage, preferredStyle: .alert)
+        
+        // note the yes button has a handler declared inline
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: {(alert: UIAlertAction!) in
+            self.dismiss(animated: true, completion: nil)
+        })
+        alert.addAction(okAction)
+        present(alert, animated: true)
+    }
+    
+    func validateInput(username: String, password: String, confirmPassword: String){
+        
+        if username == "" {
+            print("Username must be provided")
+            errorMessage += "\nUsername must be provided"
+            validateVal = -1
+        }
+        //check if username is unique
+        // -> Select Count(Name) as NumUsers from UsersDatabase where username = "userName"
+        // if numUsers > 0, then username exists, return
+        //else save the username
+        
+        //check if passwords are not empty
+        var validateVal = 0
+        if password == "" || confirmPassword == "" {
+            print("Password and confirm password fields can not be left empty")
+            errorMessage += "\nPassword and confirm password fields can not be left empty"
+            validateVal = -1
+        }
+        //check if passowrds match
+        if password == confirmPassword {
+            print("Passwords match")
+            //save the password to the database
+        }else {
+            errorMessage += "\nPassword and confirm password must match"
+            validateVal = -1
+        }
+        
+        if(validateVal == -1) {
+            showAlert(userMessage: errorMessage)
+        }else{
+            print("Alls good")
+        }
+        
+    }
+    
     
     /*
     // MARK: - Navigation
