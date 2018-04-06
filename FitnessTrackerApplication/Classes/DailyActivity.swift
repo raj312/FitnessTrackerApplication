@@ -53,27 +53,13 @@ class DailyActivity: NSObject {
     }
     
     //Read data from healthkit
-    func readFromHealthKit() -> (age: Int?, bloodType: HKBloodTypeObject, activeEnergy: Double, steps: Double, activeDistance: Double, averageHeartRate: Double, maximumHeartRate: Double, minimumHeartRate: Double){
-        var age: Int?
-        var bloodType: HKBloodTypeObject?
+    func readFromHealthKit() -> (activeEnergy: Double, steps: Double, activeDistance: Double, averageHeartRate: Double, maximumHeartRate: Double, minimumHeartRate: Double){
         var energyBurned: Double = 0.0
         var steps: Double = 0.0
         var activeDistance: Double = 0.0
         var averageHeartRate: Double = 0.0
         var maximumHeartRate: Double = 0.0
         var minimumHeartRate: Double = 0.0
-        //calculate age
-        do {
-            let birthDay = try healthkitStore.dateOfBirthComponents()
-            let calendar = Calendar.current
-            let currentYear = calendar.component(.year, from: Date())
-            age = currentYear - birthDay.year!
-        }catch{}
-        
-        //read blood type
-        do {
-            bloodType = try healthkitStore.bloodType()
-        } catch{}
         
         //read active energy in kCal
         energyBurned = self.activeEnergy * 1000
@@ -86,7 +72,7 @@ class DailyActivity: NSObject {
         maximumHeartRate = self.maxHeartRate!
         minimumHeartRate = self.minHeartRate!
         
-        return (age, bloodType!, energyBurned, steps, activeDistance, averageHeartRate, maximumHeartRate, minimumHeartRate)
+        return (energyBurned, steps, activeDistance, averageHeartRate, maximumHeartRate, minimumHeartRate)
     }
     
     //Get active energy burned for the day

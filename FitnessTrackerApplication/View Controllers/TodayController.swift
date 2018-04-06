@@ -11,8 +11,6 @@ import HealthKit
 
 class TodayController: UIViewController {
 
-    @IBOutlet var lbAge: UILabel!
-    @IBOutlet var lbBloodType: UILabel!
     @IBOutlet var lbActiveEnergyBurned: UILabel!
     @IBOutlet var lbDailySteps: UILabel!
     @IBOutlet var lbDistanceWalkingRunning: UILabel!
@@ -44,9 +42,7 @@ class TodayController: UIViewController {
 
     //On button click, this function retrieves all values from the healthkit and displays them
     @IBAction func getDetails(sender: UIButton) {
-        let (age, bloodType, activeEnergy, steps, activeDistance, averageHeartRate, maximumHeartRate, minimumHeartRate) = activity.readFromHealthKit()
-        self.lbAge.text = "Age: \(age ?? 0) years"
-        self.lbBloodType.text = "Blood Type: bloodType"
+        let (activeEnergy, steps, activeDistance, averageHeartRate, maximumHeartRate, minimumHeartRate) = activity.readFromHealthKit()
         self.lbActiveEnergyBurned.text = "ActiveEnergyBurned: \(activeEnergy) calories"
         self.lbDailySteps.text = "Daily Steps: \(steps)"
         self.lbDistanceWalkingRunning.text = "Walking & Running Distance: \(activeDistance) miles"
