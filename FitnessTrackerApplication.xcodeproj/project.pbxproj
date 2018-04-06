@@ -119,13 +119,13 @@
 		35727C48206814AF009DA298 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				AEB8D36F206B40BC00065BE6 /* TodayController.swift */,
 				35727C38206814A1009DA298 /* ViewController.swift */,
 				AEB8D36B2069EB9E00065BE6 /* HomeController.swift */,
 				AEB8D36D206B409700065BE6 /* ProfileController.swift */,
-				AEB8D36F206B40BC00065BE6 /* TodayController.swift */,
+				AEB8D375206B41B300065BE6 /* TrackController.swift */,
 				AEB8D371206B40D800065BE6 /* LoginController.swift */,
 				AEB8D373206B418900065BE6 /* SignUpController.swift */,
-				AEB8D375206B41B300065BE6 /* TrackController.swift */,
 				AEB8D377206B41DC00065BE6 /* StatisticsController.swift */,
 				AEB8D379206B41FE00065BE6 /* GalleryController.swift */,
 				AEB8D37B206B422000065BE6 /* AllExercisesController.swift */,
@@ -140,13 +140,13 @@
 			children = (
 				35727C36206814A1009DA298 /* AppDelegate.swift */,
 				AEB8D381206B42B600065BE6 /* UserAccount.swift */,
-				AEB8D383206B42C800065BE6 /* DailyActivity.swift */,
 				AEB8D385206B42DC00065BE6 /* WorkoutTracking.swift */,
 				AEB8D387206B42E900065BE6 /* UserProfile.swift */,
 				AEB8D389206B42F700065BE6 /* Mapping.swift */,
 				AEB8D38B206B430C00065BE6 /* WorkoutPlan.swift */,
 				AEB8D38D206B431800065BE6 /* Gallery.swift */,
 				AEB8D38F206B432700065BE6 /* ProgressStatistics.swift */,
+				AEB8D383206B42C800065BE6 /* DailyActivity.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
