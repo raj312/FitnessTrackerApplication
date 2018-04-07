@@ -17,6 +17,7 @@
 		35AB64AD2077F82C005581AA /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 35AB64AB2077F82C005581AA /* libsqlite3.tbd */; };
 		35AB64AE2077F82C005581AA /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 35AB64AC2077F82C005581AA /* libsqlite3.0.tbd */; };
 		35AB64B22077F990005581AA /* DataAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 35AB64B12077F990005581AA /* DataAccess.m */; };
+		35AB64B42079370A005581AA /* fitness_tracker_logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 35AB64B32079370A005581AA /* fitness_tracker_logo.jpg */; };
 		AEB8D36C2069EB9E00065BE6 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8D36B2069EB9E00065BE6 /* HomeController.swift */; };
 		AEB8D36E206B409700065BE6 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8D36D206B409700065BE6 /* ProfileController.swift */; };
 		AEB8D370206B40BC00065BE6 /* TodayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8D36F206B40BC00065BE6 /* TodayController.swift */; };
@@ -54,6 +55,7 @@
 		35AB64AF2077F98F005581AA /* FitnessTrackerApplication-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FitnessTrackerApplication-Bridging-Header.h"; sourceTree = "<group>"; };
 		35AB64B02077F990005581AA /* DataAccess.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataAccess.h; sourceTree = "<group>"; };
 		35AB64B12077F990005581AA /* DataAccess.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataAccess.m; sourceTree = "<group>"; };
+		35AB64B32079370A005581AA /* fitness_tracker_logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fitness_tracker_logo.jpg; sourceTree = "<group>"; };
 		AEB8D36B2069EB9E00065BE6 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		AEB8D36D206B409700065BE6 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		AEB8D36F206B40BC00065BE6 /* TodayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayController.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 		35727C4B206814EA009DA298 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				35AB64B32079370A005581AA /* fitness_tracker_logo.jpg */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				35727C41206814A1009DA298 /* LaunchScreen.storyboard in Resources */,
+				35AB64B42079370A005581AA /* fitness_tracker_logo.jpg in Resources */,
 				35727C3E206814A1009DA298 /* Assets.xcassets in Resources */,
 				35AB64AA2077F78E005581AA /* FitnessInfo.db in Resources */,
 				35727C3C206814A1009DA298 /* Main.storyboard in Resources */,
