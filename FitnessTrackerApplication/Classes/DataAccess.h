@@ -20,6 +20,7 @@
 @property (strong, nonatomic) NSMutableArray *users;
 //-(instancetype)initWithDatabaseName:(NSString *)dbName;
 -(void)readDataFromDatabase; //so that it can be used by other classes
--(BOOL)findUserFromDatabase:(NSString *) username; 
+-(BOOL)findUserFromDatabase:(NSString *) username;
+-(NSString *)readDataAndAuthenticateUser:(NSString *)uname password:(NSString *)pass;
 
 @end

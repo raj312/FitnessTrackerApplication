@@ -6,7 +6,7 @@
 //  Copyright © 2018 RADS. All rights reserved.
 //
 
-import Foundation
+import Foundation;
 
 class UserAccount: NSObject {
     
@@ -56,6 +56,16 @@ class UserAccount: NSObject {
         return errorMessage
     }
  
+    //get login rcredentials on click and authenticate the user
+    func authenticateUser(uname: String, upass: String) -> String{
+        var errorMssg: String = ""
+        //check the uname and upass against values in the database
+        //for now i will be hardcoding
+        let da: DataAccess = .init()
+        errorMssg = da.readDataAndAuthenticateUser(uname, password: upass)
+        //print(userIsValid)
+        return errorMssg
+    }
 
     
 }

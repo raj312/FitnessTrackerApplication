@@ -47,33 +47,63 @@
         printf("Error connecting to db");
     }
 }
-/*
--(void)readDataFromDatabase {
+
+-(NSString *)readDataAndAuthenticateUser:(NSString *)uname password:(NSString *)pass {
     // clear out array at the start
-    [self.users removeAllObjects];
-    
+    //[self.users removeAllObjects];
+    //BOOL userIsValid = false;
+    NSString *errorMsg = @"";
     sqlite3 *database;
     //opens connection to database
     if(sqlite3_open([self.databasePath UTF8String], &database) == SQLITE_OK){
         //defining a query
-        char *sqlStatement = "SELECT * FROM users"; //not using @ since its a char
-        
+//        char *sqlStatement = "SELECT * FROM users WHERE "; //not using @ since its a char
+        const char *sqlStatement = [[NSString stringWithFormat:@"SELECT * FROM users where Username = '%@' AND Password = '%@'", uname, pass] UTF8String];
+        printf("%s", sqlStatement);
         sqlite3_stmt *compileStatement;
         //prepare the object -- -1 all data
         if(sqlite3_prepare_v2(database, sqlStatement, -1, &compileStatement, NULL) == SQLITE_OK) {
-            while(sqlite3_step(compileStatement) == SQLITE_ROW) { //while there is a row returned
+            if(sqlite3_step(compileStatement) == SQLITE_ROW) { //if there is a row returned
+                /*
                 char *n = (char *)sqlite3_column_text(compileStatement, 1); //1 - second column -- name
                 NSString *name = [NSString stringWithUTF8String:n];
+                */
                 
-                char *e = (char *)sqlite3_column_text(compileStatement, 2); //1 - third column -- email
-                NSString *email = [NSString stringWithUTF8String:e];
+                char *u = (char *)sqlite3_column_text(compileStatement, 2); //2 - username
+                NSString *username = [NSString stringWithFormat:@"%s", u];
                 
-                char *f = (char *)sqlite3_column_text(compileStatement, 3); //1 - forth column -- food
-                NSString *food = [NSString stringWithUTF8String:f];
+                char *p = (char *)sqlite3_column_text(compileStatement, 3); //3 -- password
+                NSString *password = [NSString stringWithFormat:@"%s", p];
+
+                /*
+                char *cp = (char *)sqlite3_column_text(compileStatement, 4); //4 -- confirm password
+                NSString *confirmpassword = [NSString stringWithUTF8String:cp];
                 
-                Data *data = [[Data alloc] initWithData:name theEmail:email theFood:food];
+                char *a = (char *)sqlite3_column_text(compileStatement, 5); //5 -- address
+                NSString *address = [NSString stringWithUTF8String:a];
                 
-                [self.people addObject:data];
+                char *g = (char *)sqlite3_column_text(compileStatement, 6); //6 - gender
+                NSString *gender = [NSString stringWithUTF8String:g];
+                
+                char *d = (char *)sqlite3_column_text(compileStatement, 7); //7 - date of birth
+                NSString *dob = [NSString stringWithUTF8String:d];
+                */
+                
+                //comparing username and password
+                if(uname == username && pass == password){
+                    //userIsValid = true;
+                } else {
+                    NSString *msg = @"Invalid Login. Try again";
+                    NSString *concat = [NSString stringWithFormat:@"%@%@", errorMsg, msg];
+                    errorMsg = concat;
+                }
+                
+                //Declare a user account object and initialise it with the above data
+                
+//                UserAccount *user = [[]]
+//                Data *data = [[Data alloc] initWithData:name theEmail:email theFood:food];
+                
+//                [self.people addObject:data];
                 
             }
         }
@@ -82,8 +112,8 @@
         sqlite3_finalize(compileStatement);
     }
     sqlite3_close(database);
+    return errorMsg;
 }
- */
 
 -(BOOL)findUserFromDatabase:(NSString *) username{
     // clear out array at the start
@@ -100,6 +130,7 @@
         //prepare the object -- -1 all data
         if(sqlite3_prepare_v2(database, sqlStatement, -1, &compileStatement, NULL) == SQLITE_OK) {
             if(sqlite3_step(compileStatement) == SQLITE_ROW) { //if there is a row returned
+                char *u = (char *)sqlite3_column_text(compileStatement, 2); //2 - username
                 userExists = true;
             }
         }

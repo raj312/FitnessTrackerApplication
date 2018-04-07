@@ -440,6 +440,7 @@
 				CODE_SIGN_ENTITLEMENTS = FitnessTrackerApplication/FitnessTrackerApplication.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 47SK3JR285;
 				INFOPLIST_FILE = FitnessTrackerApplication/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -461,6 +462,7 @@
 				CODE_SIGN_ENTITLEMENTS = FitnessTrackerApplication/FitnessTrackerApplication.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 47SK3JR285;
 				INFOPLIST_FILE = FitnessTrackerApplication/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
