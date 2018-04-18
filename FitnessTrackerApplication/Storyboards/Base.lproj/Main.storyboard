@@ -299,21 +299,21 @@
                                 </items>
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bUf-dW-PWN">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="5" y="64" width="365" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="customCell" rowHeight="80" id="cBp-X6-xgW" customClass="MyWorkoutsCustomTableViewCell" customModule="FitnessTrackerApplication" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="80"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="customCell" rowHeight="80" id="cBp-X6-xgW" customClass="MyWorkoutsCustomTableViewCell" customModule="FitnessTrackerApplication" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="365" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cBp-X6-xgW" id="adF-T0-shz">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="365" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U2L-2M-O3F">
-                                                    <rect key="frame" x="25" y="11" width="325" height="58"/>
+                                                    <rect key="frame" x="15" y="11" width="335" height="58"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Workout Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X71-sq-gnq">
-                                                            <rect key="frame" x="0.0" y="0.0" width="325" height="58"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="335" height="58"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -329,10 +329,10 @@
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="U2L-2M-O3F" firstAttribute="leading" secondItem="adF-T0-shz" secondAttribute="leadingMargin" constant="10" id="0wF-Lv-jYS"/>
+                                                <constraint firstItem="U2L-2M-O3F" firstAttribute="leading" secondItem="adF-T0-shz" secondAttribute="leadingMargin" id="0wF-Lv-jYS"/>
                                                 <constraint firstItem="U2L-2M-O3F" firstAttribute="top" secondItem="adF-T0-shz" secondAttribute="topMargin" id="NRg-WO-tjx"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="U2L-2M-O3F" secondAttribute="bottom" id="dwe-Cz-bXV"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="U2L-2M-O3F" secondAttribute="trailing" constant="10" id="iqM-jR-i4l"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="U2L-2M-O3F" secondAttribute="trailing" id="iqM-jR-i4l"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -345,12 +345,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="O2h-aR-R2l" firstAttribute="trailing" secondItem="bUf-dW-PWN" secondAttribute="trailing" id="70p-HP-heq"/>
+                            <constraint firstItem="O2h-aR-R2l" firstAttribute="trailing" secondItem="bUf-dW-PWN" secondAttribute="trailing" constant="5" id="70p-HP-heq"/>
                             <constraint firstItem="vB0-2C-FtF" firstAttribute="leading" secondItem="O2h-aR-R2l" secondAttribute="leading" id="HOS-Kg-71M"/>
                             <constraint firstItem="bUf-dW-PWN" firstAttribute="top" secondItem="vB0-2C-FtF" secondAttribute="bottom" id="JBT-i6-gV5"/>
                             <constraint firstItem="vB0-2C-FtF" firstAttribute="trailing" secondItem="O2h-aR-R2l" secondAttribute="trailing" id="OGB-Wa-hcv"/>
                             <constraint firstItem="O2h-aR-R2l" firstAttribute="bottom" secondItem="bUf-dW-PWN" secondAttribute="bottom" id="Ppf-Yh-cuj"/>
-                            <constraint firstItem="bUf-dW-PWN" firstAttribute="leading" secondItem="O2h-aR-R2l" secondAttribute="leading" id="eBt-HA-CHz"/>
+                            <constraint firstItem="bUf-dW-PWN" firstAttribute="leading" secondItem="O2h-aR-R2l" secondAttribute="leading" constant="5" id="eBt-HA-CHz"/>
                             <constraint firstItem="bUf-dW-PWN" firstAttribute="top" secondItem="vB0-2C-FtF" secondAttribute="bottom" id="kYD-sJ-yyy"/>
                             <constraint firstItem="vB0-2C-FtF" firstAttribute="top" secondItem="7Uy-bz-9w7" secondAttribute="top" constant="20" id="ym5-0j-uIw"/>
                         </constraints>
