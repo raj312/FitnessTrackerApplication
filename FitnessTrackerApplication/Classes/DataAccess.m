@@ -64,50 +64,13 @@
         //prepare the object -- -1 all data
         if(sqlite3_prepare_v2(database, sqlStatement, -1, &compileStatement, NULL) == SQLITE_OK) {
             if(sqlite3_step(compileStatement) == SQLITE_ROW) { //if there is a row returned
-                /*
-                char *n = (char *)sqlite3_column_text(compileStatement, 1); //1 - second column -- name
-                NSString *name = [NSString stringWithUTF8String:n];
-                */
-                
-                char *u = (char *)sqlite3_column_text(compileStatement, 2); //2 - username
-                NSString *username = [NSString stringWithFormat:@"%s", u];
-                
-                char *p = (char *)sqlite3_column_text(compileStatement, 3); //3 -- password
-                NSString *password = [NSString stringWithFormat:@"%s", p];
-
-                /*
-                char *cp = (char *)sqlite3_column_text(compileStatement, 4); //4 -- confirm password
-                NSString *confirmpassword = [NSString stringWithUTF8String:cp];
-                
-                char *a = (char *)sqlite3_column_text(compileStatement, 5); //5 -- address
-                NSString *address = [NSString stringWithUTF8String:a];
-                
-                char *g = (char *)sqlite3_column_text(compileStatement, 6); //6 - gender
-                NSString *gender = [NSString stringWithUTF8String:g];
-                
-                char *d = (char *)sqlite3_column_text(compileStatement, 7); //7 - date of birth
-                NSString *dob = [NSString stringWithUTF8String:d];
-                */
-                
-                //comparing username and password
-                if(uname == username && pass == password){
-                    //userIsValid = true;
-                } else {
-                    NSString *msg = @"Invalid Login. Try again";
-                    NSString *concat = [NSString stringWithFormat:@"%@%@", errorMsg, msg];
-                    errorMsg = concat;
-                }
-                
-                //Declare a user account object and initialise it with the above data
-                
-//                UserAccount *user = [[]]
-//                Data *data = [[Data alloc] initWithData:name theEmail:email theFood:food];
-                
-//                [self.people addObject:data];
-                
+                //user is valid
+            }else {
+                NSString *msg = @"Invalid Login. Try again";
+                NSString *concat = [NSString stringWithFormat:@"%@%@", errorMsg, msg];
+                errorMsg = concat;
             }
         }
-        
         //cleaning up - free up resources
         sqlite3_finalize(compileStatement);
     }
