@@ -49,9 +49,6 @@
 }
 
 -(NSString *)readDataAndAuthenticateUser:(NSString *)uname password:(NSString *)pass {
-    // clear out array at the start
-    //[self.users removeAllObjects];
-    //BOOL userIsValid = false;
     NSString *errorMsg = @"";
     sqlite3 *database;
     //opens connection to database
@@ -104,5 +101,34 @@
     return userExists;
 }
 
-
+-(BOOL)insertIntoDatabase:(User *)user {
+    sqlite3 *database;
+    BOOL returnCode = YES;
+    
+    if(sqlite3_open([self.databasePath UTF8String], &database) == SQLITE_OK) {
+        char *sqlStatement = "Insert INTO users VALUES (NULL, ?, ?, ?, ?, ?, ?)";
+        //this means there are placeholders and we will replace them with data
+        sqlite3_stmt *compiledStatement;
+        if(sqlite3_prepare_v2(database, sqlStatement, -1, &compiledStatement, NULL) == SQLITE_OK) {
+            //replacing the question marks with proper values
+            // 1 - second field in DB
+            sqlite3_bind_text(compiledStatement, 1, [user.name UTF8String], -1, SQLITE_TRANSIENT);
+            sqlite3_bind_text(compiledStatement, 2, [user.username UTF8String], -1, SQLITE_TRANSIENT);
+            sqlite3_bind_text(compiledStatement, 3, [user.password UTF8String], -1, SQLITE_TRANSIENT);
+            sqlite3_bind_text(compiledStatement, 4, [user.address UTF8String], -1, SQLITE_TRANSIENT);
+            sqlite3_bind_text(compiledStatement, 5, [user.gender UTF8String], -1, SQLITE_TRANSIENT);
+            sqlite3_bind_text(compiledStatement, 6, [user.dateOfBirth UTF8String], -1, SQLITE_TRANSIENT);
+        }
+        if(sqlite3_step(compiledStatement) != SQLITE_DONE) {
+            NSLog(@"Error: %s", sqlite3_errmsg(database));
+            returnCode = NO;
+        }else {
+            NSLog(@"Insert into row id = %lld", sqlite3_last_insert_rowid(database));
+        }
+        //clean up
+        sqlite3_finalize(compiledStatement);
+    }
+    sqlite3_close(database);
+    return returnCode;
+}
 @end

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3500931F2072EAE800A3ED82 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3500931E2072EAE800A3ED82 /* HealthKit.framework */; };
+		351780502087F89A000E6EE6 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 3517804F2087F89A000E6EE6 /* User.m */; };
 		35727C37206814A1009DA298 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35727C36206814A1009DA298 /* AppDelegate.swift */; };
 		35727C39206814A1009DA298 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35727C38206814A1009DA298 /* ViewController.swift */; };
 		35727C3C206814A1009DA298 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35727C3A206814A1009DA298 /* Main.storyboard */; };
@@ -41,6 +42,8 @@
 /* Begin PBXFileReference section */
 		350093152072E4D200A3ED82 /* FitnessTrackerApplication.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FitnessTrackerApplication.entitlements; sourceTree = "<group>"; };
 		3500931E2072EAE800A3ED82 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		3517804E2087F89A000E6EE6 /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		3517804F2087F89A000E6EE6 /* User.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		35727C33206814A1009DA298 /* FitnessTrackerApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitnessTrackerApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35727C36206814A1009DA298 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35727C38206814A1009DA298 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -165,6 +168,8 @@
 				35AB64B02077F990005581AA /* DataAccess.h */,
 				35AB64B12077F990005581AA /* DataAccess.m */,
 				35AB64AF2077F98F005581AA /* FitnessTrackerApplication-Bridging-Header.h */,
+				3517804E2087F89A000E6EE6 /* User.h */,
+				3517804F2087F89A000E6EE6 /* User.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -290,6 +295,7 @@
 				35AB64B22077F990005581AA /* DataAccess.m in Sources */,
 				AEB8D37E206B423D00065BE6 /* MyWorkoutsController.swift in Sources */,
 				AEB8D382206B42B600065BE6 /* UserAccount.swift in Sources */,
+				351780502087F89A000E6EE6 /* User.m in Sources */,
 				AEB8D380206B426200065BE6 /* GymsNearbyController.swift in Sources */,
 				AEB8D374206B418900065BE6 /* SignUpController.swift in Sources */,
 				35727C37206814A1009DA298 /* AppDelegate.swift in Sources */,
