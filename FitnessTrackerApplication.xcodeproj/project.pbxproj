@@ -12,6 +12,13 @@
 		35727C3C206814A1009DA298 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35727C3A206814A1009DA298 /* Main.storyboard */; };
 		35727C3E206814A1009DA298 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35727C3D206814A1009DA298 /* Assets.xcassets */; };
 		35727C41206814A1009DA298 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35727C3F206814A1009DA298 /* LaunchScreen.storyboard */; };
+		AE1CE05D2087C48500B232AD /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1CE05C2087C48500B232AD /* DBManager.swift */; };
+		AE1CE05F2087C50D00B232AD /* workoutdb.db in Resources */ = {isa = PBXBuildFile; fileRef = AE1CE05E2087C50D00B232AD /* workoutdb.db */; };
+		AE1CE07B2087C7EB00B232AD /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = AE1CE0732087C7EB00B232AD /* FMDatabasePool.m */; };
+		AE1CE07C2087C7EB00B232AD /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = AE1CE0742087C7EB00B232AD /* FMDatabaseQueue.m */; };
+		AE1CE07D2087C7EB00B232AD /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = AE1CE0772087C7EB00B232AD /* FMDatabase.m */; };
+		AE1CE07E2087C7EB00B232AD /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = AE1CE0782087C7EB00B232AD /* FMResultSet.m */; };
+		AE1CE07F2087C7EB00B232AD /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = AE1CE07A2087C7EB00B232AD /* FMDatabaseAdditions.m */; };
 		AEA6B2A8207654C50063312F /* MyWorkoutsCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA6B2A7207654C50063312F /* MyWorkoutsCustomTableViewCell.swift */; };
 		AEB8D36C2069EB9E00065BE6 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8D36B2069EB9E00065BE6 /* HomeController.swift */; };
 		AEB8D36E206B409700065BE6 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8D36D206B409700065BE6 /* ProfileController.swift */; };
@@ -42,6 +49,20 @@
 		35727C3D206814A1009DA298 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		35727C40206814A1009DA298 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		35727C42206814A1009DA298 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AE1CE0472087BBF600B232AD /* FitnessTrackerApplication-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FitnessTrackerApplication-Bridging-Header.h"; sourceTree = "<group>"; };
+		AE1CE05C2087C48500B232AD /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
+		AE1CE05E2087C50D00B232AD /* workoutdb.db */ = {isa = PBXFileReference; lastKnownFileType = file; name = workoutdb.db; path = ../../../../workoutdb.db; sourceTree = "<group>"; };
+		AE1CE0702087C7EA00B232AD /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		AE1CE0712087C7EA00B232AD /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		AE1CE0722087C7EA00B232AD /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
+		AE1CE0732087C7EB00B232AD /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		AE1CE0742087C7EB00B232AD /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		AE1CE0752087C7EB00B232AD /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		AE1CE0762087C7EB00B232AD /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		AE1CE0772087C7EB00B232AD /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		AE1CE0782087C7EB00B232AD /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		AE1CE0792087C7EB00B232AD /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		AE1CE07A2087C7EB00B232AD /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
 		AEA6B2A7207654C50063312F /* MyWorkoutsCustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWorkoutsCustomTableViewCell.swift; sourceTree = "<group>"; };
 		AEB8D36B2069EB9E00065BE6 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		AEB8D36D206B409700065BE6 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
@@ -94,6 +115,9 @@
 		35727C35206814A1009DA298 /* FitnessTrackerApplication */ = {
 			isa = PBXGroup;
 			children = (
+				AE1CE05B2087C43500B232AD /* DAO */,
+				AE1CE05A2087C0A200B232AD /* Database */,
+				AE1CE0462087BBCB00B232AD /* FMDB */,
 				35727C4B206814EA009DA298 /* Images */,
 				35727C4A206814CC009DA298 /* Storyboards */,
 				35727C49206814BC009DA298 /* Classes */,
@@ -156,6 +180,41 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
+		AE1CE0462087BBCB00B232AD /* FMDB */ = {
+			isa = PBXGroup;
+			children = (
+				AE1CE0712087C7EA00B232AD /* FMDatabase.h */,
+				AE1CE0772087C7EB00B232AD /* FMDatabase.m */,
+				AE1CE0702087C7EA00B232AD /* FMDatabaseAdditions.h */,
+				AE1CE07A2087C7EB00B232AD /* FMDatabaseAdditions.m */,
+				AE1CE0792087C7EB00B232AD /* FMDatabasePool.h */,
+				AE1CE0732087C7EB00B232AD /* FMDatabasePool.m */,
+				AE1CE0762087C7EB00B232AD /* FMDatabaseQueue.h */,
+				AE1CE0742087C7EB00B232AD /* FMDatabaseQueue.m */,
+				AE1CE0722087C7EA00B232AD /* FMDB.h */,
+				AE1CE0752087C7EB00B232AD /* FMResultSet.h */,
+				AE1CE0782087C7EB00B232AD /* FMResultSet.m */,
+				AE1CE0472087BBF600B232AD /* FitnessTrackerApplication-Bridging-Header.h */,
+			);
+			path = FMDB;
+			sourceTree = "<group>";
+		};
+		AE1CE05A2087C0A200B232AD /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				AE1CE05E2087C50D00B232AD /* workoutdb.db */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		AE1CE05B2087C43500B232AD /* DAO */ = {
+			isa = PBXGroup;
+			children = (
+				AE1CE05C2087C48500B232AD /* DBManager.swift */,
+			);
+			path = DAO;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -188,6 +247,7 @@
 				TargetAttributes = {
 					35727C32206814A1009DA298 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -216,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				35727C41206814A1009DA298 /* LaunchScreen.storyboard in Resources */,
+				AE1CE05F2087C50D00B232AD /* workoutdb.db in Resources */,
 				35727C3E206814A1009DA298 /* Assets.xcassets in Resources */,
 				35727C3C206814A1009DA298 /* Main.storyboard in Resources */,
 			);
@@ -238,11 +299,16 @@
 				AEB8D384206B42C800065BE6 /* DailyActivity.swift in Sources */,
 				AEA6B2A8207654C50063312F /* MyWorkoutsCustomTableViewCell.swift in Sources */,
 				AEB8D390206B432700065BE6 /* ProgressStatistics.swift in Sources */,
+				AE1CE07C2087C7EB00B232AD /* FMDatabaseQueue.m in Sources */,
 				AEB8D37E206B423D00065BE6 /* MyWorkoutsController.swift in Sources */,
 				AEB8D382206B42B600065BE6 /* UserAccount.swift in Sources */,
 				AEB8D380206B426200065BE6 /* GymsNearbyController.swift in Sources */,
+				AE1CE07B2087C7EB00B232AD /* FMDatabasePool.m in Sources */,
+				AE1CE07E2087C7EB00B232AD /* FMResultSet.m in Sources */,
+				AE1CE07D2087C7EB00B232AD /* FMDatabase.m in Sources */,
 				AEB8D374206B418900065BE6 /* SignUpController.swift in Sources */,
 				35727C37206814A1009DA298 /* AppDelegate.swift in Sources */,
+				AE1CE07F2087C7EB00B232AD /* FMDatabaseAdditions.m in Sources */,
 				AEB8D36C2069EB9E00065BE6 /* HomeController.swift in Sources */,
 				AEB8D37C206B422000065BE6 /* AllExercisesController.swift in Sources */,
 				AEB8D36E206B409700065BE6 /* ProfileController.swift in Sources */,
@@ -250,6 +316,7 @@
 				AEB8D386206B42DC00065BE6 /* WorkoutTracking.swift in Sources */,
 				AEB8D370206B40BC00065BE6 /* TodayController.swift in Sources */,
 				AEB8D388206B42E900065BE6 /* UserProfile.swift in Sources */,
+				AE1CE05D2087C48500B232AD /* DBManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,11 +453,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = FitnessTrackerApplication/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.RajApps.FitnessTrackerApplication;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FitnessTrackerApplication/FMDB/FitnessTrackerApplication-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -400,11 +470,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = FitnessTrackerApplication/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.RajApps.FitnessTrackerApplication;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FitnessTrackerApplication/FMDB/FitnessTrackerApplication-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
