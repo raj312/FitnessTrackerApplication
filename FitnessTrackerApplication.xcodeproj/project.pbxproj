@@ -8,11 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		25C9CEAA47A056BBED9B9D7C /* Pods_FitnessTrackerApplication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3DFC388AC39F20BCEB14F8C /* Pods_FitnessTrackerApplication.framework */; };
-		35727C37206814A1009DA298 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35727C36206814A1009DA298 /* AppDelegate.swift */; };
 		35727C39206814A1009DA298 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35727C38206814A1009DA298 /* ViewController.swift */; };
 		35727C3C206814A1009DA298 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35727C3A206814A1009DA298 /* Main.storyboard */; };
 		35727C3E206814A1009DA298 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35727C3D206814A1009DA298 /* Assets.xcassets */; };
 		35727C41206814A1009DA298 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35727C3F206814A1009DA298 /* LaunchScreen.storyboard */; };
+		AE382A682088375600E71BB4 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AE382A662088375600E71BB4 /* libsqlite3.tbd */; };
+		AE382A692088375600E71BB4 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AE382A672088375600E71BB4 /* libsqlite3.0.tbd */; };
+		AE382A6D208850A200E71BB4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AE382A6C208850A200E71BB4 /* AppDelegate.m */; };
+		AE382A70208850E700E71BB4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AE382A6F208850E700E71BB4 /* main.m */; };
+		AE382A732088546600E71BB4 /* WorkoutTracking.m in Sources */ = {isa = PBXBuildFile; fileRef = AE382A722088546600E71BB4 /* WorkoutTracking.m */; };
+		AE382A77208868BB00E71BB4 /* workoutdb.db in Resources */ = {isa = PBXBuildFile; fileRef = AE382A76208868BB00E71BB4 /* workoutdb.db */; };
+		AE8AA0722088DEA500C20DB1 /* fitnessTrackerTest.db in Resources */ = {isa = PBXBuildFile; fileRef = AE8AA0712088DEA500C20DB1 /* fitnessTrackerTest.db */; };
 		AEB8D36C2069EB9E00065BE6 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8D36B2069EB9E00065BE6 /* HomeController.swift */; };
 		AEB8D36E206B409700065BE6 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8D36D206B409700065BE6 /* ProfileController.swift */; };
 		AEB8D370206B40BC00065BE6 /* TodayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8D36F206B40BC00065BE6 /* TodayController.swift */; };
@@ -36,13 +42,22 @@
 
 /* Begin PBXFileReference section */
 		35727C33206814A1009DA298 /* FitnessTrackerApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitnessTrackerApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		35727C36206814A1009DA298 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35727C38206814A1009DA298 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		35727C3B206814A1009DA298 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		35727C3D206814A1009DA298 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		35727C40206814A1009DA298 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		35727C42206814A1009DA298 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5FEDFC56BDE99099E167F1E8 /* Pods-FitnessTrackerApplication.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitnessTrackerApplication.release.xcconfig"; path = "Pods/Target Support Files/Pods-FitnessTrackerApplication/Pods-FitnessTrackerApplication.release.xcconfig"; sourceTree = "<group>"; };
+		AE382A662088375600E71BB4 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		AE382A672088375600E71BB4 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		AE382A6A208850A100E71BB4 /* FitnessTrackerApplication-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FitnessTrackerApplication-Bridging-Header.h"; sourceTree = "<group>"; };
+		AE382A6B208850A200E71BB4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		AE382A6C208850A200E71BB4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		AE382A6F208850E700E71BB4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		AE382A712088546600E71BB4 /* WorkoutTracking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WorkoutTracking.h; sourceTree = "<group>"; };
+		AE382A722088546600E71BB4 /* WorkoutTracking.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WorkoutTracking.m; sourceTree = "<group>"; };
+		AE382A76208868BB00E71BB4 /* workoutdb.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = workoutdb.db; sourceTree = "<group>"; };
+		AE8AA0712088DEA500C20DB1 /* fitnessTrackerTest.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = fitnessTrackerTest.db; sourceTree = "<group>"; };
 		AEB8D36B2069EB9E00065BE6 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		AEB8D36D206B409700065BE6 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		AEB8D36F206B40BC00065BE6 /* TodayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayController.swift; sourceTree = "<group>"; };
@@ -71,6 +86,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE382A682088375600E71BB4 /* libsqlite3.tbd in Frameworks */,
+				AE382A692088375600E71BB4 /* libsqlite3.0.tbd in Frameworks */,
 				25C9CEAA47A056BBED9B9D7C /* Pods_FitnessTrackerApplication.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -99,6 +116,8 @@
 		35727C35206814A1009DA298 /* FitnessTrackerApplication */ = {
 			isa = PBXGroup;
 			children = (
+				AE382A6E208850C300E71BB4 /* Supporting Files */,
+				AE382A632088328A00E71BB4 /* Database */,
 				35727C4B206814EA009DA298 /* Images */,
 				35727C4A206814CC009DA298 /* Storyboards */,
 				35727C49206814BC009DA298 /* Classes */,
@@ -131,7 +150,6 @@
 		35727C49206814BC009DA298 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				35727C36206814A1009DA298 /* AppDelegate.swift */,
 				AEB8D381206B42B600065BE6 /* UserAccount.swift */,
 				AEB8D383206B42C800065BE6 /* DailyActivity.swift */,
 				AEB8D385206B42DC00065BE6 /* WorkoutTracking.swift */,
@@ -140,6 +158,11 @@
 				AEB8D38B206B430C00065BE6 /* WorkoutPlan.swift */,
 				AEB8D38D206B431800065BE6 /* Gallery.swift */,
 				AEB8D38F206B432700065BE6 /* ProgressStatistics.swift */,
+				AE382A6B208850A200E71BB4 /* AppDelegate.h */,
+				AE382A6C208850A200E71BB4 /* AppDelegate.m */,
+				AE382A6A208850A100E71BB4 /* FitnessTrackerApplication-Bridging-Header.h */,
+				AE382A712088546600E71BB4 /* WorkoutTracking.h */,
+				AE382A722088546600E71BB4 /* WorkoutTracking.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -163,6 +186,8 @@
 		53B526903ED2DE70F4A25325 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AE382A672088375600E71BB4 /* libsqlite3.0.tbd */,
+				AE382A662088375600E71BB4 /* libsqlite3.tbd */,
 				D3DFC388AC39F20BCEB14F8C /* Pods_FitnessTrackerApplication.framework */,
 			);
 			name = Frameworks;
@@ -175,6 +200,23 @@
 				5FEDFC56BDE99099E167F1E8 /* Pods-FitnessTrackerApplication.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		AE382A632088328A00E71BB4 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				AE8AA0712088DEA500C20DB1 /* fitnessTrackerTest.db */,
+				AE382A76208868BB00E71BB4 /* workoutdb.db */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		AE382A6E208850C300E71BB4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AE382A6F208850E700E71BB4 /* main.m */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,6 +254,7 @@
 				TargetAttributes = {
 					35727C32206814A1009DA298 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -239,7 +282,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE8AA0722088DEA500C20DB1 /* fitnessTrackerTest.db in Resources */,
 				35727C41206814A1009DA298 /* LaunchScreen.storyboard in Resources */,
+				AE382A77208868BB00E71BB4 /* workoutdb.db in Resources */,
 				35727C3E206814A1009DA298 /* Assets.xcassets in Resources */,
 				35727C3C206814A1009DA298 /* Main.storyboard in Resources */,
 			);
@@ -306,7 +351,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE382A6D208850A200E71BB4 /* AppDelegate.m in Sources */,
 				AEB8D38A206B42F700065BE6 /* Mapping.swift in Sources */,
+				AE382A732088546600E71BB4 /* WorkoutTracking.m in Sources */,
 				AEB8D37A206B41FE00065BE6 /* GalleryController.swift in Sources */,
 				AEB8D38C206B430C00065BE6 /* WorkoutPlan.swift in Sources */,
 				35727C39206814A1009DA298 /* ViewController.swift in Sources */,
@@ -315,11 +362,11 @@
 				AEB8D372206B40D800065BE6 /* LoginController.swift in Sources */,
 				AEB8D384206B42C800065BE6 /* DailyActivity.swift in Sources */,
 				AEB8D390206B432700065BE6 /* ProgressStatistics.swift in Sources */,
+				AE382A70208850E700E71BB4 /* main.m in Sources */,
 				AEB8D37E206B423D00065BE6 /* MyWorkoutsController.swift in Sources */,
 				AEB8D382206B42B600065BE6 /* UserAccount.swift in Sources */,
 				AEB8D380206B426200065BE6 /* GymsNearbyController.swift in Sources */,
 				AEB8D374206B418900065BE6 /* SignUpController.swift in Sources */,
-				35727C37206814A1009DA298 /* AppDelegate.swift in Sources */,
 				AEB8D36C2069EB9E00065BE6 /* HomeController.swift in Sources */,
 				AEB8D37C206B422000065BE6 /* AllExercisesController.swift in Sources */,
 				AEB8D36E206B409700065BE6 /* ProfileController.swift in Sources */,
@@ -464,11 +511,14 @@
 			baseConfigurationReference = D1D5F4FCBFCA12DB85B694A2 /* Pods-FitnessTrackerApplication.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = FitnessTrackerApplication/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.RajApps.FitnessTrackerApplication;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FitnessTrackerApplication/Classes/FitnessTrackerApplication-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -479,11 +529,13 @@
 			baseConfigurationReference = 5FEDFC56BDE99099E167F1E8 /* Pods-FitnessTrackerApplication.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = FitnessTrackerApplication/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.RajApps.FitnessTrackerApplication;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FitnessTrackerApplication/Classes/FitnessTrackerApplication-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

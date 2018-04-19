@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WorkoutTracking: NSObject {
+class WorkoutTrackingg: NSObject {
 
     var workoutName: String = "Bench Press"
     var youtubeVideo: String = "https://www.youtube.com/embed/gRVjAtPip0Y?ecver=2"

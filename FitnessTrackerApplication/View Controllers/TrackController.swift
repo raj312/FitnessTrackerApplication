@@ -52,8 +52,10 @@ class TrackController: UIViewController, WKNavigationDelegate {
     }
     
     func doTheUpdate(){
-         let workOutTracking : WorkoutTracking = .init()
+         let workOutTracking : WorkoutTrackingg = .init()
+        
          workOutTracking.saveData(reps: Double(repsValue.text!)!, sets: Double(setsValue.text!)!, weight: Double(weightValue.text!)!, duration: time.countDownDuration)
+        
         workOutTracking.writeToDB()
     }
     
@@ -61,7 +63,7 @@ class TrackController: UIViewController, WKNavigationDelegate {
         super.viewDidLoad()
 
         
-        let workOutTracking : WorkoutTracking = .init()
+        let workOutTracking : WorkoutTrackingg = .init()
         workoutNameLabel.text = workOutTracking.workoutName
 
        let urlAddress = URL(string: workOutTracking.youtubeVideo)
