@@ -9,13 +9,14 @@
 #import "AppDelegate.h"
 #import <sqlite3.h>
 
+
 @interface AppDelegate ()
 
 @end
 
 @implementation AppDelegate
 
-@synthesize databaseName, databasePath, workouts;
+@synthesize databaseName, databasePath, workouts, workoutInfo, workoutID;
 
 
 -(void)checkAndCreateDatabase
@@ -57,8 +58,14 @@
                 NSString *reps = [NSString stringWithUTF8String:(char *)r];
                 char *w = sqlite3_column_text(compiledStatement, 3);
                 NSString *weight = [NSString stringWithUTF8String:(char *)w];
+                char *s = sqlite3_column_text(compiledStatement, 4);
+                NSString *sets = [NSString stringWithUTF8String:(char *)s];
+                char *du = sqlite3_column_text(compiledStatement, 5);
+                NSString *duration = [NSString stringWithUTF8String:(char *)du];
+                char *i = sqlite3_column_text(compiledStatement, 6);
+                NSString *wID = [NSString stringWithUTF8String:(char *)i];
               
-                WorkoutTracking *workout = [[WorkoutTracking alloc] initWithData:date reps:reps weight:weight];
+                WorkoutTracking *workout = [[WorkoutTracking alloc] initWithData:date reps:reps weight:weight sets:sets duration:duration wID:wID];
                
                 [self.workouts addObject:workout];
             }
@@ -74,38 +81,71 @@
     sqlite3_close(database);
     
 }
+
+-(void)readWorkoutInfoFromDatabase
+{
+    [self.workoutInfo removeAllObjects];
+    sqlite3 *database;
+    
+    if(sqlite3_open([self.databasePath UTF8String], &database) == SQLITE_OK)
+    {
+        NSLog(@"Database opened");
+        char *sqlStatement = "select * from 'workout'";
+        
+        sqlite3_stmt *compiledStatement;
+        
+        if(sqlite3_prepare_v2(database, sqlStatement, -1, &compiledStatement, NULL) == SQLITE_OK)
+        {
+            while(sqlite3_step(compiledStatement) == SQLITE_ROW)
+            {
+                char *w = sqlite3_column_text(compiledStatement, 0);
+                NSString *wID = [NSString stringWithUTF8String:(char *)w];
+                char *n = sqlite3_column_text(compiledStatement, 1);
+                NSString *name = [NSString stringWithUTF8String:(char *)n];
+                char *v = sqlite3_column_text(compiledStatement, 2);
+                NSString *videoCode = [NSString stringWithUTF8String:(char *)v];
+               
+            
+                WorkoutInfo *info = [[WorkoutInfo alloc] initWithData:(NSString *)wID name:name videoCode:videoCode];
+                
+                [self.workoutInfo addObject:info];
+      
+            }
+        }
+        else{
+            NSLog(@"SQLite not okay"); /////since you cant dynamically add variables to sql query, select all, then filter through session objects with foreach, and then an if to match with the work out id. You can add them to supporting class (workout tracking ) first by setting class variables then use them in statistics class
+        }
+        sqlite3_finalize(compiledStatement);
+        
+    }else{
+        NSLog(@"Database didnt open");
+    }
+    sqlite3_close(database);
+    
+}
 -(BOOL)insertIntoDatabase:(WorkoutTracking *)workout
 {
-    // define object to interact with database
+    
     sqlite3 *database;
     BOOL returnCode = YES;
     
-    // step 17c - open a connection to db
+   
     if(sqlite3_open([self.databasePath UTF8String], &database) == SQLITE_OK)
     {
-        // step 17d - define query for db
-        // ?'s are placeholders for values
-        // null represents id column to auto increment
-        char *sqlStatement = "insert into users values(NULL, ?, ?, ?, ?, ?, ?, ?, ?)";
+        char *sqlStatement = "insert into session values(NULL, ?, ?, ?, ?, ?, ?)";
         sqlite3_stmt *compiledStatement;
         
-        // step 17e - prepare object to handle datatransfer
         if(sqlite3_prepare_v2(database, sqlStatement, -1, &compiledStatement, NULL) == SQLITE_OK)
         {
-            // step 17f - attach name, email, food in place of ?'s
-//            sqlite3_bind_text(compiledStatement, 1, [user.name UTF8String], -1, SQLITE_TRANSIENT);
-//            sqlite3_bind_text(compiledStatement, 2, [user.address UTF8String], -1, SQLITE_TRANSIENT);
-//            sqlite3_bind_text(compiledStatement, 3, [user.phone UTF8String], -1, SQLITE_TRANSIENT);
-//            sqlite3_bind_text(compiledStatement, 4, [user.email UTF8String], -1, SQLITE_TRANSIENT);
-//            sqlite3_bind_text(compiledStatement, 5, [user.age UTF8String], -1, SQLITE_TRANSIENT);
-//            sqlite3_bind_text(compiledStatement, 6, [user.gender UTF8String], -1, SQLITE_TRANSIENT);
-//            sqlite3_bind_text(compiledStatement, 7, [user.birthdate UTF8String], -1, SQLITE_TRANSIENT);
-//            sqlite3_bind_text(compiledStatement, 8, [user.avatar UTF8String], -1, SQLITE_TRANSIENT);
-//
-            
+            sqlite3_bind_text(compiledStatement, 1, [workout.date UTF8String], -1, SQLITE_TRANSIENT);
+            sqlite3_bind_text(compiledStatement, 2, [workout.reps UTF8String], -1, SQLITE_TRANSIENT);
+            sqlite3_bind_text(compiledStatement, 3, [workout.weight UTF8String], -1, SQLITE_TRANSIENT);
+            sqlite3_bind_text(compiledStatement, 4, [workout.sets UTF8String], -1, SQLITE_TRANSIENT);
+            sqlite3_bind_text(compiledStatement, 5, [workout.duration UTF8String], -1, SQLITE_TRANSIENT);
+            sqlite3_bind_text(compiledStatement, 6, [workout.wID UTF8String], -1, SQLITE_TRANSIENT);
+           
         }
         
-        // step 17g - execute query, check for errors
         if(sqlite3_step(compiledStatement) != SQLITE_DONE)
         {
             NSLog(@"Error: %s", sqlite3_errmsg(database));
@@ -113,22 +153,21 @@
         }
         else
         {
-            // print out success by printing out new row id number
+            
             NSLog(@"Insert into row id = %lld", sqlite3_last_insert_rowid(database));
         }
-        // step 17h - clean up memory allocations
+
         sqlite3_finalize(compiledStatement);
     }
-    
-    // step 17i - close connection to db
-    // move on to ViewController.m - create addPerson event handler
     sqlite3_close(database);
     return returnCode;
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    self.workoutID = 1;
     self.workouts = [[NSMutableArray alloc] init];
+    self.workoutInfo = [[NSMutableArray alloc] init];
     self.databaseName = @"workoutdb.db";
     
     NSArray *documentPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -138,6 +177,7 @@
     self.databasePath = [documentsDir stringByAppendingPathComponent:self.databaseName];
     [self checkAndCreateDatabase];
     [self readDataFromDatabase];
+    [self readWorkoutInfoFromDatabase];
     
     NSLog(self.databasePath);
     

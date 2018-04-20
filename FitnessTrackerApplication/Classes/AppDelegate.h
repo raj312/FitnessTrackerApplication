@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "WorkoutTracking.h"
+#import "WorkoutInfo.h"
 
 
 
@@ -17,6 +18,8 @@
     NSString *databaseName;
     NSString *databasePath;
     NSMutableArray *workouts;
+    NSInteger workoutID;
+    NSMutableArray *workoutInfo;
 }
 
 // step 5b - define getters and setters for vars, move on to m file
@@ -24,7 +27,10 @@
 @property (strong, nonatomic) NSString *databaseName;
 @property (strong, nonatomic) NSString *databasePath;
 @property (strong, nonatomic) NSMutableArray *workouts;
+@property (strong, nonatomic) NSMutableArray *workoutInfo;
+@property NSInteger workoutID;
 
+-(void)readWorkoutInfoFromDatabase;
 -(void)readDataFromDatabase;
 -(void)checkAndCreateDatabase;
 -(BOOL)insertIntoDatabase:(WorkoutTracking *)workout;

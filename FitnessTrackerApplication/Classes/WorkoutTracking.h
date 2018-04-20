@@ -10,17 +10,24 @@
 
 @interface WorkoutTracking : NSObject{
     
-      NSInteger *workoutID;
-      NSString *date;
+    
+    NSString *date;
     NSString *reps;
     NSString *weight;
+    NSString *wID;
+    NSString *duration;
+    NSString *sets;
 }
 
-@property NSInteger *workoutID;
+
 @property (nonatomic, strong) NSString *date;
 @property (nonatomic, strong) NSString *reps;
 @property (nonatomic, strong) NSString *weight;
+@property (nonatomic, strong) NSString *wID;
+@property (nonatomic, strong) NSString *duration;
+@property (nonatomic, strong) NSString *sets;
 
--(id)initWithData:(NSString *)n reps:(NSString *)r weight:(NSString *)w;
+
+-(id)initWithData:(NSString *)d reps:(NSString *)r weight:(NSString *)w sets:(NSString*)s duration:(NSString *)du wID:(NSString *)i;
 
 @end

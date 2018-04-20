@@ -4,3 +4,5 @@
 
 #import "AppDelegate.h"
 #import "WorkoutTracking.h"
+#import "WorkoutInfo.h"
+

@@ -9,84 +9,239 @@
 import UIKit
 import Charts
 
-class StatisticsController: UIViewController {
+class StatisticsController: UIViewController, ChartViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
     
-    @IBAction func unwindToThisStatisticsController(sender : UIStoryboardSegue){
-        
+   // @IBOutlet var workoutNameLabel: UILabel!
+    @IBOutlet var chartView: LineChartView!
+    @IBOutlet var metricSeg: UISegmentedControl!
+    @IBOutlet var pickerView: UIPickerView!
+    
+    var monthDefault = 0
+    var woDefault = 0
+    
+    let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+
+    
+    var monthWO = [NSInteger]()
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 2
     }
-    @IBOutlet var workoutNameLabel: UILabel!
-    @IBOutlet var barChart: BarChartView!
     
-    
-    @IBAction func segmentChoice (sender: UISegmentedControl){
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         
-        var segmentFlag = sender.selectedSegmentIndex
-        barChartUpdate(segmentFlag)
+        
+        if(component == 1){
+        
+        var pickerLabel = view as? UILabel;
+        
+        if (pickerLabel == nil)
+        {
+            pickerLabel = UILabel()
+            
+            pickerLabel?.font = UIFont(name: "Montserrat", size: 6)
+            pickerLabel?.textAlignment = NSTextAlignment.center
+        }
+        
+        pickerLabel?.text = months[row]
+        
+        return pickerLabel!;
+        }
+            
+        else{
+            var pickerLabel = view as? UILabel;
+            
+            if (pickerLabel == nil)
+            {
+                pickerLabel = UILabel()
+                
+                pickerLabel?.font = UIFont(name: "Montserrat", size: 6)
+                pickerLabel?.textAlignment = NSTextAlignment.center
+            }
+            let mainDelegate = UIApplication.shared.delegate as! AppDelegate
+            var wi: WorkoutInfo = mainDelegate.workoutInfo.object(at: row) as! WorkoutInfo
+            
+            
+            pickerLabel?.text = wi.name
+            
+            return pickerLabel!
+            
+        }
+    return (view as! UILabel)
     }
     
-    func barChartUpdate (_ segmentFlag: Int) {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         
-        let progressStatistics : ProgressStatistics = .init()
-        let datas = progressStatistics.workoutDatas
-        var entry = [BarChartDataEntry]()
-        var e2 = [ChartDataEntry]()
+        if(component == 0){
+         let mainDelegate = UIApplication.shared.delegate as! AppDelegate
+            var wi: WorkoutInfo = mainDelegate.workoutInfo.object(at: row) as! WorkoutInfo
+            
+            return wi.name
+            
+        }
+        if(component == 1){
+            
+            return months[row]
+            
+        }
+       
+        return nil
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+         let mainDelegate = UIApplication.shared.delegate as! AppDelegate
         
-        let mainDelegate = UIApplication.shared.delegate as! AppDelegate
-        var w : WorkoutTracking = .init()
-        
-        for (n, _) in mainDelegate.workouts.enumerated() {
+        if(component == 0){
             
-            w = mainDelegate.workouts.object(at: n) as! WorkoutTracking
+            return mainDelegate.workoutInfo.count
+        }
+        if(component == 1){
             
-            
-            
-            print(w.reps)
-            print(w.weight)
-            print(w.date)
-            
-         //   e2.append(Cha)
-            entry.append(BarChartDataEntry(x: Double(w.reps)!, y:Double(w.weight)!))
-            
+             return months.count
             
         }
         
-        for (date, workout) in datas {
+       return 0
+        
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if(component == 0){
             
-         //   entry.append(BarChartDataEntry(x: Double(date), y:Double(workout[segmentFlag])))
+            self.generateLineData(metric: 0, month: monthDefault, workoutN: row)
+        }
+        if(component == 1){
             
+            self.generateLineData(metric: 0, month: row, workoutN: woDefault)
         }
         
-        let dataSet = BarChartDataSet(values: entry, label: "Workouts")
-        let data = BarChartData(dataSets: [dataSet])
-        barChart.data = data
-        barChart.chartDescription?.text = "1 Week"
-        barChart.notifyDataSetChanged()
+    }
+    
+    
+    @IBAction func metricChanged(sender : UISegmentedControl){
+        
+        var metric : NSInteger = sender.selectedSegmentIndex
+        generateLineData(metric: metric, month: monthDefault, workoutN: woDefault)
     }
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
-        let mainDelegate = UIApplication.shared.delegate as! AppDelegate
-        var w : WorkoutTracking = .init()
-//
-//        for (n, _) in mainDelegate.workouts.enumerated() {
-//
-//            w = mainDelegate.workouts.object(at: n) as! WorkoutTracking
-//
-//            print(w.date)
-//
-//
-//
-//        }
         
+        chartView.delegate = self
+        chartView.chartDescription?.enabled = false
         
-     
+        let leftAxis = chartView.leftAxis
+        leftAxis.axisMinimum = 0
+        leftAxis.labelTextColor = NSUIColor.black
         
-        let workOutTracking : WorkoutTrackingg = .init()
-        workoutNameLabel.text = workOutTracking.workoutName
-        barChartUpdate(0)
+        let xAxis = chartView.xAxis
+        xAxis.labelPosition = .bottom
+        xAxis.axisMinimum = 0
+        xAxis.granularity = 1
+        xAxis.labelTextColor = NSUIColor.black
+        
+        chartView.rightAxis.enabled = false
+        
+        chartView.backgroundColor = NSUIColor(red: 35/255.0, green: 43/255.0, blue: 53/255.0, alpha: 0.2)
+        chartView.setVisibleXRangeMaximum(5)
+        self.generateLineData(metric: 0, month: monthDefault, workoutN: woDefault)
+        
     }
     
+    func generateLineData(metric : NSInteger, month: NSInteger, workoutN: NSInteger) {
+         monthDefault = month
+         woDefault = workoutN
+        
+        let mainDelegate = UIApplication.shared.delegate as! AppDelegate
+        var w : WorkoutTracking = .init()
+        var entries = [ChartDataEntry]()
+        var wi : WorkoutInfo = .init()
+        var metricType : String = ""
+        
+      
+                for (n, _) in mainDelegate.workouts.enumerated() {
+                    
+                    w = mainDelegate.workouts.object(at: n) as! WorkoutTracking
+                    
+                    if(workoutN == Int(w.wID)){
+                        
+                        switch metric {
+                            
+                        case 0:
+                            metricType = w.reps
+                        case 1:
+                            metricType = w.sets
+                        case 2:
+                            metricType = w.weight
+                        case 3:
+                            metricType = w.duration
+                        default:
+                            metricType = ""
+                        }
+                        
+                        let dayNumber = Int(w.date.suffix(2))
+                        if(dayNumber == nil){
+                            entries.append(ChartDataEntry(x: 0.0, y: 0.0))
+                        }
+                        if(metricType == ""){
+                            entries.append(ChartDataEntry(x: 0.0, y: 0.0))
+                        }
+                        
+                        var indexStartOfText = w.date.index(w.date.startIndex, offsetBy: 5)
+                        var indexEndOfText = w.date.index(w.date.endIndex, offsetBy: -3)
+                        
+                        var substringDate = Int(w.date[indexStartOfText..<indexEndOfText])
+                        
+                        print("Substring date")
+                        print(substringDate!)
+                        print("Month")
+                        print(month)
+                        if(month == substringDate!){
+                         //   monthDefault = month
+                        
+                        entries.append(ChartDataEntry(x: Double((dayNumber)!), y: (Double(metricType))!))
+                            
+                            
+                        
+//                        for(n, _) in mainDelegate.workoutInfo.enumerated(){
+//
+//                            wi = mainDelegate.workoutInfo.object(at: n) as! WorkoutInfo
+//
+//                            if(Int(wi.workoutInfoID) == Int(w.wID)){
+//
+//                                workoutNameLabel.text =
+//
+//                            }
+//
+//                        }
+                        
+                    }
+                }
+                
+                let set = LineChartDataSet(values: entries, label: "Metric Values")
+                
+                set.setColor(NSUIColor.red)
+                set.lineWidth = 5
+                set.setCircleColor(NSUIColor.blue)
+                set.circleHoleColor = UIColor(red: 35/255, green: 43/255, blue: 53/255, alpha: 1)
+                set.circleRadius = 5
+                set.circleHoleRadius = 2
+                set.fillColor = (NSUIColor.black)
+                set.mode = .linear
+                set.drawValuesEnabled = true
+                set.valueFont = .systemFont(ofSize: 10)
+                set.valueTextColor = UIColor(red: 35/255, green: 43/255, blue: 53/255, alpha: 1)
+                
+                set.axisDependency = .left
+                
+                let data = LineChartData(dataSet: set)
+                
+                chartView.data = data
+                chartView.chartDescription?.text = "1 Month"
+                chartView.notifyDataSetChanged()
+            }
+            
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -104,3 +259,112 @@ class StatisticsController: UIViewController {
      */
     
 }
+
+// @IBOutlet var barChart: BarChartView!
+
+
+
+//    @IBAction func segmentChoice (sender: UISegmentedControl){
+//
+//        var segmentFlag = sender.selectedSegmentIndex
+//        lineChartUpdate(segmentFlag)
+//    }
+//
+
+//    func lineChartUpdate(_ segmentFlag: Int) {
+//
+//        let progressStatistics : ProgressStatistics = .init()
+//        let datas = progressStatistics.workoutDatas
+//      //  var entry = [BarChartDataEntry]()
+//
+//       var entry = [ChartDataEntry]()
+//
+//        let mainDelegate = UIApplication.shared.delegate as! AppDelegate
+//        var w : WorkoutTracking = .init()
+//
+//        for (n, _) in mainDelegate.workouts.enumerated() {
+//
+//            w = mainDelegate.workouts.object(at: n) as! WorkoutTracking
+
+
+//
+//            print(w.reps)
+//            print(w.weight)
+//            print(w.date)
+
+//           entry.append(ChartDataEntry(x: Double(w.reps)!, y: Double(w.reps)!))
+//
+//         //  entry.append(BarChartDataEntry(x: Double(w.reps)!, y:Double(w.weight)!))
+//
+//
+//        }
+
+//        for (date, workout) in datas {
+//
+//           entry.append(BarChartDataEntry(x: Double(date), y:Double(workout[segmentFlag])))
+//
+//        }
+//
+//        let line1 = LineChartDataSet(values: entry, label: "Number")
+//
+//        line1.colors = [NSUIColor.red]
+//        line1.lineWidth = 10
+//        line1.circleRadius = 10.0
+//        line1.fillColor = UIColor.red
+//        line1.highlightColor = UIColor.white
+//        line1.drawCircleHoleEnabled = true
+
+//
+//          let dataSet = BarChartDataSet(values: entry, label: "Workouts")
+//          let data = BarChartData(dataSets: [dataSet])
+//
+//        let data = LineChartData()
+//        data.addDataSet(line1)
+//        lineChart.data = data
+//        lineChart.chartDescription?.text = "1 Month"
+//
+//        lineChart.notifyDataSetChanged()
+//        lineChart.setVisibleXRangeMaximum(5)
+
+
+//        barChart.data = data
+//       barChart.chartDescription?.text = "1 Week"
+//      barChart.notifyDataSetChanged()
+//    }
+
+//    override func viewDidLoad() {
+//
+//        super.viewDidLoad()
+
+
+//        let mainDelegate = UIApplication.shared.delegate as! AppDelegate
+//        var w : WorkoutTracking = .init()
+//
+//        for (n, _) in mainDelegate.workouts.enumerated() {
+//
+//            w = mainDelegate.workouts.object(at: n) as! WorkoutTracking
+//
+//            print(w.date)
+//
+//
+//
+//        }
+
+
+
+
+//        let workOutTracking : WorkoutTrackingg = .init()
+//        workoutNameLabel.text = workOutTracking.workoutName
+//        lineChartUpdate(0)
+//    }
+
+//
+//    override func didReceiveMemoryWarning() {
+//        super.didReceiveMemoryWarning()
+//        // Dispose of any resources that can be recreated.
+//    }
+
+
+
+//}
+
