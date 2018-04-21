@@ -14,8 +14,9 @@ class MyWorkoutsController: UIViewController, UITableViewDelegate, UITableViewDa
     
     @IBOutlet var tableView: UITableView!
     
-    @IBAction func unwindToThisWorkoutsController(sender : UIStoryboardSegue){ }
-
+    @IBAction func unwindToThisWorkoutsController(sender : UIStoryboardSegue){
+    }
+    
     override func viewDidLoad() {
         tableView.delegate = self
         tableView.dataSource = self
@@ -23,13 +24,14 @@ class MyWorkoutsController: UIViewController, UITableViewDelegate, UITableViewDa
         workouts = WorkoutsDBManager.shared.getAllWorkouts()
         super.viewDidLoad()
     }
+    
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return workouts.count
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = tableView.dequeueReusableCell(withIdentifier: "workoutCell") as! MyWorkoutsCustomTableViewCell
-        cell.layer.cornerRadius = cell.cellView.frame.height / 2
+        cell.layer.cornerRadius = cell.cellView.frame.height / 1.8
         
         let workout = workouts[indexPath.row]
         
@@ -44,7 +46,7 @@ class MyWorkoutsController: UIViewController, UITableViewDelegate, UITableViewDa
         
         mainDelegate.selectedWorkout = workouts[indexPath.row].id
         
-        self.performSegue(withIdentifier: "MyWorkoutsToAll", sender: indexPath);
+        self.performSegue(withIdentifier: "MyWorkoutsToTrackProgress", sender: indexPath);
     }
 
 

@@ -78,4 +78,39 @@ class WorkoutsDBManager: NSObject {
         return workouts
     }
     
+    func getMyWorkouts() -> [Workout]!{
+        var workouts: [Workout] = [Workout]()
+        if openDatabase() {
+            let query = "select * from workout where added=1 order by \(fieldName) asc"
+            do {
+                let results = try database.executeQuery(query, values: nil)
+                
+                while results.next() {
+                    let workout = Workout(id: Int(results.int(forColumn: fieldId)),
+                                          name: results.string(forColumn: fieldName)
+                    )
+                    workouts.append(workout)
+                }
+            }
+            catch {
+                print("Unable to get workouts: \(error)")
+            }
+            database.close()
+        }
+        return workouts
+    }
+    
+    func updateAddedStatus(id : Int) -> Bool{
+        if openDatabase() {
+            let query = "update workout set added=1 where \(fieldId)=\(id)"
+            if !database.executeStatements(query) {
+                print(database.lastError(), database.lastErrorMessage())
+                database.close();
+                return false;
+            }
+            database.close();
+            return true
+        }
+        return false
+    }
 }
