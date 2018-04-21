@@ -32,12 +32,10 @@
 		AEB8D380206B426200065BE6 /* GymsNearbyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8D37F206B426200065BE6 /* GymsNearbyController.swift */; };
 		AEB8D382206B42B600065BE6 /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8D381206B42B600065BE6 /* UserAccount.swift */; };
 		AEB8D384206B42C800065BE6 /* DailyActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8D383206B42C800065BE6 /* DailyActivity.swift */; };
-		AEB8D386206B42DC00065BE6 /* WorkoutTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8D385206B42DC00065BE6 /* WorkoutTracking.swift */; };
 		AEB8D388206B42E900065BE6 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8D387206B42E900065BE6 /* UserProfile.swift */; };
 		AEB8D38A206B42F700065BE6 /* Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8D389206B42F700065BE6 /* Mapping.swift */; };
 		AEB8D38C206B430C00065BE6 /* WorkoutPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8D38B206B430C00065BE6 /* WorkoutPlan.swift */; };
 		AEB8D38E206B431800065BE6 /* Gallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8D38D206B431800065BE6 /* Gallery.swift */; };
-		AEB8D390206B432700065BE6 /* ProgressStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8D38F206B432700065BE6 /* ProgressStatistics.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,12 +70,10 @@
 		AEB8D37F206B426200065BE6 /* GymsNearbyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymsNearbyController.swift; sourceTree = "<group>"; };
 		AEB8D381206B42B600065BE6 /* UserAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
 		AEB8D383206B42C800065BE6 /* DailyActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyActivity.swift; sourceTree = "<group>"; };
-		AEB8D385206B42DC00065BE6 /* WorkoutTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutTracking.swift; sourceTree = "<group>"; };
 		AEB8D387206B42E900065BE6 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		AEB8D389206B42F700065BE6 /* Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mapping.swift; sourceTree = "<group>"; };
 		AEB8D38B206B430C00065BE6 /* WorkoutPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutPlan.swift; sourceTree = "<group>"; };
 		AEB8D38D206B431800065BE6 /* Gallery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gallery.swift; sourceTree = "<group>"; };
-		AEB8D38F206B432700065BE6 /* ProgressStatistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressStatistics.swift; sourceTree = "<group>"; };
 		D1D5F4FCBFCA12DB85B694A2 /* Pods-FitnessTrackerApplication.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitnessTrackerApplication.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FitnessTrackerApplication/Pods-FitnessTrackerApplication.debug.xcconfig"; sourceTree = "<group>"; };
 		D3DFC388AC39F20BCEB14F8C /* Pods_FitnessTrackerApplication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FitnessTrackerApplication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -153,12 +149,10 @@
 			children = (
 				AEB8D381206B42B600065BE6 /* UserAccount.swift */,
 				AEB8D383206B42C800065BE6 /* DailyActivity.swift */,
-				AEB8D385206B42DC00065BE6 /* WorkoutTracking.swift */,
 				AEB8D387206B42E900065BE6 /* UserProfile.swift */,
 				AEB8D389206B42F700065BE6 /* Mapping.swift */,
 				AEB8D38B206B430C00065BE6 /* WorkoutPlan.swift */,
 				AEB8D38D206B431800065BE6 /* Gallery.swift */,
-				AEB8D38F206B432700065BE6 /* ProgressStatistics.swift */,
 				AE382A6B208850A200E71BB4 /* AppDelegate.h */,
 				AE382A6C208850A200E71BB4 /* AppDelegate.m */,
 				AE382A6A208850A100E71BB4 /* FitnessTrackerApplication-Bridging-Header.h */,
@@ -362,7 +356,6 @@
 				AEB8D376206B41B300065BE6 /* TrackController.swift in Sources */,
 				AEB8D372206B40D800065BE6 /* LoginController.swift in Sources */,
 				AEB8D384206B42C800065BE6 /* DailyActivity.swift in Sources */,
-				AEB8D390206B432700065BE6 /* ProgressStatistics.swift in Sources */,
 				AE382A70208850E700E71BB4 /* main.m in Sources */,
 				AEB8D37E206B423D00065BE6 /* MyWorkoutsController.swift in Sources */,
 				AEB8D382206B42B600065BE6 /* UserAccount.swift in Sources */,
@@ -372,7 +365,6 @@
 				AEB8D37C206B422000065BE6 /* AllExercisesController.swift in Sources */,
 				AEB8D36E206B409700065BE6 /* ProfileController.swift in Sources */,
 				AEB8D38E206B431800065BE6 /* Gallery.swift in Sources */,
-				AEB8D386206B42DC00065BE6 /* WorkoutTracking.swift in Sources */,
 				AEB8D370206B40BC00065BE6 /* TodayController.swift in Sources */,
 				AEB8D388206B42E900065BE6 /* UserProfile.swift in Sources */,
 				AE8AA09320893F0D00C20DB1 /* WorkoutInfo.m in Sources */,

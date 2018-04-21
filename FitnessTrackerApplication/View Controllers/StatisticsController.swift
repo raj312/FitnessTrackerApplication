@@ -11,7 +11,6 @@ import Charts
 
 class StatisticsController: UIViewController, ChartViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
     
-   // @IBOutlet var workoutNameLabel: UILabel!
     @IBOutlet var chartView: LineChartView!
     @IBOutlet var metricSeg: UISegmentedControl!
     @IBOutlet var pickerView: UIPickerView!
@@ -197,23 +196,8 @@ class StatisticsController: UIViewController, ChartViewDelegate, UIPickerViewDat
                         print("Month")
                         print(month)
                         if(month == substringDate!){
-                         //   monthDefault = month
                         
                         entries.append(ChartDataEntry(x: Double((dayNumber)!), y: (Double(metricType))!))
-                            
-                            
-                        
-//                        for(n, _) in mainDelegate.workoutInfo.enumerated(){
-//
-//                            wi = mainDelegate.workoutInfo.object(at: n) as! WorkoutInfo
-//
-//                            if(Int(wi.workoutInfoID) == Int(w.wID)){
-//
-//                                workoutNameLabel.text =
-//
-//                            }
-//
-//                        }
                         
                     }
                 }
@@ -259,112 +243,4 @@ class StatisticsController: UIViewController, ChartViewDelegate, UIPickerViewDat
      */
     
 }
-
-// @IBOutlet var barChart: BarChartView!
-
-
-
-//    @IBAction func segmentChoice (sender: UISegmentedControl){
-//
-//        var segmentFlag = sender.selectedSegmentIndex
-//        lineChartUpdate(segmentFlag)
-//    }
-//
-
-//    func lineChartUpdate(_ segmentFlag: Int) {
-//
-//        let progressStatistics : ProgressStatistics = .init()
-//        let datas = progressStatistics.workoutDatas
-//      //  var entry = [BarChartDataEntry]()
-//
-//       var entry = [ChartDataEntry]()
-//
-//        let mainDelegate = UIApplication.shared.delegate as! AppDelegate
-//        var w : WorkoutTracking = .init()
-//
-//        for (n, _) in mainDelegate.workouts.enumerated() {
-//
-//            w = mainDelegate.workouts.object(at: n) as! WorkoutTracking
-
-
-//
-//            print(w.reps)
-//            print(w.weight)
-//            print(w.date)
-
-//           entry.append(ChartDataEntry(x: Double(w.reps)!, y: Double(w.reps)!))
-//
-//         //  entry.append(BarChartDataEntry(x: Double(w.reps)!, y:Double(w.weight)!))
-//
-//
-//        }
-
-//        for (date, workout) in datas {
-//
-//           entry.append(BarChartDataEntry(x: Double(date), y:Double(workout[segmentFlag])))
-//
-//        }
-//
-//        let line1 = LineChartDataSet(values: entry, label: "Number")
-//
-//        line1.colors = [NSUIColor.red]
-//        line1.lineWidth = 10
-//        line1.circleRadius = 10.0
-//        line1.fillColor = UIColor.red
-//        line1.highlightColor = UIColor.white
-//        line1.drawCircleHoleEnabled = true
-
-//
-//          let dataSet = BarChartDataSet(values: entry, label: "Workouts")
-//          let data = BarChartData(dataSets: [dataSet])
-//
-//        let data = LineChartData()
-//        data.addDataSet(line1)
-//        lineChart.data = data
-//        lineChart.chartDescription?.text = "1 Month"
-//
-//        lineChart.notifyDataSetChanged()
-//        lineChart.setVisibleXRangeMaximum(5)
-
-
-//        barChart.data = data
-//       barChart.chartDescription?.text = "1 Week"
-//      barChart.notifyDataSetChanged()
-//    }
-
-//    override func viewDidLoad() {
-//
-//        super.viewDidLoad()
-
-
-//        let mainDelegate = UIApplication.shared.delegate as! AppDelegate
-//        var w : WorkoutTracking = .init()
-//
-//        for (n, _) in mainDelegate.workouts.enumerated() {
-//
-//            w = mainDelegate.workouts.object(at: n) as! WorkoutTracking
-//
-//            print(w.date)
-//
-//
-//
-//        }
-
-
-
-
-//        let workOutTracking : WorkoutTrackingg = .init()
-//        workoutNameLabel.text = workOutTracking.workoutName
-//        lineChartUpdate(0)
-//    }
-
-//
-//    override func didReceiveMemoryWarning() {
-//        super.didReceiveMemoryWarning()
-//        // Dispose of any resources that can be recreated.
-//    }
-
-
-
-//}
 

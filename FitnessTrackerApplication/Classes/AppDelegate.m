@@ -9,7 +9,6 @@
 #import "AppDelegate.h"
 #import <sqlite3.h>
 
-
 @interface AppDelegate ()
 
 @end
@@ -23,6 +22,7 @@
 {
     
     BOOL success;
+    
     NSFileManager *fileManager = [NSFileManager defaultManager];
     
     success = [fileManager fileExistsAtPath:self.databasePath];
@@ -70,16 +70,20 @@
                 [self.workouts addObject:workout];
             }
         }
-        else{
-          NSLog(@"SQLite not okay"); /////since you cant dynamically add variables to sql query, select all, then filter through session objects with foreach, and then an if to match with the work out id. You can add them to supporting class (workout tracking ) first by setting class variables then use them in statistics class
+        else
+        {
+          NSLog(@"Paramaters for query contain errors");
         }
+        
         sqlite3_finalize(compiledStatement);
         
-    }else{
+    }
+    else
+    {
         NSLog(@"Database didnt open");
     }
-    sqlite3_close(database);
     
+    sqlite3_close(database);
 }
 
 -(void)readWorkoutInfoFromDatabase
@@ -105,24 +109,26 @@
                 char *v = sqlite3_column_text(compiledStatement, 2);
                 NSString *videoCode = [NSString stringWithUTF8String:(char *)v];
                
-            
                 WorkoutInfo *info = [[WorkoutInfo alloc] initWithData:(NSString *)wID name:name videoCode:videoCode];
                 
                 [self.workoutInfo addObject:info];
       
             }
         }
-        else{
-            NSLog(@"SQLite not okay"); /////since you cant dynamically add variables to sql query, select all, then filter through session objects with foreach, and then an if to match with the work out id. You can add them to supporting class (workout tracking ) first by setting class variables then use them in statistics class
+        else
+        {
+            NSLog(@"Paramaters for query contain errors");
         }
         sqlite3_finalize(compiledStatement);
         
-    }else{
+    }else
+    {
         NSLog(@"Database didnt open");
     }
     sqlite3_close(database);
     
 }
+
 -(BOOL)insertIntoDatabase:(WorkoutTracking *)workout
 {
     

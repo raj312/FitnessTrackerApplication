@@ -10,7 +10,6 @@
 
 @interface WorkoutTracking : NSObject{
     
-    
     NSString *date;
     NSString *reps;
     NSString *weight;
