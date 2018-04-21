@@ -10,51 +10,47 @@ import UIKit
 
 class MyWorkoutsController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    let workouts = ["Leg Day", "Back and Bi", "Chest and Tri", "Shoulders", "Cardio and Abs"]
+    var workouts: [WorkoutsDBManager.Workout]!
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet var tableView: UITableView!
     
-    @IBAction func unwindToThisWorkoutsController(sender : UIStoryboardSegue){
-        
-    }
+    @IBAction func unwindToThisWorkoutsController(sender : UIStoryboardSegue){ }
 
     override func viewDidLoad() {
-        super.viewDidLoad()
-    
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.backgroundView = UIImageView(image: UIImage(named: "workoutlistwallpaper.jpg"))
+        workouts = WorkoutsDBManager.shared.getAllWorkouts()
+        super.viewDidLoad()
     }
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return workouts.count
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80;
-    }
-    
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-        let cell = tableView.dequeueReusableCell(withIdentifier: "customCell") as! MyWorkoutsCustomTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "workoutCell") as! MyWorkoutsCustomTableViewCell
         cell.layer.cornerRadius = cell.cellView.frame.height / 2
         
+        let workout = workouts[indexPath.row]
         
-        cell.lblWorkoutName.text = workouts[indexPath.row]
+        cell.lblWorkoutName.text = workout.name
+        cell.id = workout.id
+        
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let mainDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        mainDelegate.selectedWorkout = workouts[indexPath.row].id
+        
+        self.performSegue(withIdentifier: "MyWorkoutsToAll", sender: indexPath);
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

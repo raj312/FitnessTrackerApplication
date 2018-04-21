@@ -18,7 +18,7 @@ class WorkoutsDBManager: NSObject {
     let fieldId = "id"
     let fieldName = "name"
     
-    struct workout {
+    struct Workout {
         var id: Int!
         var name: String!
     }
@@ -31,15 +31,11 @@ class WorkoutsDBManager: NSObject {
         pathToDatabase = documentsDirectory.appendingFormat("/" + databaseFileName)
         print(pathToDatabase)
         if FileManager.default.fileExists(atPath: pathToDatabase) {
-            print("DB Exists")
         } else {
-            let dbSource = Bundle.main.url(forResource: "data", withExtension:"db")
-            print("START - \(String(describing: dbSource)) - END")
+            let dbSource = Bundle.main.url(forResource: "workoutdb", withExtension:"db")
             let dbDestination = URL(string: "file://" + pathToDatabase)
-            print("START - \(String(describing: dbDestination)) - END")
             do{
                 try FileManager.default.copyItem(at: dbSource!, to: dbDestination!)
-                print("DB File Copied")
             }catch{
                 print("DB File Not Copied: \(error)")
             }
@@ -50,4 +46,36 @@ class WorkoutsDBManager: NSObject {
             }
         }
     }
+    
+    func openDatabase() -> Bool {
+        if database != nil {
+            if database.open() {
+                return true
+            }
+        }
+        return false
+    }
+    
+    func getAllWorkouts() -> [Workout]!{
+        var workouts: [Workout] = [Workout]()
+        if openDatabase() {
+            let query = "select * from workout order by \(fieldName) asc"
+            do {
+                let results = try database.executeQuery(query, values: nil)
+                
+                while results.next() {
+                    let workout = Workout(id: Int(results.int(forColumn: fieldId)),
+                                    name: results.string(forColumn: fieldName)
+                    )
+                    workouts.append(workout)
+                }
+            }
+            catch {
+                print("Unable to get users: \(error)")
+            }
+            database.close()
+        }
+        return workouts
+    }
+    
 }

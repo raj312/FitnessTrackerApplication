@@ -10,9 +10,10 @@ import UIKit
 
 class MyWorkoutsCustomTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var cellView: UIView!
-    @IBOutlet weak var bulletImage: UIImageView!
-    @IBOutlet weak var lblWorkoutName: UILabel!
+    @IBOutlet var cellView: UIView!
+    @IBOutlet var lblWorkoutName: UILabel!
+    var id = Int()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,7 +21,7 @@ class MyWorkoutsCustomTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
 
