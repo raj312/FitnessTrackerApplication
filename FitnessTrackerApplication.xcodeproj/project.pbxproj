@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		3500931F2072EAE800A3ED82 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3500931E2072EAE800A3ED82 /* HealthKit.framework */; };
+		35178054208824B5000E6EE6 /* cal.png in Resources */ = {isa = PBXBuildFile; fileRef = 35178051208824B3000E6EE6 /* cal.png */; };
+		35178055208824B5000E6EE6 /* walkRun.png in Resources */ = {isa = PBXBuildFile; fileRef = 35178052208824B4000E6EE6 /* walkRun.png */; };
+		35178056208824B5000E6EE6 /* heartRate.png in Resources */ = {isa = PBXBuildFile; fileRef = 35178053208824B4000E6EE6 /* heartRate.png */; };
+		3517805820882500000E6EE6 /* distance.png in Resources */ = {isa = PBXBuildFile; fileRef = 35178057208824FF000E6EE6 /* distance.png */; };
 		35727C37206814A1009DA298 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35727C36206814A1009DA298 /* AppDelegate.swift */; };
 		35727C39206814A1009DA298 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35727C38206814A1009DA298 /* ViewController.swift */; };
 		35727C3C206814A1009DA298 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35727C3A206814A1009DA298 /* Main.storyboard */; };
@@ -42,6 +46,10 @@
 /* Begin PBXFileReference section */
 		350093152072E4D200A3ED82 /* FitnessTrackerApplication.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FitnessTrackerApplication.entitlements; sourceTree = "<group>"; };
 		3500931E2072EAE800A3ED82 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		35178051208824B3000E6EE6 /* cal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cal.png; sourceTree = "<group>"; };
+		35178052208824B4000E6EE6 /* walkRun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = walkRun.png; sourceTree = "<group>"; };
+		35178053208824B4000E6EE6 /* heartRate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heartRate.png; sourceTree = "<group>"; };
+		35178057208824FF000E6EE6 /* distance.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = distance.png; sourceTree = "<group>"; };
 		35727C33206814A1009DA298 /* FitnessTrackerApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitnessTrackerApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35727C36206814A1009DA298 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35727C38206814A1009DA298 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -183,6 +191,10 @@
 		35727C4B206814EA009DA298 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				35178057208824FF000E6EE6 /* distance.png */,
+				35178051208824B3000E6EE6 /* cal.png */,
+				35178053208824B4000E6EE6 /* heartRate.png */,
+				35178052208824B4000E6EE6 /* walkRun.png */,
 				35AB64B32079370A005581AA /* fitness_tracker_logo.jpg */,
 			);
 			path = Images;
@@ -267,8 +279,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35178056208824B5000E6EE6 /* heartRate.png in Resources */,
+				35178054208824B5000E6EE6 /* cal.png in Resources */,
 				35727C41206814A1009DA298 /* LaunchScreen.storyboard in Resources */,
 				35AB64B42079370A005581AA /* fitness_tracker_logo.jpg in Resources */,
+				3517805820882500000E6EE6 /* distance.png in Resources */,
+				35178055208824B5000E6EE6 /* walkRun.png in Resources */,
 				35727C3E206814A1009DA298 /* Assets.xcassets in Resources */,
 				35AB64AA2077F78E005581AA /* FitnessInfo.db in Resources */,
 				35727C3C206814A1009DA298 /* Main.storyboard in Resources */,

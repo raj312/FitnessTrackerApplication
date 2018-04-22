@@ -17,6 +17,7 @@ class TodayController: UIViewController {
     @IBOutlet var lbAverageHeartRate: UILabel!
     @IBOutlet var lbMaximumHeartRate: UILabel!
     @IBOutlet var lbMinimumHeartRate: UILabel!
+    @IBOutlet var lbHeartRate: UILabel!
     
     var activeEnergy: Double = 0.0
     var dailySteps: Double? = 0.0
@@ -33,6 +34,7 @@ class TodayController: UIViewController {
         // Do any additional setup after loading the view.
         //run authorize healthkit code once the view loads
         activity.authorizeHealthKit()
+        lbHeartRate.text = "0 bpm"
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,14 +45,33 @@ class TodayController: UIViewController {
     //On button click, this function retrieves all values from the healthkit and displays them
     @IBAction func getDetails(sender: UIButton) {
         let (activeEnergy, steps, activeDistance, averageHeartRate, maximumHeartRate, minimumHeartRate) = activity.readFromHealthKit()
-        self.lbActiveEnergyBurned.text = "ActiveEnergyBurned: \(activeEnergy) calories"
-        self.lbDailySteps.text = "Daily Steps: \(steps)"
-        self.lbDistanceWalkingRunning.text = "Walking & Running Distance: \(activeDistance) miles"
-        self.lbAverageHeartRate.text = "Average Heart Rate: \(averageHeartRate) beats/minute"
-        self.lbMaximumHeartRate.text = "Maximum Heart Rate: \(maximumHeartRate) beats/minute"
-        self.lbMinimumHeartRate.text = "Minimum Heart rate: \(minimumHeartRate) beats/minute"
+        self.lbActiveEnergyBurned.text = "\(activeEnergy)"
+        self.lbDailySteps.text = "\(steps)"
+        self.lbDistanceWalkingRunning.text = "\(activeDistance)"
+        self.avgHeartRate = averageHeartRate
+        self.maxHeartRate = maximumHeartRate
+        self.minHeartRate = minimumHeartRate
     }
-        
+    
+    @IBAction func getHeartRateSegmentedControl(sender: UISegmentedControl){
+        let nf = NumberFormatter()
+        nf.numberStyle = NumberFormatter.Style.decimal
+        nf.maximumFractionDigits = 2
+        switch sender.selectedSegmentIndex {
+        case 0:
+            lbHeartRate.text = nf.string(from: minHeartRate! as NSNumber)
+            break
+        case 1:
+            lbHeartRate.text = nf.string(from: avgHeartRate! as NSNumber)
+            break
+        case 2:
+            lbHeartRate.text = nf.string(from: maxHeartRate! as NSNumber)
+            break
+        default:
+            break
+        }
+    }
+    
     /*
     // MARK: - Navigation
 
