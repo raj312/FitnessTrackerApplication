@@ -8,10 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3500931F2072EAE800A3ED82 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3500931E2072EAE800A3ED82 /* HealthKit.framework */; };
-		35178054208824B5000E6EE6 /* cal.png in Resources */ = {isa = PBXBuildFile; fileRef = 35178051208824B3000E6EE6 /* cal.png */; };
-		35178055208824B5000E6EE6 /* walkRun.png in Resources */ = {isa = PBXBuildFile; fileRef = 35178052208824B4000E6EE6 /* walkRun.png */; };
-		35178056208824B5000E6EE6 /* heartRate.png in Resources */ = {isa = PBXBuildFile; fileRef = 35178053208824B4000E6EE6 /* heartRate.png */; };
-		3517805820882500000E6EE6 /* distance.png in Resources */ = {isa = PBXBuildFile; fileRef = 35178057208824FF000E6EE6 /* distance.png */; };
 		35727C37206814A1009DA298 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35727C36206814A1009DA298 /* AppDelegate.swift */; };
 		35727C39206814A1009DA298 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35727C38206814A1009DA298 /* ViewController.swift */; };
 		35727C3C206814A1009DA298 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35727C3A206814A1009DA298 /* Main.storyboard */; };
@@ -21,7 +17,6 @@
 		35AB64AD2077F82C005581AA /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 35AB64AB2077F82C005581AA /* libsqlite3.tbd */; };
 		35AB64AE2077F82C005581AA /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 35AB64AC2077F82C005581AA /* libsqlite3.0.tbd */; };
 		35AB64B22077F990005581AA /* DataAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 35AB64B12077F990005581AA /* DataAccess.m */; };
-		35AB64B42079370A005581AA /* fitness_tracker_logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 35AB64B32079370A005581AA /* fitness_tracker_logo.jpg */; };
 		AEB8D36C2069EB9E00065BE6 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8D36B2069EB9E00065BE6 /* HomeController.swift */; };
 		AEB8D36E206B409700065BE6 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8D36D206B409700065BE6 /* ProfileController.swift */; };
 		AEB8D370206B40BC00065BE6 /* TodayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8D36F206B40BC00065BE6 /* TodayController.swift */; };
@@ -46,10 +41,6 @@
 /* Begin PBXFileReference section */
 		350093152072E4D200A3ED82 /* FitnessTrackerApplication.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FitnessTrackerApplication.entitlements; sourceTree = "<group>"; };
 		3500931E2072EAE800A3ED82 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
-		35178051208824B3000E6EE6 /* cal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cal.png; sourceTree = "<group>"; };
-		35178052208824B4000E6EE6 /* walkRun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = walkRun.png; sourceTree = "<group>"; };
-		35178053208824B4000E6EE6 /* heartRate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heartRate.png; sourceTree = "<group>"; };
-		35178057208824FF000E6EE6 /* distance.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = distance.png; sourceTree = "<group>"; };
 		35727C33206814A1009DA298 /* FitnessTrackerApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitnessTrackerApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35727C36206814A1009DA298 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35727C38206814A1009DA298 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -63,7 +54,6 @@
 		35AB64AF2077F98F005581AA /* FitnessTrackerApplication-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FitnessTrackerApplication-Bridging-Header.h"; sourceTree = "<group>"; };
 		35AB64B02077F990005581AA /* DataAccess.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataAccess.h; sourceTree = "<group>"; };
 		35AB64B12077F990005581AA /* DataAccess.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataAccess.m; sourceTree = "<group>"; };
-		35AB64B32079370A005581AA /* fitness_tracker_logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fitness_tracker_logo.jpg; sourceTree = "<group>"; };
 		AEB8D36B2069EB9E00065BE6 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		AEB8D36D206B409700065BE6 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		AEB8D36F206B40BC00065BE6 /* TodayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayController.swift; sourceTree = "<group>"; };
@@ -131,7 +121,6 @@
 			children = (
 				35AB64A62077F753005581AA /* Databases */,
 				350093152072E4D200A3ED82 /* FitnessTrackerApplication.entitlements */,
-				35727C4B206814EA009DA298 /* Images */,
 				35727C4A206814CC009DA298 /* Storyboards */,
 				35727C49206814BC009DA298 /* Classes */,
 				35727C48206814AF009DA298 /* View Controllers */,
@@ -186,18 +175,6 @@
 				35727C3F206814A1009DA298 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
-			sourceTree = "<group>";
-		};
-		35727C4B206814EA009DA298 /* Images */ = {
-			isa = PBXGroup;
-			children = (
-				35178057208824FF000E6EE6 /* distance.png */,
-				35178051208824B3000E6EE6 /* cal.png */,
-				35178053208824B4000E6EE6 /* heartRate.png */,
-				35178052208824B4000E6EE6 /* walkRun.png */,
-				35AB64B32079370A005581AA /* fitness_tracker_logo.jpg */,
-			);
-			path = Images;
 			sourceTree = "<group>";
 		};
 		35AB64A62077F753005581AA /* Databases */ = {
@@ -279,12 +256,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				35178056208824B5000E6EE6 /* heartRate.png in Resources */,
-				35178054208824B5000E6EE6 /* cal.png in Resources */,
 				35727C41206814A1009DA298 /* LaunchScreen.storyboard in Resources */,
-				35AB64B42079370A005581AA /* fitness_tracker_logo.jpg in Resources */,
-				3517805820882500000E6EE6 /* distance.png in Resources */,
-				35178055208824B5000E6EE6 /* walkRun.png in Resources */,
 				35727C3E206814A1009DA298 /* Assets.xcassets in Resources */,
 				35AB64AA2077F78E005581AA /* FitnessInfo.db in Resources */,
 				35727C3C206814A1009DA298 /* Main.storyboard in Resources */,
