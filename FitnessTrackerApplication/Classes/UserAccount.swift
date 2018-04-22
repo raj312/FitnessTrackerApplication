@@ -9,26 +9,8 @@
 import Foundation;
 
 class UserAccount: NSObject {
-    
-    var name: String?
-    var uName: String?
-    var uPass: String?
-    var uConfirmPass: String?
-    var address: String?
-    var gender: String?
-    var dateOfBirth: String?
-    
-    func initWithData(name: String, uName: String, uPass: String, uConfirmPass: String, address: String, gender: String, dateOfBirth: String ) {
-        self.name = name
-        self.uName = uName
-        self.uPass = uPass
-        self.uConfirmPass = uConfirmPass
-        self.address = address
-        self.gender = gender
-        self.dateOfBirth = dateOfBirth
-    }
-    
-    func validateInput(username: String, password: String, confirmPassword: String) -> String {
+
+    func validateInput(name: String, username: String, password: String, confirmPassword: String, address: String, gender: String, dateOfBirth: String) -> String {
         var errorMessage = ""
         if username == "" {
             print("Username must be provided")
@@ -53,6 +35,10 @@ class UserAccount: NSObject {
         }else {
             errorMessage += "\nPassword and confirm password must match"
         }
+        if address == "" || gender == "" || dateOfBirth == "" {
+            print("All fields are compulsory")
+            errorMessage += "\nAll fields must be filled"
+        }
         return errorMessage
     }
  
@@ -66,6 +52,4 @@ class UserAccount: NSObject {
         //print(userIsValid)
         return errorMssg
     }
-
-    
 }

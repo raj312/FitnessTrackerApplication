@@ -62,18 +62,32 @@ class SignUpController: UIViewController, UITextFieldDelegate {
         
         let userAccount: UserAccount = .init()
         
+       
+        
         //validate input
-        // - All fields except username and password are optional
-        let errorMessage: String = userAccount.validateInput(username: uName!, password: uPass!, confirmPassword: uConfirmPass!)
+        // - All fields are compulsory
+        let errorMessage: String = userAccount.validateInput(name: name!, username: uName!, password: uPass!, confirmPassword: uConfirmPass!, address: address!, gender: gender!, dateOfBirth: sDateOfBirth)
         if (errorMessage == "") { //no error returned - input is valid
             //create a user account object with data
-            userAccount.initWithData(name: name!, uName: uName!, uPass: uPass!, uConfirmPass: uConfirmPass!, address: address!, gender: gender!, dateOfBirth: sDateOfBirth)
+            let user: User = .init()
+            user.name = name
+            user.username = uName
+            user.password = uPass
+            user.confirmPassword = uConfirmPass
+            user.address = address
+            user.gender = gender
+            user.dateOfBirth = sDateOfBirth
             
             // insert userinput in users table in the database
-            
-            //show alert and redirect to home page
-            showAlert(showTitle: "Sign up Complete", userMessage: "You can now use the fitness tracker application to keep up with your fitness goals", segueToDo: "ChooseSegueSignupToHome")
-            // print("Alls good")
+            let da: DataAccess = .init()
+            let returnCode: Bool = da.insert(intoDatabase: user)
+            var returnMsg:String = "Person Added"
+            if (returnCode == false) {
+                returnMsg = "Person add Failed"
+            }else{
+                //show alert and redirect to home page
+                showAlert(showTitle: "Sign up Complete", userMessage: "You can now use the fitness tracker application to keep up with your fitness goals", segueToDo: "ChooseSegueSignupToHome")
+            }
         }else {
             showAlert(showTitle: "Error", userMessage: errorMessage, segueToDo: "")
         }

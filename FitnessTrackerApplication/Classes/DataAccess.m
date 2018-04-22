@@ -49,9 +49,6 @@
 }
 
 -(NSString *)readDataAndAuthenticateUser:(NSString *)uname password:(NSString *)pass {
-    // clear out array at the start
-    //[self.users removeAllObjects];
-    //BOOL userIsValid = false;
     NSString *errorMsg = @"";
     sqlite3 *database;
     //opens connection to database
@@ -64,50 +61,13 @@
         //prepare the object -- -1 all data
         if(sqlite3_prepare_v2(database, sqlStatement, -1, &compileStatement, NULL) == SQLITE_OK) {
             if(sqlite3_step(compileStatement) == SQLITE_ROW) { //if there is a row returned
-                /*
-                char *n = (char *)sqlite3_column_text(compileStatement, 1); //1 - second column -- name
-                NSString *name = [NSString stringWithUTF8String:n];
-                */
-                
-                char *u = (char *)sqlite3_column_text(compileStatement, 2); //2 - username
-                NSString *username = [NSString stringWithFormat:@"%s", u];
-                
-                char *p = (char *)sqlite3_column_text(compileStatement, 3); //3 -- password
-                NSString *password = [NSString stringWithFormat:@"%s", p];
-
-                /*
-                char *cp = (char *)sqlite3_column_text(compileStatement, 4); //4 -- confirm password
-                NSString *confirmpassword = [NSString stringWithUTF8String:cp];
-                
-                char *a = (char *)sqlite3_column_text(compileStatement, 5); //5 -- address
-                NSString *address = [NSString stringWithUTF8String:a];
-                
-                char *g = (char *)sqlite3_column_text(compileStatement, 6); //6 - gender
-                NSString *gender = [NSString stringWithUTF8String:g];
-                
-                char *d = (char *)sqlite3_column_text(compileStatement, 7); //7 - date of birth
-                NSString *dob = [NSString stringWithUTF8String:d];
-                */
-                
-                //comparing username and password
-                if(uname == username && pass == password){
-                    //userIsValid = true;
-                } else {
-                    NSString *msg = @"Invalid Login. Try again";
-                    NSString *concat = [NSString stringWithFormat:@"%@%@", errorMsg, msg];
-                    errorMsg = concat;
-                }
-                
-                //Declare a user account object and initialise it with the above data
-                
-//                UserAccount *user = [[]]
-//                Data *data = [[Data alloc] initWithData:name theEmail:email theFood:food];
-                
-//                [self.people addObject:data];
-                
+                //user is valid
+            }else {
+                NSString *msg = @"Invalid Login. Try again";
+                NSString *concat = [NSString stringWithFormat:@"%@%@", errorMsg, msg];
+                errorMsg = concat;
             }
         }
-        
         //cleaning up - free up resources
         sqlite3_finalize(compileStatement);
     }
@@ -141,5 +101,34 @@
     return userExists;
 }
 
-
+-(BOOL)insertIntoDatabase:(User *)user {
+    sqlite3 *database;
+    BOOL returnCode = YES;
+    
+    if(sqlite3_open([self.databasePath UTF8String], &database) == SQLITE_OK) {
+        char *sqlStatement = "Insert INTO users VALUES (NULL, ?, ?, ?, ?, ?, ?)";
+        //this means there are placeholders and we will replace them with data
+        sqlite3_stmt *compiledStatement;
+        if(sqlite3_prepare_v2(database, sqlStatement, -1, &compiledStatement, NULL) == SQLITE_OK) {
+            //replacing the question marks with proper values
+            // 1 - second field in DB
+            sqlite3_bind_text(compiledStatement, 1, [user.name UTF8String], -1, SQLITE_TRANSIENT);
+            sqlite3_bind_text(compiledStatement, 2, [user.username UTF8String], -1, SQLITE_TRANSIENT);
+            sqlite3_bind_text(compiledStatement, 3, [user.password UTF8String], -1, SQLITE_TRANSIENT);
+            sqlite3_bind_text(compiledStatement, 4, [user.address UTF8String], -1, SQLITE_TRANSIENT);
+            sqlite3_bind_text(compiledStatement, 5, [user.gender UTF8String], -1, SQLITE_TRANSIENT);
+            sqlite3_bind_text(compiledStatement, 6, [user.dateOfBirth UTF8String], -1, SQLITE_TRANSIENT);
+        }
+        if(sqlite3_step(compiledStatement) != SQLITE_DONE) {
+            NSLog(@"Error: %s", sqlite3_errmsg(database));
+            returnCode = NO;
+        }else {
+            NSLog(@"Insert into row id = %lld", sqlite3_last_insert_rowid(database));
+        }
+        //clean up
+        sqlite3_finalize(compiledStatement);
+    }
+    sqlite3_close(database);
+    return returnCode;
+}
 @end

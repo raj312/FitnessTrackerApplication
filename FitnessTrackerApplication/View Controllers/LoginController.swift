@@ -48,9 +48,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
             performSegue(withIdentifier: "ChooseSegueToHome", sender: nil)
         }else {
             let alert = UIAlertController(title: "Invalid Login", message: errorMessage, preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "OK", style: .default, handler: {(alert: UIAlertAction!) in
-                // do nothing
-            })
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             alert.addAction(okAction)
             present(alert, animated: true)
         }
