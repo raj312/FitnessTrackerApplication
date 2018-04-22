@@ -124,7 +124,6 @@
 			children = (
 				35AB64A62077F753005581AA /* Databases */,
 				350093152072E4D200A3ED82 /* FitnessTrackerApplication.entitlements */,
-				35727C4B206814EA009DA298 /* Images */,
 				35727C4A206814CC009DA298 /* Storyboards */,
 				35727C49206814BC009DA298 /* Classes */,
 				35727C48206814AF009DA298 /* View Controllers */,
@@ -181,13 +180,6 @@
 				35727C3F206814A1009DA298 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
-			sourceTree = "<group>";
-		};
-		35727C4B206814EA009DA298 /* Images */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Images;
 			sourceTree = "<group>";
 		};
 		35AB64A62077F753005581AA /* Databases */ = {
