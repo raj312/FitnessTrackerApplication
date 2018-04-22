@@ -18,6 +18,11 @@
 		35AB64AD2077F82C005581AA /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 35AB64AB2077F82C005581AA /* libsqlite3.tbd */; };
 		35AB64AE2077F82C005581AA /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 35AB64AC2077F82C005581AA /* libsqlite3.0.tbd */; };
 		35AB64B22077F990005581AA /* DataAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 35AB64B12077F990005581AA /* DataAccess.m */; };
+		35EAD81B208CFED00067CB78 /* fitness_tracker_logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 35EAD816208CFED00067CB78 /* fitness_tracker_logo.jpg */; };
+		35EAD81C208CFED00067CB78 /* distance.png in Resources */ = {isa = PBXBuildFile; fileRef = 35EAD817208CFED00067CB78 /* distance.png */; };
+		35EAD81D208CFED00067CB78 /* heartRate.png in Resources */ = {isa = PBXBuildFile; fileRef = 35EAD818208CFED00067CB78 /* heartRate.png */; };
+		35EAD81E208CFED00067CB78 /* walkRun.png in Resources */ = {isa = PBXBuildFile; fileRef = 35EAD819208CFED00067CB78 /* walkRun.png */; };
+		35EAD81F208CFED00067CB78 /* cal.png in Resources */ = {isa = PBXBuildFile; fileRef = 35EAD81A208CFED00067CB78 /* cal.png */; };
 		AEB8D36C2069EB9E00065BE6 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8D36B2069EB9E00065BE6 /* HomeController.swift */; };
 		AEB8D36E206B409700065BE6 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8D36D206B409700065BE6 /* ProfileController.swift */; };
 		AEB8D370206B40BC00065BE6 /* TodayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8D36F206B40BC00065BE6 /* TodayController.swift */; };
@@ -57,6 +62,11 @@
 		35AB64AF2077F98F005581AA /* FitnessTrackerApplication-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FitnessTrackerApplication-Bridging-Header.h"; sourceTree = "<group>"; };
 		35AB64B02077F990005581AA /* DataAccess.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataAccess.h; sourceTree = "<group>"; };
 		35AB64B12077F990005581AA /* DataAccess.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataAccess.m; sourceTree = "<group>"; };
+		35EAD816208CFED00067CB78 /* fitness_tracker_logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fitness_tracker_logo.jpg; sourceTree = "<group>"; };
+		35EAD817208CFED00067CB78 /* distance.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = distance.png; sourceTree = "<group>"; };
+		35EAD818208CFED00067CB78 /* heartRate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heartRate.png; sourceTree = "<group>"; };
+		35EAD819208CFED00067CB78 /* walkRun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = walkRun.png; sourceTree = "<group>"; };
+		35EAD81A208CFED00067CB78 /* cal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cal.png; sourceTree = "<group>"; };
 		AEB8D36B2069EB9E00065BE6 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		AEB8D36D206B409700065BE6 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		AEB8D36F206B40BC00065BE6 /* TodayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayController.swift; sourceTree = "<group>"; };
@@ -105,6 +115,7 @@
 		35727C2A206814A1009DA298 = {
 			isa = PBXGroup;
 			children = (
+				35EAD815208CFEB70067CB78 /* Images */,
 				35727C35206814A1009DA298 /* FitnessTrackerApplication */,
 				35727C34206814A1009DA298 /* Products */,
 				350093122072E4D200A3ED82 /* Frameworks */,
@@ -190,6 +201,18 @@
 			path = Databases;
 			sourceTree = "<group>";
 		};
+		35EAD815208CFEB70067CB78 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				35EAD81A208CFED00067CB78 /* cal.png */,
+				35EAD817208CFED00067CB78 /* distance.png */,
+				35EAD816208CFED00067CB78 /* fitness_tracker_logo.jpg */,
+				35EAD818208CFED00067CB78 /* heartRate.png */,
+				35EAD819208CFED00067CB78 /* walkRun.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -262,9 +285,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				35727C41206814A1009DA298 /* LaunchScreen.storyboard in Resources */,
+				35EAD81B208CFED00067CB78 /* fitness_tracker_logo.jpg in Resources */,
+				35EAD81E208CFED00067CB78 /* walkRun.png in Resources */,
+				35EAD81F208CFED00067CB78 /* cal.png in Resources */,
 				35727C3E206814A1009DA298 /* Assets.xcassets in Resources */,
 				35AB64AA2077F78E005581AA /* FitnessInfo.db in Resources */,
+				35EAD81C208CFED00067CB78 /* distance.png in Resources */,
 				35727C3C206814A1009DA298 /* Main.storyboard in Resources */,
+				35EAD81D208CFED00067CB78 /* heartRate.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
