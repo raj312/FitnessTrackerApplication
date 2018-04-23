@@ -23,6 +23,9 @@
 		35EAD81D208CFED00067CB78 /* heartRate.png in Resources */ = {isa = PBXBuildFile; fileRef = 35EAD818208CFED00067CB78 /* heartRate.png */; };
 		35EAD81E208CFED00067CB78 /* walkRun.png in Resources */ = {isa = PBXBuildFile; fileRef = 35EAD819208CFED00067CB78 /* walkRun.png */; };
 		35EAD81F208CFED00067CB78 /* cal.png in Resources */ = {isa = PBXBuildFile; fileRef = 35EAD81A208CFED00067CB78 /* cal.png */; };
+		AE1CE0812087CE6400B232AD /* workoutdb.db in Resources */ = {isa = PBXBuildFile; fileRef = AE1CE0802087CE6400B232AD /* workoutdb.db */; };
+		AE1CE0832087D29800B232AD /* WorkoutsDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1CE0822087D29800B232AD /* WorkoutsDBManager.swift */; };
+		AEA6B2A8207654C50063312F /* MyWorkoutsCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA6B2A7207654C50063312F /* MyWorkoutsCustomTableViewCell.swift */; };
 		AEB8D36C2069EB9E00065BE6 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8D36B2069EB9E00065BE6 /* HomeController.swift */; };
 		AEB8D36E206B409700065BE6 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8D36D206B409700065BE6 /* ProfileController.swift */; };
 		AEB8D370206B40BC00065BE6 /* TodayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8D36F206B40BC00065BE6 /* TodayController.swift */; };
@@ -31,7 +34,6 @@
 		AEB8D376206B41B300065BE6 /* TrackController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8D375206B41B300065BE6 /* TrackController.swift */; };
 		AEB8D378206B41DC00065BE6 /* StatisticsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8D377206B41DC00065BE6 /* StatisticsController.swift */; };
 		AEB8D37A206B41FE00065BE6 /* GalleryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8D379206B41FE00065BE6 /* GalleryController.swift */; };
-		AEB8D37C206B422000065BE6 /* AllExercisesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8D37B206B422000065BE6 /* AllExercisesController.swift */; };
 		AEB8D37E206B423D00065BE6 /* MyWorkoutsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8D37D206B423D00065BE6 /* MyWorkoutsController.swift */; };
 		AEB8D380206B426200065BE6 /* GymsNearbyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8D37F206B426200065BE6 /* GymsNearbyController.swift */; };
 		AEB8D382206B42B600065BE6 /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8D381206B42B600065BE6 /* UserAccount.swift */; };
@@ -42,6 +44,12 @@
 		AEB8D38C206B430C00065BE6 /* WorkoutPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8D38B206B430C00065BE6 /* WorkoutPlan.swift */; };
 		AEB8D38E206B431800065BE6 /* Gallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8D38D206B431800065BE6 /* Gallery.swift */; };
 		AEB8D390206B432700065BE6 /* ProgressStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8D38F206B432700065BE6 /* ProgressStatistics.swift */; };
+		AECAE430208D67950003B14D /* workoutlistwallpaper.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AECAE42F208D67950003B14D /* workoutlistwallpaper.jpg */; };
+		AECAE43C208D6CCB0003B14D /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = AECAE431208D6CCB0003B14D /* FMDatabaseAdditions.m */; };
+		AECAE43D208D6CCB0003B14D /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = AECAE433208D6CCB0003B14D /* FMDatabasePool.m */; };
+		AECAE43E208D6CCB0003B14D /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = AECAE435208D6CCB0003B14D /* FMResultSet.m */; };
+		AECAE43F208D6CCB0003B14D /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = AECAE436208D6CCB0003B14D /* FMDatabase.m */; };
+		AECAE440208D6CCB0003B14D /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = AECAE438208D6CCB0003B14D /* FMDatabaseQueue.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +75,9 @@
 		35EAD818208CFED00067CB78 /* heartRate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heartRate.png; sourceTree = "<group>"; };
 		35EAD819208CFED00067CB78 /* walkRun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = walkRun.png; sourceTree = "<group>"; };
 		35EAD81A208CFED00067CB78 /* cal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cal.png; sourceTree = "<group>"; };
+		AE1CE0802087CE6400B232AD /* workoutdb.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = workoutdb.db; sourceTree = "<group>"; };
+		AE1CE0822087D29800B232AD /* WorkoutsDBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutsDBManager.swift; sourceTree = "<group>"; };
+		AEA6B2A7207654C50063312F /* MyWorkoutsCustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWorkoutsCustomTableViewCell.swift; sourceTree = "<group>"; };
 		AEB8D36B2069EB9E00065BE6 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		AEB8D36D206B409700065BE6 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		AEB8D36F206B40BC00065BE6 /* TodayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayController.swift; sourceTree = "<group>"; };
@@ -75,7 +86,6 @@
 		AEB8D375206B41B300065BE6 /* TrackController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackController.swift; sourceTree = "<group>"; };
 		AEB8D377206B41DC00065BE6 /* StatisticsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsController.swift; sourceTree = "<group>"; };
 		AEB8D379206B41FE00065BE6 /* GalleryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryController.swift; sourceTree = "<group>"; };
-		AEB8D37B206B422000065BE6 /* AllExercisesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllExercisesController.swift; sourceTree = "<group>"; };
 		AEB8D37D206B423D00065BE6 /* MyWorkoutsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWorkoutsController.swift; sourceTree = "<group>"; };
 		AEB8D37F206B426200065BE6 /* GymsNearbyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymsNearbyController.swift; sourceTree = "<group>"; };
 		AEB8D381206B42B600065BE6 /* UserAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
@@ -86,6 +96,18 @@
 		AEB8D38B206B430C00065BE6 /* WorkoutPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutPlan.swift; sourceTree = "<group>"; };
 		AEB8D38D206B431800065BE6 /* Gallery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gallery.swift; sourceTree = "<group>"; };
 		AEB8D38F206B432700065BE6 /* ProgressStatistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressStatistics.swift; sourceTree = "<group>"; };
+		AECAE42F208D67950003B14D /* workoutlistwallpaper.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = workoutlistwallpaper.jpg; sourceTree = "<group>"; };
+		AECAE431208D6CCB0003B14D /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		AECAE432208D6CCB0003B14D /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		AECAE433208D6CCB0003B14D /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		AECAE434208D6CCB0003B14D /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		AECAE435208D6CCB0003B14D /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		AECAE436208D6CCB0003B14D /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		AECAE437208D6CCB0003B14D /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
+		AECAE438208D6CCB0003B14D /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		AECAE439208D6CCB0003B14D /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		AECAE43A208D6CCB0003B14D /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		AECAE43B208D6CCB0003B14D /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +155,10 @@
 		35727C35206814A1009DA298 /* FitnessTrackerApplication */ = {
 			isa = PBXGroup;
 			children = (
+				AECAE42E208D67710003B14D /* Images */,
+				AE1CE05B2087C43500B232AD /* DAO */,
+				AE1CE05A2087C0A200B232AD /* Database */,
+				AE1CE0462087BBCB00B232AD /* FMDB */,
 				35AB64A62077F753005581AA /* Databases */,
 				350093152072E4D200A3ED82 /* FitnessTrackerApplication.entitlements */,
 				35727C4A206814CC009DA298 /* Storyboards */,
@@ -156,7 +182,6 @@
 				AEB8D373206B418900065BE6 /* SignUpController.swift */,
 				AEB8D377206B41DC00065BE6 /* StatisticsController.swift */,
 				AEB8D379206B41FE00065BE6 /* GalleryController.swift */,
-				AEB8D37B206B422000065BE6 /* AllExercisesController.swift */,
 				AEB8D37D206B423D00065BE6 /* MyWorkoutsController.swift */,
 				AEB8D37F206B426200065BE6 /* GymsNearbyController.swift */,
 			);
@@ -174,6 +199,7 @@
 				AEB8D38B206B430C00065BE6 /* WorkoutPlan.swift */,
 				AEB8D38D206B431800065BE6 /* Gallery.swift */,
 				AEB8D38F206B432700065BE6 /* ProgressStatistics.swift */,
+				AEA6B2A7207654C50063312F /* MyWorkoutsCustomTableViewCell.swift */,
 				AEB8D383206B42C800065BE6 /* DailyActivity.swift */,
 				35AB64B02077F990005581AA /* DataAccess.h */,
 				35AB64B12077F990005581AA /* DataAccess.m */,
@@ -209,6 +235,48 @@
 				35EAD816208CFED00067CB78 /* fitness_tracker_logo.jpg */,
 				35EAD818208CFED00067CB78 /* heartRate.png */,
 				35EAD819208CFED00067CB78 /* walkRun.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		AE1CE0462087BBCB00B232AD /* FMDB */ = {
+			isa = PBXGroup;
+			children = (
+				AECAE43A208D6CCB0003B14D /* FMDatabase.h */,
+				AECAE436208D6CCB0003B14D /* FMDatabase.m */,
+				AECAE439208D6CCB0003B14D /* FMDatabaseAdditions.h */,
+				AECAE431208D6CCB0003B14D /* FMDatabaseAdditions.m */,
+				AECAE432208D6CCB0003B14D /* FMDatabasePool.h */,
+				AECAE433208D6CCB0003B14D /* FMDatabasePool.m */,
+				AECAE43B208D6CCB0003B14D /* FMDatabaseQueue.h */,
+				AECAE438208D6CCB0003B14D /* FMDatabaseQueue.m */,
+				AECAE437208D6CCB0003B14D /* FMDB.h */,
+				AECAE434208D6CCB0003B14D /* FMResultSet.h */,
+				AECAE435208D6CCB0003B14D /* FMResultSet.m */,
+			);
+			path = FMDB;
+			sourceTree = "<group>";
+		};
+		AE1CE05A2087C0A200B232AD /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				AE1CE0802087CE6400B232AD /* workoutdb.db */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		AE1CE05B2087C43500B232AD /* DAO */ = {
+			isa = PBXGroup;
+			children = (
+				AE1CE0822087D29800B232AD /* WorkoutsDBManager.swift */,
+			);
+			path = DAO;
+			sourceTree = "<group>";
+		};
+		AECAE42E208D67710003B14D /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				AECAE42F208D67950003B14D /* workoutlistwallpaper.jpg */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -284,7 +352,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AECAE430208D67950003B14D /* workoutlistwallpaper.jpg in Resources */,
 				35727C41206814A1009DA298 /* LaunchScreen.storyboard in Resources */,
+				AE1CE0812087CE6400B232AD /* workoutdb.db in Resources */,
 				35EAD81B208CFED00067CB78 /* fitness_tracker_logo.jpg in Resources */,
 				35EAD81E208CFED00067CB78 /* walkRun.png in Resources */,
 				35EAD81F208CFED00067CB78 /* cal.png in Resources */,
@@ -306,26 +376,32 @@
 				AEB8D38A206B42F700065BE6 /* Mapping.swift in Sources */,
 				AEB8D37A206B41FE00065BE6 /* GalleryController.swift in Sources */,
 				AEB8D38C206B430C00065BE6 /* WorkoutPlan.swift in Sources */,
+				AECAE43F208D6CCB0003B14D /* FMDatabase.m in Sources */,
 				35727C39206814A1009DA298 /* ViewController.swift in Sources */,
+				AECAE43C208D6CCB0003B14D /* FMDatabaseAdditions.m in Sources */,
 				AEB8D378206B41DC00065BE6 /* StatisticsController.swift in Sources */,
 				AEB8D376206B41B300065BE6 /* TrackController.swift in Sources */,
 				AEB8D372206B40D800065BE6 /* LoginController.swift in Sources */,
 				AEB8D384206B42C800065BE6 /* DailyActivity.swift in Sources */,
+				AEA6B2A8207654C50063312F /* MyWorkoutsCustomTableViewCell.swift in Sources */,
 				AEB8D390206B432700065BE6 /* ProgressStatistics.swift in Sources */,
 				35AB64B22077F990005581AA /* DataAccess.m in Sources */,
 				AEB8D37E206B423D00065BE6 /* MyWorkoutsController.swift in Sources */,
 				AEB8D382206B42B600065BE6 /* UserAccount.swift in Sources */,
 				351780502087F89A000E6EE6 /* User.m in Sources */,
+				AECAE43E208D6CCB0003B14D /* FMResultSet.m in Sources */,
+				AECAE43D208D6CCB0003B14D /* FMDatabasePool.m in Sources */,
 				AEB8D380206B426200065BE6 /* GymsNearbyController.swift in Sources */,
 				AEB8D374206B418900065BE6 /* SignUpController.swift in Sources */,
 				35727C37206814A1009DA298 /* AppDelegate.swift in Sources */,
 				AEB8D36C2069EB9E00065BE6 /* HomeController.swift in Sources */,
-				AEB8D37C206B422000065BE6 /* AllExercisesController.swift in Sources */,
 				AEB8D36E206B409700065BE6 /* ProfileController.swift in Sources */,
 				AEB8D38E206B431800065BE6 /* Gallery.swift in Sources */,
 				AEB8D386206B42DC00065BE6 /* WorkoutTracking.swift in Sources */,
+				AE1CE0832087D29800B232AD /* WorkoutsDBManager.swift in Sources */,
 				AEB8D370206B40BC00065BE6 /* TodayController.swift in Sources */,
 				AEB8D388206B42E900065BE6 /* UserProfile.swift in Sources */,
+				AECAE440208D6CCB0003B14D /* FMDatabaseQueue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
