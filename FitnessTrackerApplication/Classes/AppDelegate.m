@@ -172,7 +172,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    self.workoutID = 1;
+    self.workoutID = 0;
     self.workouts = [[NSMutableArray alloc] init];
     self.workoutInfo = [[NSMutableArray alloc] init];
     self.databaseName = @"workoutdb.db";

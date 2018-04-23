@@ -44,7 +44,7 @@ class MyWorkoutsController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let mainDelegate = UIApplication.shared.delegate as! AppDelegate
         
-        mainDelegate.selectedWorkout = workouts[indexPath.row].id
+        mainDelegate.workoutID = workouts[indexPath.row].id
         
         self.performSegue(withIdentifier: "MyWorkoutsToTrackProgress", sender: indexPath);
     }
