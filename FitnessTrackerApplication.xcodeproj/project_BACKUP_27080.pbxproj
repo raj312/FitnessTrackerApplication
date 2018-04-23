@@ -7,14 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+<<<<<<< HEAD
 		25C9CEAA47A056BBED9B9D7C /* Pods_FitnessTrackerApplication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3DFC388AC39F20BCEB14F8C /* Pods_FitnessTrackerApplication.framework */; };
+=======
 		3500931F2072EAE800A3ED82 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3500931E2072EAE800A3ED82 /* HealthKit.framework */; };
 		351780502087F89A000E6EE6 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 3517804F2087F89A000E6EE6 /* User.m */; };
 		35727C37206814A1009DA298 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35727C36206814A1009DA298 /* AppDelegate.swift */; };
+>>>>>>> RDMerge
 		35727C39206814A1009DA298 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35727C38206814A1009DA298 /* ViewController.swift */; };
 		35727C3C206814A1009DA298 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35727C3A206814A1009DA298 /* Main.storyboard */; };
 		35727C3E206814A1009DA298 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35727C3D206814A1009DA298 /* Assets.xcassets */; };
 		35727C41206814A1009DA298 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35727C3F206814A1009DA298 /* LaunchScreen.storyboard */; };
+<<<<<<< HEAD
 		AE382A682088375600E71BB4 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AE382A662088375600E71BB4 /* libsqlite3.tbd */; };
 		AE382A692088375600E71BB4 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AE382A672088375600E71BB4 /* libsqlite3.0.tbd */; };
 		AE382A6D208850A200E71BB4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AE382A6C208850A200E71BB4 /* AppDelegate.m */; };
@@ -22,6 +26,7 @@
 		AE382A732088546600E71BB4 /* WorkoutTracking.m in Sources */ = {isa = PBXBuildFile; fileRef = AE382A722088546600E71BB4 /* WorkoutTracking.m */; };
 		AE8AA09320893F0D00C20DB1 /* WorkoutInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8AA09220893F0D00C20DB1 /* WorkoutInfo.m */; };
 		AE8AA095208969F800C20DB1 /* workoutdb.db in Resources */ = {isa = PBXBuildFile; fileRef = AE8AA094208969F700C20DB1 /* workoutdb.db */; };
+=======
 		35AB64AA2077F78E005581AA /* FitnessInfo.db in Resources */ = {isa = PBXBuildFile; fileRef = 35AB64A92077F78E005581AA /* FitnessInfo.db */; };
 		35AB64AD2077F82C005581AA /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 35AB64AB2077F82C005581AA /* libsqlite3.tbd */; };
 		35AB64AE2077F82C005581AA /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 35AB64AC2077F82C005581AA /* libsqlite3.0.tbd */; };
@@ -34,6 +39,7 @@
 		AE1CE0812087CE6400B232AD /* workoutdb.db in Resources */ = {isa = PBXBuildFile; fileRef = AE1CE0802087CE6400B232AD /* workoutdb.db */; };
 		AE1CE0832087D29800B232AD /* WorkoutsDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1CE0822087D29800B232AD /* WorkoutsDBManager.swift */; };
 		AEA6B2A8207654C50063312F /* MyWorkoutsCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA6B2A7207654C50063312F /* MyWorkoutsCustomTableViewCell.swift */; };
+>>>>>>> RDMerge
 		AEB8D36C2069EB9E00065BE6 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8D36B2069EB9E00065BE6 /* HomeController.swift */; };
 		AEB8D36E206B409700065BE6 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8D36D206B409700065BE6 /* ProfileController.swift */; };
 		AEB8D370206B40BC00065BE6 /* TodayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8D36F206B40BC00065BE6 /* TodayController.swift */; };
@@ -50,6 +56,8 @@
 		AEB8D38A206B42F700065BE6 /* Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8D389206B42F700065BE6 /* Mapping.swift */; };
 		AEB8D38C206B430C00065BE6 /* WorkoutPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8D38B206B430C00065BE6 /* WorkoutPlan.swift */; };
 		AEB8D38E206B431800065BE6 /* Gallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8D38D206B431800065BE6 /* Gallery.swift */; };
+<<<<<<< HEAD
+=======
 		AEB8D390206B432700065BE6 /* ProgressStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8D38F206B432700065BE6 /* ProgressStatistics.swift */; };
 		AECAE430208D67950003B14D /* workoutlistwallpaper.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AECAE42F208D67950003B14D /* workoutlistwallpaper.jpg */; };
 		AECAE43C208D6CCB0003B14D /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = AECAE431208D6CCB0003B14D /* FMDatabaseAdditions.m */; };
@@ -57,6 +65,7 @@
 		AECAE43E208D6CCB0003B14D /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = AECAE435208D6CCB0003B14D /* FMResultSet.m */; };
 		AECAE43F208D6CCB0003B14D /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = AECAE436208D6CCB0003B14D /* FMDatabase.m */; };
 		AECAE440208D6CCB0003B14D /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = AECAE438208D6CCB0003B14D /* FMDatabaseQueue.m */; };
+>>>>>>> RDMerge
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +79,7 @@
 		35727C3D206814A1009DA298 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		35727C40206814A1009DA298 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		35727C42206814A1009DA298 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		5FEDFC56BDE99099E167F1E8 /* Pods-FitnessTrackerApplication.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitnessTrackerApplication.release.xcconfig"; path = "Pods/Target Support Files/Pods-FitnessTrackerApplication/Pods-FitnessTrackerApplication.release.xcconfig"; sourceTree = "<group>"; };
 		AE382A662088375600E71BB4 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		AE382A672088375600E71BB4 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
@@ -82,6 +92,7 @@
 		AE8AA09120893F0D00C20DB1 /* WorkoutInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WorkoutInfo.h; sourceTree = "<group>"; };
 		AE8AA09220893F0D00C20DB1 /* WorkoutInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WorkoutInfo.m; sourceTree = "<group>"; };
 		AE8AA094208969F700C20DB1 /* workoutdb.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = workoutdb.db; sourceTree = "<group>"; };
+=======
 		35AB64A92077F78E005581AA /* FitnessInfo.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = FitnessInfo.db; sourceTree = "<group>"; };
 		35AB64AB2077F82C005581AA /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		35AB64AC2077F82C005581AA /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
@@ -96,6 +107,7 @@
 		AE1CE0802087CE6400B232AD /* workoutdb.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = workoutdb.db; sourceTree = "<group>"; };
 		AE1CE0822087D29800B232AD /* WorkoutsDBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutsDBManager.swift; sourceTree = "<group>"; };
 		AEA6B2A7207654C50063312F /* MyWorkoutsCustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWorkoutsCustomTableViewCell.swift; sourceTree = "<group>"; };
+>>>>>>> RDMerge
 		AEB8D36B2069EB9E00065BE6 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		AEB8D36D206B409700065BE6 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		AEB8D36F206B40BC00065BE6 /* TodayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayController.swift; sourceTree = "<group>"; };
@@ -112,8 +124,10 @@
 		AEB8D389206B42F700065BE6 /* Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mapping.swift; sourceTree = "<group>"; };
 		AEB8D38B206B430C00065BE6 /* WorkoutPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutPlan.swift; sourceTree = "<group>"; };
 		AEB8D38D206B431800065BE6 /* Gallery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gallery.swift; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		D1D5F4FCBFCA12DB85B694A2 /* Pods-FitnessTrackerApplication.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitnessTrackerApplication.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FitnessTrackerApplication/Pods-FitnessTrackerApplication.debug.xcconfig"; sourceTree = "<group>"; };
 		D3DFC388AC39F20BCEB14F8C /* Pods_FitnessTrackerApplication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FitnessTrackerApplication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+=======
 		AEB8D38F206B432700065BE6 /* ProgressStatistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressStatistics.swift; sourceTree = "<group>"; };
 		AECAE42F208D67950003B14D /* workoutlistwallpaper.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = workoutlistwallpaper.jpg; sourceTree = "<group>"; };
 		AECAE431208D6CCB0003B14D /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
@@ -127,6 +141,7 @@
 		AECAE439208D6CCB0003B14D /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
 		AECAE43A208D6CCB0003B14D /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
 		AECAE43B208D6CCB0003B14D /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+>>>>>>> RDMerge
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,12 +149,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< HEAD
 				AE382A682088375600E71BB4 /* libsqlite3.tbd in Frameworks */,
 				AE382A692088375600E71BB4 /* libsqlite3.0.tbd in Frameworks */,
 				25C9CEAA47A056BBED9B9D7C /* Pods_FitnessTrackerApplication.framework in Frameworks */,
+=======
 				35AB64AD2077F82C005581AA /* libsqlite3.tbd in Frameworks */,
 				35AB64AE2077F82C005581AA /* libsqlite3.0.tbd in Frameworks */,
 				3500931F2072EAE800A3ED82 /* HealthKit.framework in Frameworks */,
+>>>>>>> RDMerge
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,9 +180,12 @@
 				35EAD815208CFEB70067CB78 /* Images */,
 				35727C35206814A1009DA298 /* FitnessTrackerApplication */,
 				35727C34206814A1009DA298 /* Products */,
+<<<<<<< HEAD
 				61CB682C4042880A69422242 /* Pods */,
 				53B526903ED2DE70F4A25325 /* Frameworks */,
+=======
 				350093122072E4D200A3ED82 /* Frameworks */,
+>>>>>>> RDMerge
 			);
 			sourceTree = "<group>";
 		};
@@ -179,15 +200,18 @@
 		35727C35206814A1009DA298 /* FitnessTrackerApplication */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				AE382A6E208850C300E71BB4 /* Supporting Files */,
 				AE382A632088328A00E71BB4 /* Database */,
 				35727C4B206814EA009DA298 /* Images */,
+=======
 				AECAE42E208D67710003B14D /* Images */,
 				AE1CE05B2087C43500B232AD /* DAO */,
 				AE1CE05A2087C0A200B232AD /* Database */,
 				AE1CE0462087BBCB00B232AD /* FMDB */,
 				35AB64A62077F753005581AA /* Databases */,
 				350093152072E4D200A3ED82 /* FitnessTrackerApplication.entitlements */,
+>>>>>>> RDMerge
 				35727C4A206814CC009DA298 /* Storyboards */,
 				35727C49206814BC009DA298 /* Classes */,
 				35727C48206814AF009DA298 /* View Controllers */,
@@ -219,12 +243,16 @@
 			isa = PBXGroup;
 			children = (
 				AEB8D381206B42B600065BE6 /* UserAccount.swift */,
+<<<<<<< HEAD
 				AEB8D383206B42C800065BE6 /* DailyActivity.swift */,
+=======
 				AEB8D385206B42DC00065BE6 /* WorkoutTracking.swift */,
+>>>>>>> RDMerge
 				AEB8D387206B42E900065BE6 /* UserProfile.swift */,
 				AEB8D389206B42F700065BE6 /* Mapping.swift */,
 				AEB8D38B206B430C00065BE6 /* WorkoutPlan.swift */,
 				AEB8D38D206B431800065BE6 /* Gallery.swift */,
+<<<<<<< HEAD
 				AE382A6B208850A200E71BB4 /* AppDelegate.h */,
 				AE382A6C208850A200E71BB4 /* AppDelegate.m */,
 				AE382A6A208850A100E71BB4 /* FitnessTrackerApplication-Bridging-Header.h */,
@@ -232,6 +260,7 @@
 				AE382A722088546600E71BB4 /* WorkoutTracking.m */,
 				AE8AA09120893F0D00C20DB1 /* WorkoutInfo.h */,
 				AE8AA09220893F0D00C20DB1 /* WorkoutInfo.m */,
+=======
 				AEB8D38F206B432700065BE6 /* ProgressStatistics.swift */,
 				AEA6B2A7207654C50063312F /* MyWorkoutsCustomTableViewCell.swift */,
 				AEB8D383206B42C800065BE6 /* DailyActivity.swift */,
@@ -240,6 +269,7 @@
 				35AB64AF2077F98F005581AA /* FitnessTrackerApplication-Bridging-Header.h */,
 				3517804E2087F89A000E6EE6 /* User.h */,
 				3517804F2087F89A000E6EE6 /* User.m */,
+>>>>>>> RDMerge
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -426,11 +456,14 @@
 			files = (
 				AECAE430208D67950003B14D /* workoutlistwallpaper.jpg in Resources */,
 				35727C41206814A1009DA298 /* LaunchScreen.storyboard in Resources */,
+<<<<<<< HEAD
 				AE8AA095208969F800C20DB1 /* workoutdb.db in Resources */,
+=======
 				AE1CE0812087CE6400B232AD /* workoutdb.db in Resources */,
 				35EAD81B208CFED00067CB78 /* fitness_tracker_logo.jpg in Resources */,
 				35EAD81E208CFED00067CB78 /* walkRun.png in Resources */,
 				35EAD81F208CFED00067CB78 /* cal.png in Resources */,
+>>>>>>> RDMerge
 				35727C3E206814A1009DA298 /* Assets.xcassets in Resources */,
 				35AB64AA2077F78E005581AA /* FitnessInfo.db in Resources */,
 				35EAD81C208CFED00067CB78 /* distance.png in Resources */,
@@ -512,10 +545,13 @@
 				AEB8D376206B41B300065BE6 /* TrackController.swift in Sources */,
 				AEB8D372206B40D800065BE6 /* LoginController.swift in Sources */,
 				AEB8D384206B42C800065BE6 /* DailyActivity.swift in Sources */,
+<<<<<<< HEAD
 				AE382A70208850E700E71BB4 /* main.m in Sources */,
+=======
 				AEA6B2A8207654C50063312F /* MyWorkoutsCustomTableViewCell.swift in Sources */,
 				AEB8D390206B432700065BE6 /* ProgressStatistics.swift in Sources */,
 				35AB64B22077F990005581AA /* DataAccess.m in Sources */,
+>>>>>>> RDMerge
 				AEB8D37E206B423D00065BE6 /* MyWorkoutsController.swift in Sources */,
 				AEB8D382206B42B600065BE6 /* UserAccount.swift in Sources */,
 				351780502087F89A000E6EE6 /* User.m in Sources */,
@@ -526,14 +562,17 @@
 				AEB8D36C2069EB9E00065BE6 /* HomeController.swift in Sources */,
 				AEB8D36E206B409700065BE6 /* ProfileController.swift in Sources */,
 				AEB8D38E206B431800065BE6 /* Gallery.swift in Sources */,
+<<<<<<< HEAD
 				AEB8D370206B40BC00065BE6 /* TodayController.swift in Sources */,
 				AEB8D388206B42E900065BE6 /* UserProfile.swift in Sources */,
 				AE8AA09320893F0D00C20DB1 /* WorkoutInfo.m in Sources */,
+=======
 				AEB8D386206B42DC00065BE6 /* WorkoutTracking.swift in Sources */,
 				AE1CE0832087D29800B232AD /* WorkoutsDBManager.swift in Sources */,
 				AEB8D370206B40BC00065BE6 /* TodayController.swift in Sources */,
 				AEB8D388206B42E900065BE6 /* UserProfile.swift in Sources */,
 				AECAE440208D6CCB0003B14D /* FMDatabaseQueue.m in Sources */,
+>>>>>>> RDMerge
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -672,8 +711,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+<<<<<<< HEAD
+=======
 				CODE_SIGN_ENTITLEMENTS = FitnessTrackerApplication/FitnessTrackerApplication.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+>>>>>>> RDMerge
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 47SK3JR285;
@@ -681,7 +723,10 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.RajApps.FitnessTrackerApplication;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+<<<<<<< HEAD
+=======
 				PROVISIONING_PROFILE_SPECIFIER = "";
+>>>>>>> RDMerge
 				SWIFT_OBJC_BRIDGING_HEADER = "FitnessTrackerApplication/Classes/FitnessTrackerApplication-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
@@ -695,8 +740,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+<<<<<<< HEAD
+=======
 				CODE_SIGN_ENTITLEMENTS = FitnessTrackerApplication/FitnessTrackerApplication.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+>>>>>>> RDMerge
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 47SK3JR285;
@@ -704,7 +752,10 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.RajApps.FitnessTrackerApplication;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+<<<<<<< HEAD
+=======
 				PROVISIONING_PROFILE_SPECIFIER = "";
+>>>>>>> RDMerge
 				SWIFT_OBJC_BRIDGING_HEADER = "FitnessTrackerApplication/Classes/FitnessTrackerApplication-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
