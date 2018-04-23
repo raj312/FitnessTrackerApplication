@@ -126,7 +126,8 @@ class TrackController: UIViewController, WKNavigationDelegate {
             wi = mainDelegate.workoutInfo.object(at: n) as! WorkoutInfo
             
             if(Int(wi.workoutInfoID) == mainDelegate.workoutID){
-                
+                print(wi.workoutInfoID)
+                print(mainDelegate.workoutID)
                 workoutNameLabel.text = wi.name
                 
                 

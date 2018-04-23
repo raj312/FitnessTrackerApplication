@@ -20,7 +20,6 @@
 		35EAD81D208CFED00067CB78 /* heartRate.png in Resources */ = {isa = PBXBuildFile; fileRef = 35EAD818208CFED00067CB78 /* heartRate.png */; };
 		35EAD81E208CFED00067CB78 /* walkRun.png in Resources */ = {isa = PBXBuildFile; fileRef = 35EAD819208CFED00067CB78 /* walkRun.png */; };
 		35EAD81F208CFED00067CB78 /* cal.png in Resources */ = {isa = PBXBuildFile; fileRef = 35EAD81A208CFED00067CB78 /* cal.png */; };
-		AE1CE0812087CE6400B232AD /* workoutdb.db in Resources */ = {isa = PBXBuildFile; fileRef = AE1CE0802087CE6400B232AD /* workoutdb.db */; };
 		AE1CE0832087D29800B232AD /* WorkoutsDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1CE0822087D29800B232AD /* WorkoutsDBManager.swift */; };
 		AE382A682088375600E71BB4 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AE382A662088375600E71BB4 /* libsqlite3.tbd */; };
 		AE382A692088375600E71BB4 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AE382A672088375600E71BB4 /* libsqlite3.0.tbd */; };
@@ -33,7 +32,6 @@
 		AEB4D139208DB31400CD637F /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEB4D138208DB31300CD637F /* HealthKit.framework */; };
 		AEB8D36C2069EB9E00065BE6 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8D36B2069EB9E00065BE6 /* HomeController.swift */; };
 		AEB8D36E206B409700065BE6 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8D36D206B409700065BE6 /* ProfileController.swift */; };
-		AEB8D370206B40BC00065BE6 /* TodayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8D36F206B40BC00065BE6 /* TodayController.swift */; };
 		AEB8D372206B40D800065BE6 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8D371206B40D800065BE6 /* LoginController.swift */; };
 		AEB8D374206B418900065BE6 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8D373206B418900065BE6 /* SignUpController.swift */; };
 		AEB8D376206B41B300065BE6 /* TrackController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8D375206B41B300065BE6 /* TrackController.swift */; };
@@ -43,11 +41,8 @@
 		AEB8D380206B426200065BE6 /* GymsNearbyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8D37F206B426200065BE6 /* GymsNearbyController.swift */; };
 		AEB8D382206B42B600065BE6 /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8D381206B42B600065BE6 /* UserAccount.swift */; };
 		AEB8D384206B42C800065BE6 /* DailyActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8D383206B42C800065BE6 /* DailyActivity.swift */; };
-		AEB8D388206B42E900065BE6 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8D387206B42E900065BE6 /* UserProfile.swift */; };
-		AEB8D38A206B42F700065BE6 /* Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8D389206B42F700065BE6 /* Mapping.swift */; };
 		AEB8D38C206B430C00065BE6 /* WorkoutPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8D38B206B430C00065BE6 /* WorkoutPlan.swift */; };
 		AEB8D38E206B431800065BE6 /* Gallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8D38D206B431800065BE6 /* Gallery.swift */; };
-		AEB8D390206B432700065BE6 /* ProgressStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8D38F206B432700065BE6 /* ProgressStatistics.swift */; };
 		AECAE430208D67950003B14D /* workoutlistwallpaper.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AECAE42F208D67950003B14D /* workoutlistwallpaper.jpg */; };
 		AECAE43C208D6CCB0003B14D /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = AECAE431208D6CCB0003B14D /* FMDatabaseAdditions.m */; };
 		AECAE43D208D6CCB0003B14D /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = AECAE433208D6CCB0003B14D /* FMDatabasePool.m */; };
@@ -104,10 +99,8 @@
 		AEB8D381206B42B600065BE6 /* UserAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
 		AEB8D383206B42C800065BE6 /* DailyActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyActivity.swift; sourceTree = "<group>"; };
 		AEB8D387206B42E900065BE6 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
-		AEB8D389206B42F700065BE6 /* Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mapping.swift; sourceTree = "<group>"; };
 		AEB8D38B206B430C00065BE6 /* WorkoutPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutPlan.swift; sourceTree = "<group>"; };
 		AEB8D38D206B431800065BE6 /* Gallery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gallery.swift; sourceTree = "<group>"; };
-		AEB8D38F206B432700065BE6 /* ProgressStatistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressStatistics.swift; sourceTree = "<group>"; };
 		AECAE42F208D67950003B14D /* workoutlistwallpaper.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = workoutlistwallpaper.jpg; sourceTree = "<group>"; };
 		AECAE431208D6CCB0003B14D /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
 		AECAE432208D6CCB0003B14D /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
@@ -201,7 +194,6 @@
 			children = (
 				AEB8D381206B42B600065BE6 /* UserAccount.swift */,
 				AEB8D387206B42E900065BE6 /* UserProfile.swift */,
-				AEB8D389206B42F700065BE6 /* Mapping.swift */,
 				AEB8D38B206B430C00065BE6 /* WorkoutPlan.swift */,
 				AEB8D38D206B431800065BE6 /* Gallery.swift */,
 				AE382A6B208850A200E71BB4 /* AppDelegate.h */,
@@ -211,7 +203,6 @@
 				AE382A722088546600E71BB4 /* WorkoutTracking.m */,
 				AE8AA09120893F0D00C20DB1 /* WorkoutInfo.h */,
 				AE8AA09220893F0D00C20DB1 /* WorkoutInfo.m */,
-				AEB8D38F206B432700065BE6 /* ProgressStatistics.swift */,
 				AEA6B2A7207654C50063312F /* MyWorkoutsCustomTableViewCell.swift */,
 				AEB8D383206B42C800065BE6 /* DailyActivity.swift */,
 				35AB64B02077F990005581AA /* DataAccess.h */,
@@ -407,7 +398,6 @@
 				AECAE430208D67950003B14D /* workoutlistwallpaper.jpg in Resources */,
 				35727C41206814A1009DA298 /* LaunchScreen.storyboard in Resources */,
 				AE8AA095208969F800C20DB1 /* workoutdb.db in Resources */,
-				AE1CE0812087CE6400B232AD /* workoutdb.db in Resources */,
 				35EAD81B208CFED00067CB78 /* fitness_tracker_logo.jpg in Resources */,
 				35EAD81E208CFED00067CB78 /* walkRun.png in Resources */,
 				35EAD81F208CFED00067CB78 /* cal.png in Resources */,
@@ -481,7 +471,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE382A6D208850A200E71BB4 /* AppDelegate.m in Sources */,
-				AEB8D38A206B42F700065BE6 /* Mapping.swift in Sources */,
 				AE382A732088546600E71BB4 /* WorkoutTracking.m in Sources */,
 				AEB8D37A206B41FE00065BE6 /* GalleryController.swift in Sources */,
 				AEB8D38C206B430C00065BE6 /* WorkoutPlan.swift in Sources */,
@@ -494,7 +483,6 @@
 				AEB8D384206B42C800065BE6 /* DailyActivity.swift in Sources */,
 				AE382A70208850E700E71BB4 /* main.m in Sources */,
 				AEA6B2A8207654C50063312F /* MyWorkoutsCustomTableViewCell.swift in Sources */,
-				AEB8D390206B432700065BE6 /* ProgressStatistics.swift in Sources */,
 				35AB64B22077F990005581AA /* DataAccess.m in Sources */,
 				AEB8D37E206B423D00065BE6 /* MyWorkoutsController.swift in Sources */,
 				AEB8D382206B42B600065BE6 /* UserAccount.swift in Sources */,
@@ -506,12 +494,8 @@
 				AEB8D36C2069EB9E00065BE6 /* HomeController.swift in Sources */,
 				AEB8D36E206B409700065BE6 /* ProfileController.swift in Sources */,
 				AEB8D38E206B431800065BE6 /* Gallery.swift in Sources */,
-				AEB8D370206B40BC00065BE6 /* TodayController.swift in Sources */,
-				AEB8D388206B42E900065BE6 /* UserProfile.swift in Sources */,
 				AE8AA09320893F0D00C20DB1 /* WorkoutInfo.m in Sources */,
 				AE1CE0832087D29800B232AD /* WorkoutsDBManager.swift in Sources */,
-				AEB8D370206B40BC00065BE6 /* TodayController.swift in Sources */,
-				AEB8D388206B42E900065BE6 /* UserProfile.swift in Sources */,
 				AECAE440208D6CCB0003B14D /* FMDatabaseQueue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -623,7 +623,6 @@
                                         <connections>
                                             <outlet property="cellView" destination="U2L-2M-O3F" id="FQf-dj-wDc"/>
                                             <outlet property="lblWorkoutName" destination="X71-sq-gnq" id="KFp-bQ-Ecs"/>
-                                            <segue destination="vQy-Yp-nPk" kind="presentation" identifier="MyWorkoutsToTrackProgress" id="hwP-bV-gYG"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -639,6 +638,7 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="bUf-dW-PWN" id="JCU-L1-U77"/>
+                        <segue destination="vQy-Yp-nPk" kind="presentation" identifier="MyWorkoutsToTrackProgress" id="IGE-rs-5HI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wd7-4r-7IU" userLabel="First Responder" sceneMemberID="firstResponder"/>
