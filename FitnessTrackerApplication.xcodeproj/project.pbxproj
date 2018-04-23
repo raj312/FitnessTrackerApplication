@@ -29,6 +29,7 @@
 		AE8AA09320893F0D00C20DB1 /* WorkoutInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8AA09220893F0D00C20DB1 /* WorkoutInfo.m */; };
 		AE8AA095208969F800C20DB1 /* workoutdb.db in Resources */ = {isa = PBXBuildFile; fileRef = AE8AA094208969F700C20DB1 /* workoutdb.db */; };
 		AEA6B2A8207654C50063312F /* MyWorkoutsCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA6B2A7207654C50063312F /* MyWorkoutsCustomTableViewCell.swift */; };
+		AEAA3B98208E2FB200935330 /* TodayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8D36F206B40BC00065BE6 /* TodayController.swift */; };
 		AEB4D139208DB31400CD637F /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEB4D138208DB31300CD637F /* HealthKit.framework */; };
 		AEB8D36C2069EB9E00065BE6 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8D36B2069EB9E00065BE6 /* HomeController.swift */; };
 		AEB8D36E206B409700065BE6 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8D36D206B409700065BE6 /* ProfileController.swift */; };
@@ -470,6 +471,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEAA3B98208E2FB200935330 /* TodayController.swift in Sources */,
 				AE382A6D208850A200E71BB4 /* AppDelegate.m in Sources */,
 				AE382A732088546600E71BB4 /* WorkoutTracking.m in Sources */,
 				AEB8D37A206B41FE00065BE6 /* GalleryController.swift in Sources */,
