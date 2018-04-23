@@ -18,6 +18,7 @@
 @synthesize databaseName, databasePath, workouts, workoutInfo, workoutID;
 
 
+
 -(void)checkAndCreateDatabase
 {
     
