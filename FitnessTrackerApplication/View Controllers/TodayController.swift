@@ -2,15 +2,17 @@
 //  TodayController.swift
 //  FitnessTrackerApplication
 //
-//  Created by Xcode User on 2018-03-27.
+//  Created by Raj Patel on 2018-03-27.
 //  Copyright © 2018 RADS. All rights reserved.
 //
 
 import UIKit
 import HealthKit
 
+//View controller file that handles the today's activity page
 class TodayController: UIViewController {
 
+    //declaring all the variables that will connect to UI elements on this page
     @IBOutlet var lbActiveEnergyBurned: UILabel!
     @IBOutlet var lbDailySteps: UILabel!
     @IBOutlet var lbDistanceWalkingRunning: UILabel!
@@ -26,6 +28,7 @@ class TodayController: UIViewController {
     var avgHeartRate: Double? = 0.0
     var minHeartRate: Double? = 0.0
     
+    //initializing the daily activity class. It contains all the logic for this function
     let activity: DailyActivity = .init()
     
     override func viewDidLoad() {
@@ -34,7 +37,7 @@ class TodayController: UIViewController {
         // Do any additional setup after loading the view.
         //run authorize healthkit code once the view loads
         activity.authorizeHealthKit()
-        lbHeartRate.text = "0 bpm"
+        lbHeartRate.text = "0"
     }
 
     override func didReceiveMemoryWarning() {
@@ -53,10 +56,13 @@ class TodayController: UIViewController {
         self.minHeartRate = minimumHeartRate
     }
     
+    //Function runs when the segment control value is changed. Display the heart beat value depending on what the user has selected
     @IBAction func getHeartRateSegmentedControl(sender: UISegmentedControl){
+        //format the heart beat to 2 decimal places
         let nf = NumberFormatter()
         nf.numberStyle = NumberFormatter.Style.decimal
         nf.maximumFractionDigits = 2
+        //change the display value basing on the user's selection (Minimum, average or maximum)
         switch sender.selectedSegmentIndex {
         case 0:
             lbHeartRate.text = nf.string(from: minHeartRate! as NSNumber)

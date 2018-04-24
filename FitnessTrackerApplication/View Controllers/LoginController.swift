@@ -2,14 +2,17 @@
 //  LoginController.swift
 //  FitnessTrackerApplication
 //
-//  Created by Xcode User on 2018-03-27.
+//  Created by Raj Patel on 2018-03-27.
 //  Copyright © 2018 RADS. All rights reserved.
 //
 
 import UIKit
 
+//View controller file associated with the login page
+// Use TextFieldDelegate to access functions for UITextfields
 class LoginController: UIViewController, UITextFieldDelegate {
     
+    //declare all variables that will connect to the UI elements on the login page
     @IBOutlet var tfUserName: UITextField!
     @IBOutlet var tfPassword: UITextField!
     
@@ -34,19 +37,23 @@ class LoginController: UIViewController, UITextFieldDelegate {
         
     }
     
-    //on login button click, authenticate user
+    //on login button click, retrieve the username and password and then authenticate user
     @IBAction func loginUser(sender: UIButton){
         let uname = tfUserName.text
         let upass = tfPassword.text
+        //check if username or password is blank
         if uname==nil || upass==nil {
-            print("Invalid Uname and Password")
+            //print("Invalid Uname and Password")
             return
         }
+        //initialise the user accoutn object to make use of authentication logic in that class
         let ua: UserAccount = .init()
         let errorMessage = ua.authenticateUser(uname: uname!, upass: upass!)
         if (errorMessage == "") {
+            //if no error then log the user in and open the home page
             performSegue(withIdentifier: "ChooseSegueToHome", sender: nil)
         }else {
+            //else if there is an error, notify the user of the error
             let alert = UIAlertController(title: "Invalid Login", message: errorMessage, preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             alert.addAction(okAction)

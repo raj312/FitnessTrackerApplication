@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  FitnessTrackerApplication
 //
-//  Created by Raj on 2018-03-25.
+//  Created by Xcode User on 2018-03-25.
 //  Copyright © 2018 RADS. All rights reserved.
 //
 

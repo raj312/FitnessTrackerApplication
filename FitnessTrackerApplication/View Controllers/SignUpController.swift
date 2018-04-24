@@ -2,14 +2,16 @@
 //  SignUpController.swift
 //  FitnessTrackerApplication
 //
-//  Created by Xcode User on 2018-03-27.
+//  Created by Raj Patel on 2018-03-27.
 //  Copyright © 2018 RADS. All rights reserved.
 //
 
 import UIKit
 
+//View controller file associated with the register page
 class SignUpController: UIViewController, UITextFieldDelegate {
 
+    //declare all UI outlets here
     @IBOutlet var tfName: UITextField!
     @IBOutlet var tfUserName: UITextField!
     @IBOutlet var tfPassword: UITextField!
@@ -19,6 +21,7 @@ class SignUpController: UIViewController, UITextFieldDelegate {
     @IBOutlet var switchGender: UISwitch!
     @IBOutlet var dpDateOfBirth: UIDatePicker!
     
+    //global variable to be used by multiple methods
     var errorMessage: String = ""
     
     override func viewDidLoad() {
@@ -56,13 +59,13 @@ class SignUpController: UIViewController, UITextFieldDelegate {
         let gender = lbGender.text
         let dateOfBirth = dpDateOfBirth.date
         
+        //format the date to string format to save it in database
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let sDateOfBirth: String = dateFormatter.string(from: dateOfBirth)
         
+        //initialise the user Accoutn class to perform account actions like authenticate user input
         let userAccount: UserAccount = .init()
-        
-       
         
         //validate input
         // - All fields are compulsory
@@ -78,22 +81,24 @@ class SignUpController: UIViewController, UITextFieldDelegate {
             user.gender = gender
             user.dateOfBirth = sDateOfBirth
             
-            // insert userinput in users table in the database
+            // insert userinput in users table in the database. dataAccess class containns the db logic
             let da: DataAccess = .init()
+            //the insert method returns true id the user is inserted
             let returnCode: Bool = da.insert(intoDatabase: user)
             var returnMsg:String = "Person Added"
             if (returnCode == false) {
                 returnMsg = "Person add Failed"
             }else{
-                //show alert and redirect to home page
+                //if user is registered, show alert and redirect to home page
                 showAlert(showTitle: "Sign up Complete", userMessage: "You can now use the fitness tracker application to keep up with your fitness goals", segueToDo: "ChooseSegueSignupToHome")
             }
         }else {
+            //if user input was valid, notify the user and return to the register page
             showAlert(showTitle: "Error", userMessage: errorMessage, segueToDo: "")
         }
     }
     
-    //show an alert with appropriate message
+    //show an alert with appropriate message -- Custom alert that takes in title, message to display and what segue to perform
     func showAlert(showTitle: String, userMessage: String, segueToDo: String) {
         let alert = UIAlertController(title: showTitle, message: userMessage, preferredStyle: .alert)
         
@@ -102,6 +107,7 @@ class SignUpController: UIViewController, UITextFieldDelegate {
             if (segueToDo == "") {
                 //do nothing
             }else{
+                //performs segue if it was specified
                 self.performSegue(withIdentifier: segueToDo, sender: self)
             }
             //self.dismiss(animated: true, completion: nil)
