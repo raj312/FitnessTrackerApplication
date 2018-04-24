@@ -2,7 +2,7 @@
 //  DataAccess.m
 //  FitnessTrackerApplication
 //
-//  Created by Raj on 2018-04-06.
+//  Created by Raj Patel on 2018-04-06.
 //  Copyright © 2018 RADS. All rights reserved.
 //
 
@@ -10,8 +10,9 @@
 #import "sqlite3.h"
 
 @implementation DataAccess
-@synthesize databaseName, databasePath, users;
+@synthesize databaseName, databasePath, users; //getters and setters for these properties
 
+//Class constructor
 -(instancetype)init {
     self = [super init];
     if (self) {
@@ -22,22 +23,24 @@
         NSString *documentsDir = [documentPaths objectAtIndex:0];
         self.databasePath = [documentsDir stringByAppendingPathComponent:self.databaseName];
         
-        // Copy the database file into the documents directory if necessary.
+        // Copy the database file into the documents directory if it doesnt exist already
         [self checkAndCreateDatabase];
-        //return YES;
     }
     return self;
 }
 
+//check if database file exists and if not, create it
 -(void)checkAndCreateDatabase{
     BOOL success;
     NSFileManager *fileManager = [NSFileManager defaultManager];
+    //function returns true if file exists
     success = [fileManager fileExistsAtPath:self.databasePath];
     if (success){
         return;
     }
+    //if file does not exist, create it.
     NSString *databasePathFromApp = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:self.databaseName];
-    
+    //handle an error if copying the database failed
     NSError *error;
     [fileManager copyItemAtPath:databasePathFromApp toPath:self.databasePath error:&error];
     
@@ -48,15 +51,15 @@
     }
 }
 
+// check the database if the username and password match and if yes, authenticate the user
 -(NSString *)readDataAndAuthenticateUser:(NSString *)uname password:(NSString *)pass {
     NSString *errorMsg = @"";
     sqlite3 *database;
     //opens connection to database
     if(sqlite3_open([self.databasePath UTF8String], &database) == SQLITE_OK){
         //defining a query
-//        char *sqlStatement = "SELECT * FROM users WHERE "; //not using @ since its a char
         const char *sqlStatement = [[NSString stringWithFormat:@"SELECT * FROM users where Username = '%@' AND Password = '%@'", uname, pass] UTF8String];
-        printf("%s", sqlStatement);
+        //printf("%s", sqlStatement);
         sqlite3_stmt *compileStatement;
         //prepare the object -- -1 all data
         if(sqlite3_prepare_v2(database, sqlStatement, -1, &compileStatement, NULL) == SQLITE_OK) {
@@ -71,13 +74,13 @@
         //cleaning up - free up resources
         sqlite3_finalize(compileStatement);
     }
+    //close the connection
     sqlite3_close(database);
     return errorMsg;
 }
 
+//checks if user exists in the database. Used to verify the username is unique
 -(BOOL)findUserFromDatabase:(NSString *) username{
-    // clear out array at the start
-    //[self.users removeAllObjects];
     NSString *uname = (NSString *)username;
     BOOL userExists = false;
     sqlite3 *database;
@@ -89,8 +92,9 @@
         sqlite3_stmt *compileStatement;
         //prepare the object -- -1 all data
         if(sqlite3_prepare_v2(database, sqlStatement, -1, &compileStatement, NULL) == SQLITE_OK) {
-            if(sqlite3_step(compileStatement) == SQLITE_ROW) { //if there is a row returned
-                char *u = (char *)sqlite3_column_text(compileStatement, 2); //2 - username
+            if(sqlite3_step(compileStatement) == SQLITE_ROW) { //if there is a row returned, user exists
+                //char *u = (char *)sqlite3_column_text(compileStatement, 2); //2 - username
+                // set userExists to true
                 userExists = true;
             }
         }
@@ -101,17 +105,20 @@
     return userExists;
 }
 
+// Add new user to the database - takes in a user object and saves all its info in the users table in db
 -(BOOL)insertIntoDatabase:(User *)user {
     sqlite3 *database;
+    //will return a boolean depending on whether the "insert" passes or fails
     BOOL returnCode = YES;
-    
+    //open the connection
     if(sqlite3_open([self.databasePath UTF8String], &database) == SQLITE_OK) {
+        // ? means there are placeholders and we will replace them with data
         char *sqlStatement = "Insert INTO users VALUES (NULL, ?, ?, ?, ?, ?, ?)";
-        //this means there are placeholders and we will replace them with data
         sqlite3_stmt *compiledStatement;
         if(sqlite3_prepare_v2(database, sqlStatement, -1, &compiledStatement, NULL) == SQLITE_OK) {
             //replacing the question marks with proper values
-            // 1 - second field in DB
+            // in the DB, 1 - second field, 2 - 3rd field etc.
+            //get all user values and pass them as parameters to the sql query
             sqlite3_bind_text(compiledStatement, 1, [user.name UTF8String], -1, SQLITE_TRANSIENT);
             sqlite3_bind_text(compiledStatement, 2, [user.username UTF8String], -1, SQLITE_TRANSIENT);
             sqlite3_bind_text(compiledStatement, 3, [user.password UTF8String], -1, SQLITE_TRANSIENT);
@@ -119,6 +126,7 @@
             sqlite3_bind_text(compiledStatement, 5, [user.gender UTF8String], -1, SQLITE_TRANSIENT);
             sqlite3_bind_text(compiledStatement, 6, [user.dateOfBirth UTF8String], -1, SQLITE_TRANSIENT);
         }
+        //if insert fails, return NO (insert failed)
         if(sqlite3_step(compiledStatement) != SQLITE_DONE) {
             NSLog(@"Error: %s", sqlite3_errmsg(database));
             returnCode = NO;
