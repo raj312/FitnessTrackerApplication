@@ -26,6 +26,12 @@
 		AE382A6D208850A200E71BB4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AE382A6C208850A200E71BB4 /* AppDelegate.m */; };
 		AE382A70208850E700E71BB4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AE382A6F208850E700E71BB4 /* main.m */; };
 		AE382A732088546600E71BB4 /* WorkoutTracking.m in Sources */ = {isa = PBXBuildFile; fileRef = AE382A722088546600E71BB4 /* WorkoutTracking.m */; };
+		AE7DB50B209044E1008B3391 /* save.png in Resources */ = {isa = PBXBuildFile; fileRef = AE7DB50A209044DF008B3391 /* save.png */; };
+		AE7DB50D2090455E008B3391 /* profile.png in Resources */ = {isa = PBXBuildFile; fileRef = AE7DB50C2090455D008B3391 /* profile.png */; };
+		AE7DB511209046B3008B3391 /* activity.png in Resources */ = {isa = PBXBuildFile; fileRef = AE7DB510209046B2008B3391 /* activity.png */; };
+		AE7DB513209046BC008B3391 /* gyms.png in Resources */ = {isa = PBXBuildFile; fileRef = AE7DB512209046BB008B3391 /* gyms.png */; };
+		AE7DB515209046C9008B3391 /* stats.png in Resources */ = {isa = PBXBuildFile; fileRef = AE7DB514209046C8008B3391 /* stats.png */; };
+		AE7DB517209046D4008B3391 /* workout.png in Resources */ = {isa = PBXBuildFile; fileRef = AE7DB516209046D4008B3391 /* workout.png */; };
 		AE8AA09320893F0D00C20DB1 /* WorkoutInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8AA09220893F0D00C20DB1 /* WorkoutInfo.m */; };
 		AE8AA095208969F800C20DB1 /* workoutdb.db in Resources */ = {isa = PBXBuildFile; fileRef = AE8AA094208969F700C20DB1 /* workoutdb.db */; };
 		AEA6B2A8207654C50063312F /* MyWorkoutsCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA6B2A7207654C50063312F /* MyWorkoutsCustomTableViewCell.swift */; };
@@ -82,6 +88,12 @@
 		AE382A6F208850E700E71BB4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AE382A712088546600E71BB4 /* WorkoutTracking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WorkoutTracking.h; sourceTree = "<group>"; };
 		AE382A722088546600E71BB4 /* WorkoutTracking.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WorkoutTracking.m; sourceTree = "<group>"; };
+		AE7DB50A209044DF008B3391 /* save.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = save.png; sourceTree = "<group>"; };
+		AE7DB50C2090455D008B3391 /* profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile.png; sourceTree = "<group>"; };
+		AE7DB510209046B2008B3391 /* activity.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = activity.png; sourceTree = "<group>"; };
+		AE7DB512209046BB008B3391 /* gyms.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gyms.png; sourceTree = "<group>"; };
+		AE7DB514209046C8008B3391 /* stats.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stats.png; sourceTree = "<group>"; };
+		AE7DB516209046D4008B3391 /* workout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = workout.png; sourceTree = "<group>"; };
 		AE8AA09120893F0D00C20DB1 /* WorkoutInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WorkoutInfo.h; sourceTree = "<group>"; };
 		AE8AA09220893F0D00C20DB1 /* WorkoutInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WorkoutInfo.m; sourceTree = "<group>"; };
 		AE8AA094208969F700C20DB1 /* workoutdb.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = workoutdb.db; sourceTree = "<group>"; };
@@ -235,6 +247,12 @@
 		35EAD815208CFEB70067CB78 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				AE7DB516209046D4008B3391 /* workout.png */,
+				AE7DB514209046C8008B3391 /* stats.png */,
+				AE7DB512209046BB008B3391 /* gyms.png */,
+				AE7DB510209046B2008B3391 /* activity.png */,
+				AE7DB50C2090455D008B3391 /* profile.png */,
+				AE7DB50A209044DF008B3391 /* save.png */,
 				35EAD81A208CFED00067CB78 /* cal.png */,
 				35EAD817208CFED00067CB78 /* distance.png */,
 				35EAD816208CFED00067CB78 /* fitness_tracker_logo.jpg */,
@@ -396,8 +414,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE7DB50D2090455E008B3391 /* profile.png in Resources */,
 				AECAE430208D67950003B14D /* workoutlistwallpaper.jpg in Resources */,
+				AE7DB517209046D4008B3391 /* workout.png in Resources */,
 				35727C41206814A1009DA298 /* LaunchScreen.storyboard in Resources */,
+				AE7DB50B209044E1008B3391 /* save.png in Resources */,
 				AE8AA095208969F800C20DB1 /* workoutdb.db in Resources */,
 				35EAD81B208CFED00067CB78 /* fitness_tracker_logo.jpg in Resources */,
 				35EAD81E208CFED00067CB78 /* walkRun.png in Resources */,
@@ -405,7 +426,10 @@
 				35727C3E206814A1009DA298 /* Assets.xcassets in Resources */,
 				35AB64AA2077F78E005581AA /* FitnessInfo.db in Resources */,
 				35EAD81C208CFED00067CB78 /* distance.png in Resources */,
+				AE7DB515209046C9008B3391 /* stats.png in Resources */,
+				AE7DB513209046BC008B3391 /* gyms.png in Resources */,
 				35727C3C206814A1009DA298 /* Main.storyboard in Resources */,
+				AE7DB511209046B3008B3391 /* activity.png in Resources */,
 				35EAD81D208CFED00067CB78 /* heartRate.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
