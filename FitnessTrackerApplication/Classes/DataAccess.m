@@ -177,6 +177,8 @@
 
 -(BOOL)insertIntoImgDatabase:(NSString *)photos
 {
+ 
+
     // define object to interact with database
     sqlite3 *database;
     BOOL returnCode = YES;
@@ -221,6 +223,7 @@
 
 -(void)readDataFromImgDatabase
 {
+       self.photos = [[NSMutableArray alloc] init];
     // now we will retrieve data from database
     // step 9 - empty people array
     [self.photos removeAllObjects];

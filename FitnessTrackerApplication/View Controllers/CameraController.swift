@@ -67,7 +67,7 @@ class CameraController: UIViewController,UIImagePickerControllerDelegate,UINavig
     @IBAction func galleryButton(sender : Any)
     {
         print("in galleryButton")
-        performSegue(withIdentifier: "gallerySegue", sender: self)
+     //   performSegue(withIdentifier: "gallerySegue", sender: self)
     }
     
     

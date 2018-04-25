@@ -32,6 +32,7 @@
 		AE7DB515209046C9008B3391 /* stats.png in Resources */ = {isa = PBXBuildFile; fileRef = AE7DB514209046C8008B3391 /* stats.png */; };
 		AE7DB517209046D4008B3391 /* workout.png in Resources */ = {isa = PBXBuildFile; fileRef = AE7DB516209046D4008B3391 /* workout.png */; };
 		AE8AA09320893F0D00C20DB1 /* WorkoutInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8AA09220893F0D00C20DB1 /* WorkoutInfo.m */; };
+		AE9B52ED2090C95E007FA4E6 /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = AE9B52EC2090C95C007FA4E6 /* camera.png */; };
 		AEA6B2A8207654C50063312F /* MyWorkoutsCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA6B2A7207654C50063312F /* MyWorkoutsCustomTableViewCell.swift */; };
 		AEAA3B98208E2FB200935330 /* TodayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8D36F206B40BC00065BE6 /* TodayController.swift */; };
 		AEB4AE812090415700A7BCB0 /* DisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB4AE802090415700A7BCB0 /* DisplayViewController.swift */; };
@@ -95,6 +96,7 @@
 		AE7DB516209046D4008B3391 /* workout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = workout.png; sourceTree = "<group>"; };
 		AE8AA09120893F0D00C20DB1 /* WorkoutInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WorkoutInfo.h; sourceTree = "<group>"; };
 		AE8AA09220893F0D00C20DB1 /* WorkoutInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WorkoutInfo.m; sourceTree = "<group>"; };
+		AE9B52EC2090C95C007FA4E6 /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera.png; sourceTree = "<group>"; };
 		AEA6B2A7207654C50063312F /* MyWorkoutsCustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWorkoutsCustomTableViewCell.swift; sourceTree = "<group>"; };
 		AEB4AE802090415700A7BCB0 /* DisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayViewController.swift; sourceTree = "<group>"; };
 		AEB4AE822090432200A7BCB0 /* CollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 		35EAD815208CFEB70067CB78 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				AE9B52EC2090C95C007FA4E6 /* camera.png */,
 				AE7DB516209046D4008B3391 /* workout.png */,
 				AE7DB514209046C8008B3391 /* stats.png */,
 				AE7DB512209046BB008B3391 /* gyms.png */,
@@ -392,6 +395,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE7DB50D2090455E008B3391 /* profile.png in Resources */,
+				AE9B52ED2090C95E007FA4E6 /* camera.png in Resources */,
 				AECAE430208D67950003B14D /* workoutlistwallpaper.jpg in Resources */,
 				AECF1E092090557200DD4401 /* We DO NOT claim ownership of code in this folder.rtf in Resources */,
 				AECF1E072090524200DD4401 /* FitnessInfo.db in Resources */,
@@ -629,7 +633,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 47SK3JR285;
+				DEVELOPMENT_TEAM = 7Z33V3TLV9;
 				INFOPLIST_FILE = FitnessTrackerApplication/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.RajApps.FitnessTrackerApplication;
@@ -652,7 +656,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 47SK3JR285;
+				DEVELOPMENT_TEAM = 7Z33V3TLV9;
 				INFOPLIST_FILE = FitnessTrackerApplication/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.RajApps.FitnessTrackerApplication;

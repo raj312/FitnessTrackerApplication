@@ -28,16 +28,20 @@ class GalleryCollectionController: UIViewController, UICollectionViewDelegate, U
     }
     func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section:Int)->Int
     {
+        print(DA.photos.count)
         return DA.photos.count
+        
     }
     
     func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath: IndexPath)-> UICollectionViewCell
     {
         let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionCell
         imagePath=documentPath.appendingPathComponent(DA.photos.object(at: indexPath.row) as! String)
+        print("")
         if fileManager.fileExists(atPath:imagePath)
         {
-            myCell.imageView.image=UIImage(named:imagePath)
+            
+           myCell.imageView.image=UIImage(named:imagePath)
             print("exists")
             print(DA.photos.object(at: indexPath.row))
             print(imagePath)
@@ -63,7 +67,7 @@ class GalleryCollectionController: UIViewController, UICollectionViewDelegate, U
                     if let indexPath = collectionView.indexPath(for: cell) {
                         print("in indexPath")
                         imagePath = documentPath.appendingPathComponent(DA.photos.object(at: indexPath.row) as! String)
-                        mainDelegate.path=imagePath as! NSMutableString
+                        mainDelegate.path=(imagePath as! String)
                     }
                 }
             }
@@ -84,11 +88,22 @@ class GalleryCollectionController: UIViewController, UICollectionViewDelegate, U
     }
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+       /* super.viewDidLoad()
         self.mainDelegate = UIApplication.shared.delegate as! AppDelegate
         DA.readDataFromImgDatabase()
-        cellLayout()
+        cellLayout()*/
         
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.mainDelegate = UIApplication.shared.delegate as! AppDelegate
+        DA.readDataFromImgDatabase()
+        print(DA.photos.count)
+        print(DA.photos[0])
+        cellLayout()
+    }
+    override func viewDidAppear(_ animated: Bool) {
+       
     }
     
     override func didReceiveMemoryWarning() {

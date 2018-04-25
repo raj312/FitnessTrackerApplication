@@ -455,7 +455,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wpw-ef-eni">
                                 <rect key="frame" x="296" y="64" width="79" height="67"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Profile" image="profile.png"/>
+                                <state key="normal" title="Profile" image="camera.png"/>
                                 <connections>
                                     <segue destination="gVH-cT-tf9" kind="presentation" id="kYd-da-QkZ"/>
                                 </connections>
@@ -520,13 +520,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Camera" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5EW-F6-VoA">
-                                <rect key="frame" x="314" y="131" width="61" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4O4-Xz-xWo">
                                 <rect key="frame" x="91" y="261" width="192" height="175"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -535,6 +528,13 @@
                                     <segue destination="mkE-Fi-amI" kind="presentation" id="BdK-pw-gGu"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Camera" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5EW-F6-VoA">
+                                <rect key="frame" x="308" y="119" width="61" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="omX-Ur-oQS"/>
@@ -632,14 +632,14 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="ede-JS-2tz" customClass="CollectionCellView" customModule="FitnessTrackerApplication" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="ede-JS-2tz" customClass="CollectionCell" customModule="FitnessTrackerApplication" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="167" height="120"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="167" height="120"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Dq-AS-aha">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="workoutlistwallpaper.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="5Dq-AS-aha">
                                                     <rect key="frame" x="6" y="5" width="150" height="108"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -651,6 +651,10 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="joZ-hj-yuW" id="i03-Cr-ROt"/>
+                                    <outlet property="delegate" destination="joZ-hj-yuW" id="el5-Md-htc"/>
+                                </connections>
                             </collectionView>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SwA-2S-oeL">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -955,7 +959,7 @@
                                 </items>
                             </navigationBar>
                             <view clipsSubviews="YES" contentMode="scaleAspectFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gcC-VB-KmP" customClass="LineChartView" customModule="Charts">
-                                <rect key="frame" x="0.0" y="157" width="375" height="343"/>
+                                <rect key="frame" x="0.0" y="157" width="375" height="397"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
@@ -968,7 +972,7 @@
                                 </connections>
                             </pickerView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="hYs-aV-hc2">
-                                <rect key="frame" x="0.0" y="520" width="375" height="29"/>
+                                <rect key="frame" x="0.0" y="580" width="375" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="Reps"/>
@@ -1011,7 +1015,7 @@
                                     <navigationItem title="Full View" id="vlU-ZK-HcT">
                                         <barButtonItem key="leftBarButtonItem" title="Back" id="dqA-xX-uPd">
                                             <connections>
-                                                <segue destination="nZN-kf-tld" kind="unwind" unwindAction="unwindToCollectionViewControllerWithSender:" id="tjk-E6-MRs"/>
+                                                <segue destination="nZN-kf-tld" kind="unwind" unwindAction="unwindToGalleryCollectionControllerWithSender:" id="Cgg-8W-6vw"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -1038,15 +1042,16 @@
     <resources>
         <image name="activity.png" width="512" height="512"/>
         <image name="cal.png" width="512" height="512"/>
+        <image name="camera.png" width="512" height="512"/>
         <image name="distance.png" width="512" height="512"/>
         <image name="fitness_tracker_logo.jpg" width="2550" height="675"/>
         <image name="gyms.png" width="256" height="256"/>
         <image name="heartRate.png" width="512" height="512"/>
-        <image name="profile.png" width="256" height="256"/>
         <image name="save.png" width="600" height="270"/>
         <image name="stats.png" width="512" height="512"/>
         <image name="walkRun.png" width="216" height="233"/>
         <image name="workout.png" width="512" height="512"/>
+        <image name="workoutlistwallpaper.jpg" width="503" height="897"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="MG9-qh-Yab"/>

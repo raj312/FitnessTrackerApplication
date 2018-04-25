@@ -15,7 +15,7 @@
 
 @implementation AppDelegate
 
-@synthesize databaseName, databasePath, workouts, workoutInfo, workoutID; //getters and setters for these properties
+@synthesize databaseName, databasePath, workouts, workoutInfo, workoutID, path, photos; //getters and setters for these properties
 
 
 //Checks to see if database currently exists in device. If not it will create a database in the Documents index of device
@@ -188,7 +188,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     //default until changed by selection from MyWorkoutsController. This value is used to display specific workout info on the TrackController
-    self.workoutID = 0;
+    self.workoutID = 2;
     self.workouts = [[NSMutableArray alloc] init];
     self.workoutInfo = [[NSMutableArray alloc] init];
     self.databaseName = @"workoutdb.db";
