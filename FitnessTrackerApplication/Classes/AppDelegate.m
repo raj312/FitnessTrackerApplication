@@ -15,7 +15,7 @@
 
 @implementation AppDelegate
 
-@synthesize databaseName, databasePath, workouts, workoutInfo, workoutID;
+@synthesize databaseName, databasePath, workouts, workoutInfo, workoutID, photos, path;
 
 
 

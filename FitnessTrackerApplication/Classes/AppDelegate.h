@@ -19,6 +19,8 @@
     NSMutableArray *workouts;
     NSInteger workoutID;
     NSMutableArray *workoutInfo;
+    NSMutableString *photos;
+    NSMutableString *path;
 }
 
 @property (strong, nonatomic) UIWindow *window;
@@ -27,6 +29,8 @@
 @property (strong, nonatomic) NSMutableArray *workouts;
 @property (strong, nonatomic) NSMutableArray *workoutInfo;
 @property NSInteger workoutID;
+@property (strong, nonatomic) NSMutableString *photos;
+@property (strong, nonatomic) NSMutableString *path;
 
 -(void)readWorkoutInfoFromDatabase;
 -(void)readDataFromDatabase;
