@@ -2,7 +2,7 @@
 //  MyWorkoutsController.swift
 //  FitnessTrackerApplication
 //
-//  Created by Xcode User on 2018-03-27.
+//  Created by DeJoun Robinson on 2018-03-27.
 //  Copyright © 2018 RADS. All rights reserved.
 //
 

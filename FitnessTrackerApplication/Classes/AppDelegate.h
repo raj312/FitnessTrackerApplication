@@ -29,6 +29,8 @@
 @property (strong, nonatomic) NSMutableArray *workouts;
 @property (strong, nonatomic) NSMutableArray *workoutInfo;
 @property NSInteger workoutID;
+@property (strong, nonatomic) NSMutableString *photos;
+@property (strong, nonatomic) NSMutableString *path;
 
 //documentation of the methods below is in the .m file (DataAccess.m)
 -(void)readWorkoutInfoFromDatabase;

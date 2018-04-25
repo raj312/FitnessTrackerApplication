@@ -8,23 +8,32 @@
 
 #import "DataAccess.h"
 #import "sqlite3.h"
+#import <sqlite3.h>
 
 @implementation DataAccess
-@synthesize databaseName, databasePath, users; //getters and setters for these properties
+@synthesize databaseName, databasePath, users, imgDatabaseName, imgDatabasePath, photos; //getters and setters for these properties
 
 //Class constructor
 -(instancetype)init {
     self = [super init];
     if (self) {
+        self.photos = [[NSMutableArray alloc] init];
         // Set the documents directory path to the documentsDirectory property.
         self.databaseName = @"FitnessInfo.db";
+        self.imgDatabaseName = @"gallery.db";
         //returns an array of documents paths
         NSArray *documentPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString *documentsDir = [documentPaths objectAtIndex:0];
         self.databasePath = [documentsDir stringByAppendingPathComponent:self.databaseName];
         
+        
+        NSArray *imgDocumentPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *imgDocumentsDir = [imgDocumentPaths objectAtIndex:0];
+        self.imgDatabasePath = [imgDocumentsDir stringByAppendingPathComponent:self.imgDatabaseName];
+        
         // Copy the database file into the documents directory if it doesnt exist already
         [self checkAndCreateDatabase];
+        [self checkAndCreateImgDatabase];
     }
     return self;
 }
@@ -50,6 +59,8 @@
         printf("Error connecting to db");
     }
 }
+
+
 
 // check the database if the username and password match and if yes, authenticate the user
 -(NSString *)readDataAndAuthenticateUser:(NSString *)uname password:(NSString *)pass {
@@ -139,4 +150,116 @@
     sqlite3_close(database);
     return returnCode;
 }
+
+-(void)checkAndCreateImgDatabase
+{
+    // step 8 create method as follows
+    
+    // first step is to see if the file already exists at ~/Documents/MyDatabase.db
+    // if it exists, do nothing and return
+    BOOL success;
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    
+    success = [fileManager fileExistsAtPath:self.imgDatabasePath];
+    NSLog(self.imgDatabasePath);
+    if(success) return;
+    
+    // if it doesn't (meaning its a first time load) find location of
+    // MyDatabase.db in app file and save the path to it
+    NSString *databasePathFromApp = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:self.imgDatabaseName];
+    
+    // copy file MyDatabase.db from app file into phone at ~/Documents/MyDatabase.db
+    [fileManager copyItemAtPath:databasePathFromApp toPath:self.imgDatabasePath error:nil];
+    NSLog(self.imgDatabasePath);
+    // return to didFinishLaunching (don't forget to call this method there)
+    return;
+}
+
+-(BOOL)insertIntoImgDatabase:(NSString *)photos
+{
+    // define object to interact with database
+    sqlite3 *database;
+    BOOL returnCode = YES;
+    
+    // step 17c - open a connection to db
+    if(sqlite3_open([self.imgDatabasePath UTF8String], &database) == SQLITE_OK)
+    {
+        // step 17d - define query for db
+        // ?'s are placeholders for values
+        // null represents id column to auto increment
+        char *sqlStatement = "insert into photos values(NULL, ?)";
+        sqlite3_stmt *compiledStatement;
+        
+        // step 17e - prepare object to handle datatransfer
+        if(sqlite3_prepare_v2(database, sqlStatement, -1, &compiledStatement, NULL) == SQLITE_OK)
+        {
+            // step 17f - attach name, email, food in place of ?'s
+            sqlite3_bind_text(compiledStatement, 1, [photos UTF8String], -1, SQLITE_TRANSIENT);
+            
+        }
+        
+        // step 17g - execute query, check for errors
+        if(sqlite3_step(compiledStatement) != SQLITE_DONE)
+        {
+            NSLog(@"Error: %s", sqlite3_errmsg(database));
+            returnCode = NO;
+        }
+        else
+        {
+            // print out success by printing out new row id number
+            NSLog(@"Insert into row id = %lld", sqlite3_last_insert_rowid(database));
+        }
+        // step 17h - clean up memory allocations
+        sqlite3_finalize(compiledStatement);
+    }
+    
+    // step 17i - close connection to db
+    // move on to ViewController.m - create addPerson event handler
+    sqlite3_close(database);
+    return returnCode;
+}
+
+-(void)readDataFromImgDatabase
+{
+    // now we will retrieve data from database
+    // step 9 - empty people array
+    [self.photos removeAllObjects];
+    
+    // step 9c - define sqlite3 object to interact with db
+    sqlite3 *database;
+    
+    // step 9d - open connection to db file - this is C code
+    if(sqlite3_open([self.imgDatabasePath UTF8String], &database) == SQLITE_OK)
+    {
+        NSLog(@"open database");
+        // step 9e - setup query - entries is the table name you created in step 0
+        char *sqlStatement = "select * from photos";
+        sqlite3_stmt *compiledStatement;
+        
+        // step 9f - setup object that will handle data transfer
+        if(sqlite3_prepare_v2(database,sqlStatement, -1, &compiledStatement, NULL) == SQLITE_OK)
+        {
+            NSLog(@"query worked");
+            // step 9g - loop through row by row to extract dat
+            while(sqlite3_step(compiledStatement) == SQLITE_ROW)
+            {
+                // step 9h - extract columns data, convert from char* to NSString
+                // col 0 - id, col 1 = name, col 2 = email, col 3 = food
+                char *p = sqlite3_column_text(compiledStatement, 1);
+                NSString *path = [NSString stringWithUTF8String:(char *)p];
+                
+                // step 9i - save to data object and add to arrays
+                [self.photos addObject:path];
+            }
+        }
+        // step 9j - clean up
+        sqlite3_finalize(compiledStatement);
+        
+    }
+    // step 9k - close connection
+    // move on to ViewController.h
+    sqlite3_close(database);
+    
+}
+
 @end
