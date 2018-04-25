@@ -2,7 +2,7 @@
 //  AppDelegate.m
 //  FitnessTrackerApplication
 //
-//  Created by Xcode User on 2018-04-19.
+//  Created by Anthony Rella on 2018-04-19.
 //  Copyright © 2018 RADS. All rights reserved.
 //
 
@@ -15,10 +15,10 @@
 
 @implementation AppDelegate
 
-@synthesize databaseName, databasePath, workouts, workoutInfo, workoutID;
+@synthesize databaseName, databasePath, workouts, workoutInfo, workoutID; //getters and setters for these properties
 
 
-
+//Checks to see if database currently exists in device. If not it will create a database in the Documents index of device
 -(void)checkAndCreateDatabase
 {
     
@@ -37,11 +37,14 @@
     return;
 }
 
--(void)readDataFromDatabase
+//Selects all data from session table in workoutdb.db. Stores the data in workouts array to be used throughout application.
+-(void)readWorkoutSessionDataFromDatabase
 {
+    //initially removes objects from workouts array
     [self.workouts removeAllObjects];
     sqlite3 *database;
 
+    //request to open database
     if(sqlite3_open([self.databasePath UTF8String], &database) == SQLITE_OK)
     {
         NSLog(@"Database opened");
@@ -49,6 +52,7 @@
       
         sqlite3_stmt *compiledStatement;
         
+        //performs the select. Enters the data, reps, weight, sets, duration and workoutID data into string variables
         if(sqlite3_prepare_v2(database, sqlStatement, -1, &compiledStatement, NULL) == SQLITE_OK)
         {
             while(sqlite3_step(compiledStatement) == SQLITE_ROW)
@@ -66,8 +70,10 @@
                 char *i = sqlite3_column_text(compiledStatement, 6);
                 NSString *wID = [NSString stringWithUTF8String:(char *)i];
               
+                //initializes WorkoutTracking class with data received from select query
                 WorkoutTracking *workout = [[WorkoutTracking alloc] initWithData:date reps:reps weight:weight sets:sets duration:duration wID:wID];
                
+                //AppDelegate stores workout session array of objects into workouts array
                 [self.workouts addObject:workout];
             }
         }
@@ -87,11 +93,14 @@
     sqlite3_close(database);
 }
 
+//Selects all data from workout table in workoutdb.db. Stores the data in workoutinfo array to be used throughout application.
 -(void)readWorkoutInfoFromDatabase
 {
+    //initially removes objects from workoutInfo array
     [self.workoutInfo removeAllObjects];
     sqlite3 *database;
     
+     //request to open database
     if(sqlite3_open([self.databasePath UTF8String], &database) == SQLITE_OK)
     {
         NSLog(@"Database opened");
@@ -99,6 +108,7 @@
         
         sqlite3_stmt *compiledStatement;
         
+        //performs the select. Enters the workoutID, name and videoCode into string variables
         if(sqlite3_prepare_v2(database, sqlStatement, -1, &compiledStatement, NULL) == SQLITE_OK)
         {
             while(sqlite3_step(compiledStatement) == SQLITE_ROW)
@@ -110,8 +120,10 @@
                 char *v = sqlite3_column_text(compiledStatement, 2);
                 NSString *videoCode = [NSString stringWithUTF8String:(char *)v];
                
+                //initializes WorkoutInfo class with data received from select query
                 WorkoutInfo *info = [[WorkoutInfo alloc] initWithData:(NSString *)wID name:name videoCode:videoCode];
                 
+                //AppDelegate stores workout session array of objects into workouts array
                 [self.workoutInfo addObject:info];
       
             }
@@ -130,18 +142,20 @@
     
 }
 
+//Inserts data entered from workout session tracking into workoutdb.db database
 -(BOOL)insertIntoDatabase:(WorkoutTracking *)workout
 {
     
     sqlite3 *database;
     BOOL returnCode = YES;
     
-   
+    //request to open database
     if(sqlite3_open([self.databasePath UTF8String], &database) == SQLITE_OK)
     {
         char *sqlStatement = "insert into session values(NULL, ?, ?, ?, ?, ?, ?)";
         sqlite3_stmt *compiledStatement;
         
+        //performs the insert. Enters date, reps, weight, sets, duration and workoutID into workoutdb.db database
         if(sqlite3_prepare_v2(database, sqlStatement, -1, &compiledStatement, NULL) == SQLITE_OK)
         {
             sqlite3_bind_text(compiledStatement, 1, [workout.date UTF8String], -1, SQLITE_TRANSIENT);
@@ -170,20 +184,26 @@
     return returnCode;
 }
 
+//runs after application finishes launching. Will set the database name and path, as well as initialize class variables.
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    //default until changed by selection from MyWorkoutsController. This value is used to display specific workout info on the TrackController
     self.workoutID = 0;
     self.workouts = [[NSMutableArray alloc] init];
     self.workoutInfo = [[NSMutableArray alloc] init];
     self.databaseName = @"workoutdb.db";
     
+    
     NSArray *documentPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     
     NSString *documentsDir = [documentPaths objectAtIndex:0];
     
+    
     self.databasePath = [documentsDir stringByAppendingPathComponent:self.databaseName];
+    
+    //runs these three methods to initialize workoutdb.db database, and store workoutdb.db database information into workouts and workoutinfo class variables
     [self checkAndCreateDatabase];
-    [self readDataFromDatabase];
+    [self readWorkoutSessionDataFromDatabase];
     [self readWorkoutInfoFromDatabase];
     
     NSLog(self.databasePath);

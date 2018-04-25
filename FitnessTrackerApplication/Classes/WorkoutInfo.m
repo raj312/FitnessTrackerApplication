@@ -10,8 +10,9 @@
 
 @implementation WorkoutInfo
 
-@synthesize workoutInfoID, name, videoCode;
+@synthesize workoutInfoID, name, videoCode; //getters and setters for these properties
 
+//class constructor that will set the values for workoutID, name and youtube video code
 -(id)initWithData:(NSString *)wi name:(NSString *)n videoCode:(NSString *)vc{
     
     if(self = [super init]){

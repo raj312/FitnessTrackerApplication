@@ -1,6 +1,8 @@
+//  AppDelegate.m
+//  FitnessTrackerApplication
 //
-//  Use this file to import your target's public headers that you would like to expose to Swift.
-//
+//  Created by Anthony Rella on 2018-04-19.
+//  Copyright © 2018 RADS. All rights reserved.
 
 #import "AppDelegate.h"
 #import "WorkoutTracking.h"
